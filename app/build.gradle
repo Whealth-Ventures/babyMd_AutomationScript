@@ -2,7 +2,6 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-
 group 'org.example'
 version '1.0-SNAPSHOT'
 
@@ -12,34 +11,23 @@ repositories {
 
 application {
     // Define the main class for the application.
-    mainClass = 'qtriptest.App'
+    mainClass = 'qtriptest.app.MainClass' // Adjust the main class name as per your project structure
 }
 
 dependencies {
-    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.0.0-alpha-1'
-    testImplementation group: 'org.testng', name: 'testng', version: '7.6.0'
 
+    testImplementation group: 'org.testng', name: 'testng', version: '7.6.0'
 
     implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.2'
 
-    // https://mvnrepository.com/artifact/org.apache.poi/poi
     implementation group: 'org.apache.poi', name: 'poi', version: '5.2.2'
-
-    // https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
     implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.2'
-    
+
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.19.1'
+// https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager
+implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.8.0'
 }
-
-// Additional config for Crio workspace
-buildDir = '/tmp/external_build'
-
-task startScript(type:Exec) {
-    commandLine '../selenium-run.sh'
-}
-
-run.dependsOn startScript
-
-test.dependsOn startScript
 
 test {
     useTestNG() {
@@ -47,24 +35,22 @@ test {
     }
 
     afterSuite { desc, result ->
-            if (!desc.parent) {
-                println "\nTEST RESULT: ${result.resultType}"
-                println "TEST SUMMARY: RAN ${result.testCount} TESTS, " +
-                        "${result.successfulTestCount} SUCCEEDED, " +
-                        "${result.failedTestCount} FAILED, " +
-                        "${result.skippedTestCount} SKIPPED"
-            }
+        if (!desc.parent) {
+            println "\nTEST RESULT: ${result.resultType}"
+            println "TEST SUMMARY: RAN ${result.testCount} TESTS, " +
+                    "${result.successfulTestCount} SUCCEEDED, " +
+                    "${result.failedTestCount} FAILED, " +
+                    "${result.skippedTestCount} SKIPPED"
+        }
     }
 
     testLogging {
-		events "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
+        events "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
         exceptionFormat = 'full'
 
         // Optionally do:
         showStackTraces = true
-	}
+    }
 
     testLogging.showStandardStreams = true
-    test.outputs.upToDateWhen {false}
-
 }
