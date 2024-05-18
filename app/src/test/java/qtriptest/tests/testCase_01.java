@@ -14,6 +14,7 @@ import qtriptest.DP;
 public class testCase_01 {
   public static ChromeDriver driver;
   static String lastgeneratedUsername="";
+  @BeforeSuite(alwaysRun=true)
     public static void createDriver() {
         System.out.println("Initialising the driver");
         WebDriverManager.chromedriver().setup();
@@ -31,7 +32,7 @@ public class testCase_01 {
  
     @Parameters({ "TC1_userMail", "TC1_userPassword" })
     public void TestCase01(@Optional("testUser@gmail.com") String TC1_userMail, @Optional("abc@12345") String TC1_userPassword) throws InterruptedException {
-      createDriver();
+      // createDriver();
         HomePage home = new HomePage(driver);
         home.gotoHomePage();
         home.clickRegister();
@@ -51,7 +52,7 @@ public class testCase_01 {
 
     @AfterSuite
     public static void quitDriver() {
-        createDriver();
+        // createDriver();
         System.out.println("quit()");
     
         driver.quit();
