@@ -7,6 +7,7 @@ build
 app/chromedriver.log
 app/bin
 app/screenshots
+assessment
 
 HELP.md
 .gradle
