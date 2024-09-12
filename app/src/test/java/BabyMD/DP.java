@@ -1,4 +1,4 @@
-package qtriptest;
+package BabyMD;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,7 +26,7 @@ public class DP {
         List<List> outputList = new ArrayList<List>();
 
         FileInputStream excelFile = new FileInputStream(new File(
-                "C:\\Users\\Lenovo\\OneDrive\\Desktop\\qtrip\\ME_QTRIP_QA_V2_MODULE_CREATE_TESTNG1_STUB\\app\\src\\test\\resources\\DatasetsforQTrip.xlsx"));
+                "/Users/indianrenters/Desktop/BabyMD_Project/app/src/test/resources/DataSetForbabyMd.xlsx"));
         Workbook workbook = new XSSFWorkbook(excelFile);
         Sheet selectedSheet = workbook.getSheet(m.getName());
         Iterator<Row> iterator = selectedSheet.iterator();
