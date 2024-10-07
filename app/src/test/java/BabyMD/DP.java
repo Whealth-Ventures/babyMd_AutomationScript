@@ -36,7 +36,7 @@ public class DP {
             List<String> innerList = new ArrayList<String>();
             while (cellIterator.hasNext()) {
                 Cell cell = cellIterator.next();
-                if (rowIndex > 0 && cellIndex > 0) {
+                if (rowIndex > 0 ) {
                     if (cell.getCellType() == CellType.STRING) {
                         innerList.add(cell.getStringCellValue());
                     } else if (cell.getCellType() == CellType.NUMERIC) {

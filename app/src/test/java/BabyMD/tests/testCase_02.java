@@ -29,54 +29,45 @@ public class testCase_02 {
 
     @Test(description = "Adding Patient details",dataProvider = "data-Provider",dataProviderClass = DP.class, priority = 2, groups = {"patient details"})
     public void TestCase02(
-        String PatientName, 
-        String DOB, 
-        String Mobile, 
-        String Gender, 
-        String Relationship,
-        String Clinic, 
-        String City, 
-        String Pincode, 
-        String Address, 
-        String State, 
-        String Parentsname, 
-        String Circumference, 
-        String Weight, 
-        String Height
+        String PatientName, String DOB, String Mobile,String Gender,String Relationship,String SecondaryMobile,String Clinic,String City,String Pincode, String Address,String State,String Parentsname,String Circumference, String Weight, String Height
     ) throws InterruptedException {
         System.out.println("Test case 02 started");
-        Login login=new Login(driver);
-login.navigateToLoginPage();
-login.performLogin();
-        Home updatePatientPage=new Home(driver);
-        updatePatientPage.navigateToLandingPage();
-        updatePatientPage.addPatient();
+         Login login= new Login(driver);
+        login.navigateToLoginPage();
+        login.performLogin();
+        Home home = new Home(driver);
+    // home.ClickPatient();
+        Thread.sleep(2000);
+       home.navigateToLandingPage();
+        
+        home.addPatient();
        
-          updatePatientPage.setPatientName(PatientName);
+          home.setPatientName(PatientName);
           Thread.sleep(2000);
-          updatePatientPage.selectGender(Gender);
+       home.selectGender(Gender);
           Thread.sleep(2000);
-          updatePatientPage.setDateOfBirth(DOB);
+         home.setDateOfBirth(DOB);
           Thread.sleep(2000);
-          updatePatientPage.setMobileNumber(Mobile);
+        
+       home.setMobileNumber(Mobile);
           Thread.sleep(2000);
-          updatePatientPage.selectRelationship(Relationship);
+         home.selectRelationship(Relationship);
           Thread.sleep(2000);
-          updatePatientPage.selectClinic(Clinic);
+         home.selectClinic(Clinic);
           Thread.sleep(2000);
-          updatePatientPage.setCity(City);
+          home.setCity(City);
           Thread.sleep(2000);
-          updatePatientPage.setPincode(Pincode);
+         home.setPincode(Pincode);
           Thread.sleep(2000);
-          updatePatientPage.setParentName(Parentsname);
-          Thread.sleep(2000);
-          updatePatientPage.setWeight(Weight);
-          Thread.sleep(2000);
-          updatePatientPage.setHeight(Height);
-          Thread.sleep(2000);
+         home.setParentName(Parentsname);
+    //       Thread.sleep(2000);
+    //   home.setWeight(Weight);
+    //       Thread.sleep(2000);
+    //    home.setHeight(Height);
+    //       Thread.sleep(2000);
   
           // Submit the form
-          updatePatientPage.clickSaveButton();
+      home.clickSaveButton();
         System.out.println("Test case 02 completed");
 
     }

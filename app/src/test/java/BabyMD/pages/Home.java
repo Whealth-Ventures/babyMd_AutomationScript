@@ -1,5 +1,8 @@
 package BabyMD.pages;
 
+import java.util.List;
+
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,138 +10,168 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
-import org.openqa.selenium.support.ui.Select;
 
-public class Home{
-    String url="https://staging.babymd.in/patient";
+public class Home {
+    String url = "https://staging.babymd.in/patient";
     ChromeDriver driver;
-    
-@FindBy(xpath="//div[text()='Add Patient']")
-WebElement addPatient;
 
-// @FindBy(xpath = "//*[@placeholder='Patient Name']")
-// WebElement patientName;
+    // Using @FindBy for locating elements
+    @FindBy(xpath = "//div[text()='Add Patient']")
+    WebElement addPatient;
 
-// @FindBy(xpath = "//*[@placeholder='10 Digit Mobile Number']")
-// WebElement patientPhone;
+    @FindBy(xpath = "//div[text()='Patient']")
+    WebElement patient;
 
-// @FindBy(xpath = "//*[@placeholder='Patient Address']")
-// WebElement patientAddress;
+    @FindBy(className = "rs-picker-select-menu-item")
+    List<WebElement> genderOptions;
 
-// @FindBy(xpath = "//*[@placeholder='YYYY-MM-DD']")
-// WebElement patientDob;
+    @FindBy(className = "rs-picker-select-menu-item")
+    List<WebElement> relations;
 
-// @FindBy(xpath = "//span[text()='Select Gender']")
-// WebElement patientGender;
+    @FindBy(className = "option")
+    List<WebElement> clinics;
 
-// @FindBy(xpath = "//span[text()='Select Clinic']")
-// WebElement patientClinic;
+    @FindBy(xpath = "//button[@class='rs-dropdown-toggle rs-dropdown-toggle-no-caret rs-btn rs-btn-default']")
+    WebElement profile;
 
-// @FindBy(xpath = "//span[text()='Select RelationShip']")
-// WebElement patientRelationship;
+    @FindBy(xpath = "//*[@placeholder='Patient Name']")
+    WebElement patientName;
 
-// @FindBy(xpath = "//*[@placeholder='City']")
-// WebElement city;
+    @FindBy(xpath = "//span[text()='Select Gender']")
+    WebElement genderDropdown;
 
-// @FindBy(xpath = "//*[@placeholder='Address Line 1']")
-// WebElement AddressLine;
+    @FindBy(xpath = "//*[@placeholder='YYYY-MM-DD']")
+    WebElement dateOfBirth;
 
-// @FindBy(xpath = "//*[@placeholder='State']")
-// WebElement State;
+    @FindBy(xpath = "//*[@placeholder='10 Digit Mobile Number']")
+    WebElement mobileNumber;
 
-// @FindBy(xpath = "//*[@placeholder='Pincode']")
-// WebElement pinCode;
+    @FindBy(xpath = "//span[text()='Select RelationShip']")
+    WebElement relationshipDropdown;
 
-// @FindBy(xpath = "//*[@placeholder='parents name']")
-// WebElement parentsName;
+    @FindBy(xpath = "//*[@placeholder='Select Clinic']")
+    WebElement clinicDropdown;
 
-// @FindBy(xpath = "//div[text()='Save Details']")
-// WebElement saveDetails;
+    @FindBy(xpath = "//*[@placeholder='City']")
+    WebElement cityInput;
 
-     public Home(WebDriver driver) {
-        this.driver=(ChromeDriver) driver;
-        PageFactory.initElements(new AjaxElementLocatorFactory(driver,20),this);
+    @FindBy(xpath = "//*[@placeholder='Pincode']")
+    WebElement pincodeInput;
+
+    @FindBy(xpath = "//*[@placeholder='parents name']")
+    WebElement parentNameInput;
+
+    @FindBy(xpath = "//*[@placeholder='Weight']")
+    WebElement weightInput;
+
+    @FindBy(xpath = "//*[@placeholder='Height']")
+    WebElement heightInput;
+
+    @FindBy(xpath = "//div[text()='Save Details']")
+    WebElement saveButton;
+
+    public Home(WebDriver driver) {
+        this.driver = (ChromeDriver) driver;
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
     }
 
     public void navigateToLandingPage() throws InterruptedException {
         driver.get(url);
-    Thread.sleep(3000);
+        Thread.sleep(3000);
     }
-    public void addPatient() throws InterruptedException{
+
+    public void addPatient() throws InterruptedException {
         addPatient.click();
         Thread.sleep(3000);
     }
-     By patientName = By.xpath("//*[@placeholder='Patient Name']");
 
-    By genderDropdown = By.id("gender-dropdown-id");
-    By dateOfBirth = By.xpath("//*[@placeholder='YYYY-MM-DD']");
+    public void signOut() throws InterruptedException {
+        profile.click();
+        Thread.sleep(3000);
+        WebElement signOutButton = driver.findElement(By.xpath("//div[text()='Sign Out']"));
+        signOutButton.click();
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+        Thread.sleep(3000);
+    }
 
-    By mobileNumber = By.xpath("//*[@placeholder='10 Digit Mobile Number']");
+    public void clickPatient() {
+        patient.click();
+    }
 
-    By relationshipDropdown = By.xpath("//span[text()='Select RelationShip']");
-    By clinicDropdown = By.xpath("//span[text()='Select Clinic']");
-
-    By cityInput = By.xpath("//*[@placeholder='City']");
-    By pincodeInput = By.xpath("//*[@placeholder='Pincode']");
-    By parentNameInput = By.xpath("//*[@placeholder='parents name']");
-    By weightInput = By.xpath("//*[@placeholder='weight']");
-    By heightInput = By.xpath("//*[@placeholder='height']");
-    By saveButton = By.xpath("//div[text()='Save Details']");
-
-    // Constructor
-   
     // Methods to interact with elements
     public void setPatientName(String name) throws InterruptedException {
-        driver.findElement(patientName).sendKeys(name);
+        patientName.sendKeys(name);
         Thread.sleep(2000);
     }
 
     public void selectGender(String gender) {
-        Select genderSelect = new Select(driver.findElement(genderDropdown));
-        genderSelect.selectByVisibleText(gender);
+        genderDropdown.click();
+        for (WebElement genderOption : genderOptions) {
+            if (genderOption.getText().equals(gender)) {
+                genderOption.click();
+                break;
+            }
+        }
     }
 
-    public void setDateOfBirth(String dob) {
-        driver.findElement(dateOfBirth).sendKeys(dob);
+    public void setDateOfBirth(String dob) throws InterruptedException {
+       dateOfBirth.click();
+       Thread.sleep(2000);
+       driver.findElement(By.xpath("//*[@class='MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall MuiPickersCalendarHeader-switchViewButton css-1wjkg3']")).click();
+       Thread.sleep(2000);
+       driver.findElement(By.xpath("//button[text()='2020']")).click();
+       Thread.sleep(2000);
+       driver.findElement(By.xpath("//button[text()='OK']")).click();
+       Thread.sleep(2000);
     }
+    
 
     public void setMobileNumber(String number) {
-        driver.findElement(mobileNumber).sendKeys(number);
+        mobileNumber.sendKeys(number);
     }
 
     public void selectRelationship(String relationship) {
-        Select relationshipSelect = new Select(driver.findElement(relationshipDropdown));
-        relationshipSelect.selectByVisibleText(relationship);
+        relationshipDropdown.click();
+        for (WebElement relationOption : relations) {
+            if (relationOption.getText().equals(relationship)) {
+                relationOption.click();
+                break;
+            }
+        }
     }
 
     public void selectClinic(String clinic) {
-        Select clinicSelect = new Select(driver.findElement(clinicDropdown));
-        clinicSelect.selectByVisibleText(clinic);
+        clinicDropdown.click();
+        for (WebElement clinicOption : clinics) {
+            if (clinicOption.getText().equals(clinic)) {
+                clinicOption.click();
+                break;
+            }
+        }
     }
 
     public void setCity(String city) {
-        driver.findElement(cityInput).sendKeys(city);
+        cityInput.sendKeys(city);
     }
 
     public void setPincode(String pincode) {
-        driver.findElement(pincodeInput).sendKeys(pincode);
+        pincodeInput.sendKeys(pincode);
     }
 
     public void setParentName(String parentName) {
-        driver.findElement(parentNameInput).sendKeys(parentName);
+        parentNameInput.sendKeys(parentName);
     }
 
     public void setWeight(String weight) {
-        driver.findElement(weightInput).sendKeys(weight);
+        weightInput.sendKeys(weight);
     }
 
-   
     public void setHeight(String height) {
-        driver.findElement(heightInput).sendKeys(height);
+        heightInput.sendKeys(height);
     }
 
     public void clickSaveButton() {
-        driver.findElement(saveButton).click();
+        saveButton.click();
     }
-
 }
