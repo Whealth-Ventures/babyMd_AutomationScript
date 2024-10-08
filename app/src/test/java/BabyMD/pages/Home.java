@@ -61,10 +61,10 @@ public class Home {
     @FindBy(xpath = "//*[@placeholder='parents name']")
     WebElement parentNameInput;
 
-    @FindBy(xpath = "//*[@placeholder='Weight']")
+    @FindBy(xpath = "//*[@placeholder='weight']")
     WebElement weightInput;
 
-    @FindBy(xpath = "//*[@placeholder='Height']")
+    @FindBy(xpath = "//*[@placeholder='height']")
     WebElement heightInput;
 
     @FindBy(xpath = "//div[text()='Save Details']")
