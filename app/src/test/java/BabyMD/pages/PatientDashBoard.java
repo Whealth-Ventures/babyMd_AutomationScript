@@ -1,11 +1,13 @@
 package BabyMD.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class PatientDashBoard {
     
@@ -17,9 +19,45 @@ WebElement patientCountElement;
 WebElement assignDoc;
 @FindBy(xpath="//*[@id='root']/div[2]/div[2]/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div[1]")
 WebElement doctor;
+@FindBy(xpath="//div[text()='Prescription']")
+WebElement prescription;
+@FindBy(xpath="//button[text()=' New Prescription']")
+WebElement newPrescription;
+@FindBy(xpath="//span[text()='Select Doctor']")
+WebElement selectDoctor;
+
+@FindBy(xpath="//span[text()='Doc Sanjay']")
+WebElement selectDoctorName;
+
+@FindBy(xpath="//*[@placeholder='Diagnosis']")
+WebElement diagnosis;
+
+@FindBy(xpath="//span[text()='Search Medicine Name']")
+WebElement MedicineName;
+@FindBy(xpath="//*[@id='root']/div[2]/div[2]/div/div[2]/div/div[2]/div[3]/div/select")
+WebElement frequency;
+@FindBy(xpath="//label[text()='Morning']")
+WebElement regimen;
+@FindBy(xpath = "//*[@placeholder='Course Duration ']")
+WebElement CourseDuration;
+
+@FindBy(xpath = "//*[@placeholder='Advice']")
+WebElement advice;
+@FindBy(xpath="//div[text()='Save Details']")
+WebElement saveDetails;
+
+@FindBy(xpath="//div[text()='Goal']")
+WebElement goal;
+
+@FindBy(xpath="//button[text()=' Add Goal']")
+WebElement addGoal;
+
  public PatientDashBoard(WebDriver driver) {
         this.driver = (ChromeDriver) driver;
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
+    }
+
+    public PatientDashBoard() {
     }
 public void Patienturl() throws InterruptedException{
     driver.get(url);
@@ -44,5 +82,40 @@ public void AssignDoctor(String Doctorname) throws InterruptedException {
     assignDoc.sendKeys(Doctorname);
     Thread.sleep(2000);
     doctor.click();
+}
+public void Prescription() throws InterruptedException{
+    prescription.click();
+    Thread.sleep(3000);
+    newPrescription.click();
+}
+public void clickMedicine() throws InterruptedException{
+    selectDoctor.click();
+    Thread.sleep(3000);
+selectDoctorName.click();
+Thread.sleep(2000);
+diagnosis.sendKeys("UnderNutrition");
+Thread.sleep(2000);
+MedicineName.click();
+driver.findElement(By.xpath("//span[text()='Cream/Ointment Himalaya Neem']")).click();
+}
+public void CourseTime() throws InterruptedException{
+    CourseDuration.sendKeys("30");
+    Thread.sleep(3000);
+}
+public void Selectfrequency() throws InterruptedException{
+    Select select =new Select(frequency);
+    select.selectByVisibleText("Daily");
+}
+public void selectregimen(){
+    regimen.click();
+    advice.sendKeys("need nutrtious food intake");
+}
+public void Save() throws InterruptedException{
+    saveDetails.click();
+}
+public void goalcreation() throws InterruptedException{
+    goal.click();
+    Thread.sleep(3000);
+    addGoal.click();
 }
 }
