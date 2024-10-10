@@ -19,6 +19,8 @@ public class testCase_04 {
             System.out.println("Initialising the driver");
             WebDriverManager.chromedriver().setup();
     
+
+            
             // Configure driver to start as headless
             ChromeOptions options = new ChromeOptions();
            // options.addArguments("--headless", "--window-size=1920,1200");
