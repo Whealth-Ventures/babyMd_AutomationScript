@@ -27,6 +27,7 @@ dependencies {
 test {
     useTestNG {
         useDefaultListeners = true // Generates the test report
+          
     }
 
     // Printing the test result summary

@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 public class PatientDashBoard {
     
 ChromeDriver driver;
-<span class="nc" id="L15">String url=&quot;https://staging.babymd.in/patient&quot;;</span>
+<span class="pc" id="L15">String url=&quot;https://staging.babymd.in/patient&quot;;</span>
 @FindBy(xpath=&quot;//div[contains(text(),'all patients (')]&quot;)
 WebElement patientCountElement;
 @FindBy(xpath = &quot;//*[@placeholder='Assign Doctor/Clinic Manager']&quot;)
@@ -52,67 +52,67 @@ WebElement goal;
 @FindBy(xpath=&quot;//button[text()=' Add Goal']&quot;)
 WebElement addGoal;
 
-<span class="nc" id="L55"> public PatientDashBoard(WebDriver driver) {</span>
-<span class="nc" id="L56">        this.driver = (ChromeDriver) driver;</span>
-<span class="nc" id="L57">        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);</span>
-<span class="nc" id="L58">    }</span>
+<span class="fc" id="L55"> public PatientDashBoard(WebDriver driver) {</span>
+<span class="fc" id="L56">        this.driver = (ChromeDriver) driver;</span>
+<span class="fc" id="L57">        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);</span>
+<span class="fc" id="L58">    }</span>
 
 <span class="nc" id="L60">    public PatientDashBoard() {</span>
 <span class="nc" id="L61">    }</span>
 public void Patienturl() throws InterruptedException{
-<span class="nc" id="L63">    driver.get(url);</span>
-<span class="nc" id="L64">    Thread.sleep(3000);</span>
+<span class="fc" id="L63">    driver.get(url);</span>
+<span class="fc" id="L64">    Thread.sleep(3000);</span>
 
-<span class="nc" id="L66">}</span>
+<span class="fc" id="L66">}</span>
 
 public void navigateToLandingPage() throws InterruptedException{
 
-<span class="nc" id="L70">    String patientCountText = patientCountElement.getText();</span>
-<span class="nc" id="L71">    String extractedPatientID = patientCountText.replaceAll(&quot;\\D+&quot;, &quot;&quot;); </span>
-<span class="nc" id="L72">    int patientIDInt = Integer.parseInt(extractedPatientID);</span>
-<span class="nc" id="L73">      String  adjustedPatientID = String.valueOf(patientIDInt);</span>
+<span class="fc" id="L70">    String patientCountText = patientCountElement.getText();</span>
+<span class="fc" id="L71">    String extractedPatientID = patientCountText.replaceAll(&quot;\\D+&quot;, &quot;&quot;); </span>
+<span class="fc" id="L72">    int patientIDInt = Integer.parseInt(extractedPatientID);</span>
+<span class="fc" id="L73">      String  adjustedPatientID = String.valueOf(patientIDInt);</span>
               
-<span class="nc" id="L75">    String patientDashboardUrl = &quot;https://staging.babymd.in/patient/&quot; + adjustedPatientID + &quot;/dashboard&quot;;</span>
+<span class="fc" id="L75">    String patientDashboardUrl = &quot;https://staging.babymd.in/patient/&quot; + adjustedPatientID + &quot;/dashboard&quot;;</span>
   
-<span class="nc" id="L77">    driver.get(patientDashboardUrl);</span>
-<span class="nc" id="L78">    Thread.sleep(3000);</span>
+<span class="fc" id="L77">    driver.get(patientDashboardUrl);</span>
+<span class="fc" id="L78">    Thread.sleep(3000);</span>
 
-<span class="nc" id="L80">}</span>
+<span class="fc" id="L80">}</span>
 public void AssignDoctor(String Doctorname) throws InterruptedException {
-<span class="nc" id="L82">    assignDoc.sendKeys(Doctorname);</span>
-<span class="nc" id="L83">    Thread.sleep(2000);</span>
-<span class="nc" id="L84">    doctor.click();</span>
-<span class="nc" id="L85">}</span>
+<span class="fc" id="L82">    assignDoc.sendKeys(Doctorname);</span>
+<span class="fc" id="L83">    Thread.sleep(2000);</span>
+<span class="fc" id="L84">    doctor.click();</span>
+<span class="fc" id="L85">}</span>
 public void Prescription() throws InterruptedException{
-<span class="nc" id="L87">    prescription.click();</span>
-<span class="nc" id="L88">    Thread.sleep(3000);</span>
-<span class="nc" id="L89">    newPrescription.click();</span>
-<span class="nc" id="L90">}</span>
+<span class="fc" id="L87">    prescription.click();</span>
+<span class="fc" id="L88">    Thread.sleep(3000);</span>
+<span class="fc" id="L89">    newPrescription.click();</span>
+<span class="fc" id="L90">}</span>
 public void clickMedicine() throws InterruptedException{
-<span class="nc" id="L92">    selectDoctor.click();</span>
-<span class="nc" id="L93">    Thread.sleep(3000);</span>
-<span class="nc" id="L94">selectDoctorName.click();</span>
-<span class="nc" id="L95">Thread.sleep(2000);</span>
-<span class="nc" id="L96">diagnosis.sendKeys(&quot;UnderNutrition&quot;);</span>
-<span class="nc" id="L97">Thread.sleep(2000);</span>
-<span class="nc" id="L98">MedicineName.click();</span>
-<span class="nc" id="L99">driver.findElement(By.xpath(&quot;//span[text()='Cream/Ointment Himalaya Neem']&quot;)).click();</span>
-<span class="nc" id="L100">}</span>
+<span class="fc" id="L92">    selectDoctor.click();</span>
+<span class="fc" id="L93">    Thread.sleep(3000);</span>
+<span class="fc" id="L94">selectDoctorName.click();</span>
+<span class="fc" id="L95">Thread.sleep(2000);</span>
+<span class="fc" id="L96">diagnosis.sendKeys(&quot;UnderNutrition&quot;);</span>
+<span class="fc" id="L97">Thread.sleep(2000);</span>
+<span class="fc" id="L98">MedicineName.click();</span>
+<span class="fc" id="L99">driver.findElement(By.xpath(&quot;//span[text()='Cream/Ointment Himalaya Neem']&quot;)).click();</span>
+<span class="fc" id="L100">}</span>
 public void CourseTime() throws InterruptedException{
-<span class="nc" id="L102">    CourseDuration.sendKeys(&quot;30&quot;);</span>
-<span class="nc" id="L103">    Thread.sleep(3000);</span>
-<span class="nc" id="L104">}</span>
+<span class="fc" id="L102">    CourseDuration.sendKeys(&quot;30&quot;);</span>
+<span class="fc" id="L103">    Thread.sleep(3000);</span>
+<span class="fc" id="L104">}</span>
 public void Selectfrequency() throws InterruptedException{
-<span class="nc" id="L106">    Select select =new Select(frequency);</span>
-<span class="nc" id="L107">    select.selectByVisibleText(&quot;Daily&quot;);</span>
-<span class="nc" id="L108">}</span>
+<span class="fc" id="L106">    Select select =new Select(frequency);</span>
+<span class="fc" id="L107">    select.selectByVisibleText(&quot;Daily&quot;);</span>
+<span class="fc" id="L108">}</span>
 public void selectregimen(){
-<span class="nc" id="L110">    regimen.click();</span>
-<span class="nc" id="L111">    advice.sendKeys(&quot;need nutrtious food intake&quot;);</span>
-<span class="nc" id="L112">}</span>
+<span class="fc" id="L110">    regimen.click();</span>
+<span class="fc" id="L111">    advice.sendKeys(&quot;need nutrtious food intake&quot;);</span>
+<span class="fc" id="L112">}</span>
 public void Save() throws InterruptedException{
-<span class="nc" id="L114">    saveDetails.click();</span>
-<span class="nc" id="L115">}</span>
+<span class="fc" id="L114">    saveDetails.click();</span>
+<span class="fc" id="L115">}</span>
 public void goalcreation() throws InterruptedException{
 <span class="nc" id="L117">    goal.click();</span>
 <span class="nc" id="L118">    Thread.sleep(3000);</span>

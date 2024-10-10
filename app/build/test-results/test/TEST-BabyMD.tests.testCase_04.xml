@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="BabyMD.tests.testCase_04" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-10-10T10:11:01" hostname="indianrenterss-MacBook-Pro.local" time="68.557">
+  <properties/>
+  <testcase name="TestCase04[0](Test Goal, 50.0, daily, Every Saturday, Every Sunday)" classname="BabyMD.tests.testCase_04" time="68.557"/>
+  <system-out><![CDATA[Test case 04 started
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

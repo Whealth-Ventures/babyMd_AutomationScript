@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BabyMD.tests.testCase_02" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-10-10T05:17:19" hostname="indianrenterss-MacBook-Pro.local" time="141.842">
+<testsuite name="BabyMD.tests.testCase_02" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-10-10T10:07:21" hostname="indianrenterss-MacBook-Pro.local" time="135.623">
   <properties/>
-  <testcase name="TestCase02[0](Anika Sharma, 2020-10-10, +91 9876543210, Female, Father, +91 9876543220, Abhishek Clinic, Mumbai, 400001, 123 Palm Residency, Maharashtra, Rajesh Sharma, 34.0, 3.2, 50.0)" classname="BabyMD.tests.testCase_02" time="141.842"/>
+  <testcase name="TestCase02[0](Anika Sharma, 2020-10-10, +91 9876543210, Female, Father, +91 9876543220, Abhishek Clinic, Mumbai, 400001, 123 Palm Residency, Maharashtra, Rajesh Sharma, 34.0, 3.2, 50.0)" classname="BabyMD.tests.testCase_02" time="135.623"/>
   <system-out><![CDATA[Test case 02 started
 Test case 02 completed
 ]]></system-out>
