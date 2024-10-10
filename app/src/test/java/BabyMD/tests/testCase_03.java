@@ -6,6 +6,7 @@
 // import org.testng.annotations.BeforeSuite;
 // import org.testng.annotations.Test;
 
+// import BabyMD.DP;
 // import BabyMD.pages.Login;
 // import BabyMD.pages.PatientDashBoard;
 // import io.github.bonigarcia.wdm.WebDriverManager;
@@ -26,8 +27,8 @@
 //          driver.manage().window().maximize();
       
 //     }
-//     @Test
-//     public void TestCase03() throws InterruptedException {
+//     @Test(description="Adding Prescription to Patient",dataProvider = "data-Provider",dataProviderClass = DP.class, priority = 3, groups = {"prescription"})
+//     public void TestCase03(String DoctorName,String Diagonis,String MedicineName,String CourseDuration,String Frequency,String Regimen,String Advice) throws InterruptedException {
 //         System.out.println("Test case 03 started");
 //                  Login login= new Login(driver);
 //                 login.navigateToLoginPage();

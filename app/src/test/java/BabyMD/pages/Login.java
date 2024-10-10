@@ -52,7 +52,7 @@ WebElement signin;
 
     public Boolean performLogin() throws InterruptedException {
      mobileNo.sendKeys(Mobile);
-     Thread.sleep(15000);
+     Thread.sleep(20000);
      sendOTP.click();
      Thread.sleep(3000);
      otp1.sendKeys(OTP.substring(0,1));
