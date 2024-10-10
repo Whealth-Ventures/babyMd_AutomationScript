@@ -16,6 +16,7 @@ HELP.md
 *.log
 *.gz
 *.class
+/build/
 
 ### STS ###
 .apt_generated
