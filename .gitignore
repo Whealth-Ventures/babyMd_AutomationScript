@@ -2,7 +2,6 @@
 .gradle
 
 # Ignore Gradle build output directory
-build
 *.class
 app/chromedriver.log
 app/bin
@@ -11,8 +10,6 @@ assessment
 
 HELP.md
 .gradle
-/build/
-*/build/
 /bin/
 */bin/
 !gradle/wrapper/gradle-wrapper.jar

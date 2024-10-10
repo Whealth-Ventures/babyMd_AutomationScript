@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Settings.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">BabyMD.pages</a> &gt; <span class="el_source">Settings.java</span></div><h1>Settings.java</h1><pre class="source lang-java linenums">package BabyMD.pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.Select;
+
+public class Settings {
+    ChromeDriver driver;
+<span class="nc" id="L13">    String url=&quot;https://staging.babymd.in/settings&quot;;</span>
+
+<span class="nc" id="L15">    String url2=&quot;https://staging.babymd.in/patient/124/goals/new&quot;;</span>
+    @FindBy(xpath=&quot;//div[text()='Global Configurations']&quot;)
+    WebElement  globalConfig;
+
+    @FindBy(xpath=&quot;//div[text()='Goal Creations']&quot;)
+    WebElement  goalCreation;
+
+    @FindBy(xpath = &quot;//*[@placeholder='Goal Name']&quot;)
+    WebElement goalName;
+
+    @FindBy(xpath=&quot;//*[@id='root']/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div/div[4]/div[1]/img&quot;)
+    WebElement addGoal;
+
+    @FindBy(xpath=&quot;//*[@placeholder='Value']&quot;)
+    WebElement targetValue;
+
+    @FindBy(xpath=&quot;//*[@id='root']/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div/div[5]/div[3]/div/select&quot;)
+    WebElement frequency;
+
+    @FindBy(xpath =&quot;//*[@placeholder='Message is sent after enabling the goal on user profile']&quot;)
+    WebElement notificationTemplate;
+
+    @FindBy(xpath =&quot;//*[@placeholder='Reminder is sent everyday at 5pm for all the goals assigned to patients']&quot;)
+    WebElement reminderTemplate; 
+
+    @FindBy(xpath=&quot;//div[text()='Save']&quot;)
+    WebElement save;
+
+    @FindBy(xpath=&quot;//span[text()='Search Goal']&quot;)
+    WebElement searchGoal;
+
+    @FindBy(xpath =&quot;//span[text()='Vaccination']&quot;)
+    WebElement Vaccination;
+
+<span class="nc" id="L49">public Settings(WebDriver driver){</span>
+<span class="nc" id="L50">       this.driver = (ChromeDriver) driver;</span>
+<span class="nc" id="L51">        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);</span>
+<span class="nc" id="L52">}</span>
+
+public void navigateToLandingPage() throws InterruptedException{
+<span class="nc" id="L55">    driver.get(url);</span>
+<span class="nc" id="L56">    Thread.sleep(3000);</span>
+<span class="nc" id="L57">}</span>
+public void gotogoal() throws InterruptedException{
+<span class="nc" id="L59">    driver.get(url2);</span>
+<span class="nc" id="L60">    Thread.sleep(3000);</span>
+<span class="nc" id="L61">}</span>
+
+public void addNewGoal() throws InterruptedException{
+<span class="nc" id="L64">    globalConfig.click();</span>
+<span class="nc" id="L65">    Thread.sleep(2000);</span>
+<span class="nc" id="L66">    goalCreation.click();</span>
+<span class="nc" id="L67">    Thread.sleep(2000);</span>
+<span class="nc" id="L68">}</span>
+
+
+
+public void AddGoalDetails(){
+<span class="nc" id="L73">    goalName.sendKeys(&quot;Test Goal&quot;);</span>
+<span class="nc" id="L74">    addGoal.click();</span>
+<span class="nc" id="L75">    targetValue.sendKeys(&quot;10&quot;);</span>
+
+<span class="nc" id="L77">}</span>
+
+public void frequencySelect(){
+<span class="nc" id="L80">    Select select=new Select(frequency);</span>
+<span class="nc" id="L81">    select.selectByIndex(1);</span>
+<span class="nc" id="L82">}</span>
+public void AddNotification(){
+<span class="nc" id="L84">    notificationTemplate.sendKeys(&quot;Every Saturday&quot;);</span>
+<span class="nc" id="L85">}</span>
+
+public void AddReminder(){
+<span class="nc" id="L88">    reminderTemplate.sendKeys(&quot;Every Sunday&quot;);</span>
+
+<span class="nc" id="L90">}</span>
+public void saveDetails(){
+<span class="nc" id="L92">    save.click();</span>
+<span class="nc" id="L93">}</span>
+public void goalname() throws InterruptedException{
+<span class="nc" id="L95">    searchGoal.click();</span>
+<span class="nc" id="L96">    Thread.sleep(3000);</span>
+<span class="nc" id="L97">    Vaccination.click();</span>
+<span class="nc" id="L98">}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

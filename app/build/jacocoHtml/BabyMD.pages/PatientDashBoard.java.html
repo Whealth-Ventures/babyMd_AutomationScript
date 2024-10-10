@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PatientDashBoard.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">BabyMD.pages</a> &gt; <span class="el_source">PatientDashBoard.java</span></div><h1>PatientDashBoard.java</h1><pre class="source lang-java linenums">package BabyMD.pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.Select;
+
+public class PatientDashBoard {
+    
+ChromeDriver driver;
+<span class="nc" id="L15">String url=&quot;https://staging.babymd.in/patient&quot;;</span>
+@FindBy(xpath=&quot;//div[contains(text(),'all patients (')]&quot;)
+WebElement patientCountElement;
+@FindBy(xpath = &quot;//*[@placeholder='Assign Doctor/Clinic Manager']&quot;)
+WebElement assignDoc;
+@FindBy(xpath=&quot;//*[@id='root']/div[2]/div[2]/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div[1]&quot;)
+WebElement doctor;
+@FindBy(xpath=&quot;//div[text()='Prescription']&quot;)
+WebElement prescription;
+@FindBy(xpath=&quot;//button[text()=' New Prescription']&quot;)
+WebElement newPrescription;
+@FindBy(xpath=&quot;//span[text()='Select Doctor']&quot;)
+WebElement selectDoctor;
+
+@FindBy(xpath=&quot;//span[text()='Doc Sanjay']&quot;)
+WebElement selectDoctorName;
+
+@FindBy(xpath=&quot;//*[@placeholder='Diagnosis']&quot;)
+WebElement diagnosis;
+
+@FindBy(xpath=&quot;//span[text()='Search Medicine Name']&quot;)
+WebElement MedicineName;
+@FindBy(xpath=&quot;//*[@id='root']/div[2]/div[2]/div/div[2]/div/div[2]/div[3]/div/select&quot;)
+WebElement frequency;
+@FindBy(xpath=&quot;//label[text()='Morning']&quot;)
+WebElement regimen;
+@FindBy(xpath = &quot;//*[@placeholder='Course Duration ']&quot;)
+WebElement CourseDuration;
+
+@FindBy(xpath = &quot;//*[@placeholder='Advice']&quot;)
+WebElement advice;
+@FindBy(xpath=&quot;//div[text()='Save Details']&quot;)
+WebElement saveDetails;
+
+@FindBy(xpath=&quot;//div[text()='Goal']&quot;)
+WebElement goal;
+
+@FindBy(xpath=&quot;//button[text()=' Add Goal']&quot;)
+WebElement addGoal;
+
+<span class="nc" id="L55"> public PatientDashBoard(WebDriver driver) {</span>
+<span class="nc" id="L56">        this.driver = (ChromeDriver) driver;</span>
+<span class="nc" id="L57">        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);</span>
+<span class="nc" id="L58">    }</span>
+
+<span class="nc" id="L60">    public PatientDashBoard() {</span>
+<span class="nc" id="L61">    }</span>
+public void Patienturl() throws InterruptedException{
+<span class="nc" id="L63">    driver.get(url);</span>
+<span class="nc" id="L64">    Thread.sleep(3000);</span>
+
+<span class="nc" id="L66">}</span>
+
+public void navigateToLandingPage() throws InterruptedException{
+
+<span class="nc" id="L70">    String patientCountText = patientCountElement.getText();</span>
+<span class="nc" id="L71">    String extractedPatientID = patientCountText.replaceAll(&quot;\\D+&quot;, &quot;&quot;); </span>
+<span class="nc" id="L72">    int patientIDInt = Integer.parseInt(extractedPatientID);</span>
+<span class="nc" id="L73">      String  adjustedPatientID = String.valueOf(patientIDInt);</span>
+              
+<span class="nc" id="L75">    String patientDashboardUrl = &quot;https://staging.babymd.in/patient/&quot; + adjustedPatientID + &quot;/dashboard&quot;;</span>
+  
+<span class="nc" id="L77">    driver.get(patientDashboardUrl);</span>
+<span class="nc" id="L78">    Thread.sleep(3000);</span>
+
+<span class="nc" id="L80">}</span>
+public void AssignDoctor(String Doctorname) throws InterruptedException {
+<span class="nc" id="L82">    assignDoc.sendKeys(Doctorname);</span>
+<span class="nc" id="L83">    Thread.sleep(2000);</span>
+<span class="nc" id="L84">    doctor.click();</span>
+<span class="nc" id="L85">}</span>
+public void Prescription() throws InterruptedException{
+<span class="nc" id="L87">    prescription.click();</span>
+<span class="nc" id="L88">    Thread.sleep(3000);</span>
+<span class="nc" id="L89">    newPrescription.click();</span>
+<span class="nc" id="L90">}</span>
+public void clickMedicine() throws InterruptedException{
+<span class="nc" id="L92">    selectDoctor.click();</span>
+<span class="nc" id="L93">    Thread.sleep(3000);</span>
+<span class="nc" id="L94">selectDoctorName.click();</span>
+<span class="nc" id="L95">Thread.sleep(2000);</span>
+<span class="nc" id="L96">diagnosis.sendKeys(&quot;UnderNutrition&quot;);</span>
+<span class="nc" id="L97">Thread.sleep(2000);</span>
+<span class="nc" id="L98">MedicineName.click();</span>
+<span class="nc" id="L99">driver.findElement(By.xpath(&quot;//span[text()='Cream/Ointment Himalaya Neem']&quot;)).click();</span>
+<span class="nc" id="L100">}</span>
+public void CourseTime() throws InterruptedException{
+<span class="nc" id="L102">    CourseDuration.sendKeys(&quot;30&quot;);</span>
+<span class="nc" id="L103">    Thread.sleep(3000);</span>
+<span class="nc" id="L104">}</span>
+public void Selectfrequency() throws InterruptedException{
+<span class="nc" id="L106">    Select select =new Select(frequency);</span>
+<span class="nc" id="L107">    select.selectByVisibleText(&quot;Daily&quot;);</span>
+<span class="nc" id="L108">}</span>
+public void selectregimen(){
+<span class="nc" id="L110">    regimen.click();</span>
+<span class="nc" id="L111">    advice.sendKeys(&quot;need nutrtious food intake&quot;);</span>
+<span class="nc" id="L112">}</span>
+public void Save() throws InterruptedException{
+<span class="nc" id="L114">    saveDetails.click();</span>
+<span class="nc" id="L115">}</span>
+public void goalcreation() throws InterruptedException{
+<span class="nc" id="L117">    goal.click();</span>
+<span class="nc" id="L118">    Thread.sleep(3000);</span>
+<span class="nc" id="L119">    addGoal.click();</span>
+<span class="nc" id="L120">}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

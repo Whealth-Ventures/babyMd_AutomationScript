@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DP.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">BabyMD</a> &gt; <span class="el_source">DP.java</span></div><h1>DP.java</h1><pre class="source lang-java linenums">package BabyMD;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.annotations.DataProvider;
+
+
+<span class="fc" id="L20">public class DP {</span>
+    // TODO: use correct annotation to connect the Data Provider with your Test Cases
+    @DataProvider (name=&quot;data-Provider&quot;)
+    public Object[][] dpMethod(Method m) throws IOException {
+<span class="fc" id="L24">        int rowIndex = 0;</span>
+<span class="fc" id="L25">        int cellIndex = 0;</span>
+<span class="fc" id="L26">        List&lt;List&gt; outputList = new ArrayList&lt;List&gt;();</span>
+
+<span class="fc" id="L28">        FileInputStream excelFile = new FileInputStream(new File(</span>
+                &quot;/Users/indianrenters/Desktop/BabyMD_Project/app/src/test/resources/DataSetForbabyMdsheet.xlsx&quot;));
+<span class="fc" id="L30">        Workbook workbook = new XSSFWorkbook(excelFile);</span>
+<span class="fc" id="L31">        Sheet selectedSheet = workbook.getSheet(m.getName());</span>
+<span class="fc" id="L32">        Iterator&lt;Row&gt; iterator = selectedSheet.iterator();</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        while (iterator.hasNext()) {</span>
+<span class="fc" id="L34">            Row nextRow = iterator.next();</span>
+<span class="fc" id="L35">            Iterator&lt;Cell&gt; cellIterator = nextRow.cellIterator();</span>
+<span class="fc" id="L36">            List&lt;String&gt; innerList = new ArrayList&lt;String&gt;();</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">            while (cellIterator.hasNext()) {</span>
+<span class="fc" id="L38">                Cell cell = cellIterator.next();</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">                if (rowIndex &gt; 0 ) {</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">                    if (cell.getCellType() == CellType.STRING) {</span>
+<span class="fc" id="L41">                        innerList.add(cell.getStringCellValue());</span>
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">                    } else if (cell.getCellType() == CellType.NUMERIC) {</span>
+<span class="fc" id="L43">                        innerList.add(String.valueOf(cell.getNumericCellValue()));</span>
+                    }
+                }
+<span class="fc" id="L46">                cellIndex = cellIndex + 1;</span>
+<span class="fc" id="L47">            }</span>
+<span class="fc" id="L48">            rowIndex = rowIndex + 1;</span>
+<span class="fc" id="L49">            cellIndex = 0;</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">            if (innerList.size() &gt; 0)</span>
+<span class="fc" id="L51">                outputList.add(innerList);</span>
+
+<span class="fc" id="L53">        }</span>
+
+<span class="fc" id="L55">        excelFile.close();</span>
+
+<span class="fc" id="L57">        String[][] stringArray = outputList.stream().map(u -&gt; u.toArray(new String[0])).toArray(String[][]::new);</span>
+<span class="fc" id="L58">        return stringArray;</span>
+
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
