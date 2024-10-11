@@ -11,7 +11,7 @@ import BabyMD.pages.Login;
 import BabyMD.pages.Settings;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class testCase_04 {
+public class testCase_05 {
      static ChromeDriver driver;
  
          @BeforeSuite(alwaysRun=true)
@@ -19,6 +19,8 @@ public class testCase_04 {
             System.out.println("Initialising the driver");
             WebDriverManager.chromedriver().setup();
     
+
+            
             // Configure driver to start as headless
             ChromeOptions options = new ChromeOptions();
            // options.addArguments("--headless", "--window-size=1920,1200");
@@ -27,9 +29,9 @@ public class testCase_04 {
          driver.manage().window().maximize();
       
     }
-    @Test(description = "Adding Goal",dataProvider = "data-Provider",dataProviderClass = DP.class, priority = 4, groups = {"Goal Creation"})
-    public void TestCase04(String GoalName,String tagetValue,String Frequency,String Notification,String Reminder) throws InterruptedException {
-        System.out.println("Test case 04 started");
+    @Test(description = "Adding Notes",dataProvider = "data-Provider",dataProviderClass = DP.class, priority = 5, groups = {"Notes Creation"})
+    public void TestCase05(String NoteName,String Category,String Title)throws InterruptedException {
+        System.out.println("Test case 05 started");
                  Login login= new Login(driver);
                 login.navigateToLoginPage();
                 Thread.sleep(3000);
@@ -37,28 +39,13 @@ public class testCase_04 {
                 Thread.sleep(3000);
                 Settings goal=new Settings(driver);
         goal.navigateToLandingPage();
-        Thread.sleep(3000);
-        goal.addNewGoal();
-        Thread.sleep(3000);
-        goal.AddGoalDetails();
-        Thread.sleep(3000);
-        goal.frequencySelect();
-        Thread.sleep(3000);
-        goal.AddNotification();
-        Thread.sleep(3000);
-        goal.AddReminder();
-        Thread.sleep(2000);
-        goal.saveDetails();
        
-        // PatientDashBoard  patientDashBoard=new PatientDashBoard(driver);
-        // patientDashBoard.navigateToLandingPage();
-        // patientDashBoard.goalcreation();
-        // Thread.sleep(3000);
-        // goal.gotogoal();
-        // Thread.sleep(3000);
-        // goal.goalname();
-        // Thread.sleep(3000);
-        // goal.saveDetails();
+       Thread.sleep(3000);
+       goal.addNotecategory();
+       Thread.sleep(3000);
+      
+       goal.addNotetemplate();
+      
    
     }
     @AfterSuite

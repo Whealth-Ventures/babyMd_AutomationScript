@@ -46,6 +46,29 @@ public class Settings {
     @FindBy(xpath ="//span[text()='Vaccination']")
     WebElement Vaccination;
 
+    @FindBy(xpath ="//div[text()='Manage Categories / Tags']")
+    WebElement ManageCategories;
+
+    @FindBy(xpath="//div[text()='Notes Categories']")
+    WebElement notescategories;
+
+    @FindBy(xpath="//*[@id='root']/div[2]/div[2]/div/div/div[2]/div/div[2]/div[2]/div[2]/input")
+    WebElement notename;
+
+    @FindBy(xpath = "//div[text()='Notes Templates']")
+    WebElement notestemplate;
+
+    @FindBy(xpath ="//span[text()='Select Category']")
+    WebElement selectcategory;
+
+    @FindBy(xpath="//span[text()='New Categories']")
+    WebElement category;
+
+    @FindBy(xpath="//*[@placeholder='Title']")
+    WebElement notetitle;
+@FindBy(xpath="//button[text()='Save']")
+WebElement savebutton;
+
 public Settings(WebDriver driver){
        this.driver = (ChromeDriver) driver;
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
@@ -95,5 +118,31 @@ public void goalname() throws InterruptedException{
     searchGoal.click();
     Thread.sleep(3000);
     Vaccination.click();
+}
+
+
+public void addNotecategory() throws InterruptedException{
+    ManageCategories.click();
+    Thread.sleep(2000);
+notescategories.click();
+Thread.sleep(2000);
+notename.sendKeys("test Note");
+Thread.sleep(2000);
+save.click();
+}
+
+
+public void addNotetemplate() throws InterruptedException{
+    ManageCategories.click();
+    Thread.sleep(3000);
+    notestemplate.click();
+    Thread.sleep(2000);
+    selectcategory.click();
+    Thread.sleep(2000);
+    category.click();
+    Thread.sleep(2000);
+    notetitle.sendKeys("Test Notes check");
+    Thread.sleep(2000);
+    savebutton.click();
 }
 }
