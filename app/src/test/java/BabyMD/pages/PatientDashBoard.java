@@ -88,27 +88,27 @@ public void Prescription() throws InterruptedException{
     Thread.sleep(3000);
     newPrescription.click();
 }
-public void clickMedicine() throws InterruptedException{
+public void clickMedicine(String Diagonis) throws InterruptedException{
     selectDoctor.click();
     Thread.sleep(3000);
 selectDoctorName.click();
 Thread.sleep(2000);
-diagnosis.sendKeys("UnderNutrition");
+diagnosis.sendKeys(Diagonis);
 Thread.sleep(2000);
 MedicineName.click();
 driver.findElement(By.xpath("//span[text()='Cream/Ointment Himalaya Neem']")).click();
 }
-public void CourseTime() throws InterruptedException{
-    CourseDuration.sendKeys("30");
+public void CourseTime(String CourseDur) throws InterruptedException{
+    CourseDuration.sendKeys(CourseDur);
     Thread.sleep(3000);
 }
-public void Selectfrequency() throws InterruptedException{
+public void Selectfrequency(String Frequency) throws InterruptedException{
     Select select =new Select(frequency);
-    select.selectByVisibleText("Daily");
+    select.selectByVisibleText(Frequency);
 }
-public void selectregimen(){
+public void selectregimen(String Advice){
     regimen.click();
-    advice.sendKeys("need nutrtious food intake");
+    advice.sendKeys(Advice);
 }
 public void Save() throws InterruptedException{
     saveDetails.click();

@@ -1,5 +1,7 @@
 package BabyMD.tests;
 
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterSuite;
@@ -40,19 +42,32 @@ public class testCase_03 {
         Thread.sleep(2000);
         dashBoard.AssignDoctor(Doctorname);
         Thread.sleep(2000);
-        dashBoard.AssignDoctor("Doc Sanjay");
+        dashBoard.AssignDoctor(DoctorName);
         Thread.sleep(2000);
         dashBoard.Prescription();
         Thread.sleep(2000);
-        dashBoard.clickMedicine();
+        dashBoard.clickMedicine(Diagonis);
         Thread.sleep(2000);
-        dashBoard.CourseTime();
+        dashBoard.CourseTime(CourseDuration);
         Thread.sleep(2000);
-        dashBoard.Selectfrequency();
+        dashBoard.Selectfrequency(Frequency);
         Thread.sleep(2000);
-        dashBoard.selectregimen();
+        dashBoard.selectregimen(Advice);
         Thread.sleep(2000);
         dashBoard.Save();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//div[text()='Prescription']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//*[@id='root']/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[3]/div[1]/div/div/div[1]/div[2]/div[4]/div/span")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//button[text()='Publish']")).click();
+        Thread.sleep(3000);
+        Alert alert=driver.switchTo().alert();
+        alert.accept();
+        Thread.sleep(000);
+        // driver.findElement(By.xpath("//*[@id='sidebar']//print-preview-button-strip//div/cr-button[2]")).click();
+        // Thread.sleep(3000);
+
     }
     @AfterSuite
     public static void quitDriver() {

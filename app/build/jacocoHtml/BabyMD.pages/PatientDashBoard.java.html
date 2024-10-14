@@ -88,27 +88,27 @@ public void Prescription() throws InterruptedException{
 <span class="fc" id="L88">    Thread.sleep(3000);</span>
 <span class="fc" id="L89">    newPrescription.click();</span>
 <span class="fc" id="L90">}</span>
-public void clickMedicine() throws InterruptedException{
+public void clickMedicine(String Diagonis) throws InterruptedException{
 <span class="fc" id="L92">    selectDoctor.click();</span>
 <span class="fc" id="L93">    Thread.sleep(3000);</span>
 <span class="fc" id="L94">selectDoctorName.click();</span>
 <span class="fc" id="L95">Thread.sleep(2000);</span>
-<span class="fc" id="L96">diagnosis.sendKeys(&quot;UnderNutrition&quot;);</span>
+<span class="fc" id="L96">diagnosis.sendKeys(Diagonis);</span>
 <span class="fc" id="L97">Thread.sleep(2000);</span>
 <span class="fc" id="L98">MedicineName.click();</span>
 <span class="fc" id="L99">driver.findElement(By.xpath(&quot;//span[text()='Cream/Ointment Himalaya Neem']&quot;)).click();</span>
 <span class="fc" id="L100">}</span>
-public void CourseTime() throws InterruptedException{
-<span class="fc" id="L102">    CourseDuration.sendKeys(&quot;30&quot;);</span>
+public void CourseTime(String CourseDur) throws InterruptedException{
+<span class="fc" id="L102">    CourseDuration.sendKeys(CourseDur);</span>
 <span class="fc" id="L103">    Thread.sleep(3000);</span>
 <span class="fc" id="L104">}</span>
-public void Selectfrequency() throws InterruptedException{
+public void Selectfrequency(String Frequency) throws InterruptedException{
 <span class="fc" id="L106">    Select select =new Select(frequency);</span>
-<span class="fc" id="L107">    select.selectByVisibleText(&quot;Daily&quot;);</span>
+<span class="fc" id="L107">    select.selectByVisibleText(Frequency);</span>
 <span class="fc" id="L108">}</span>
-public void selectregimen(){
+public void selectregimen(String Advice){
 <span class="fc" id="L110">    regimen.click();</span>
-<span class="fc" id="L111">    advice.sendKeys(&quot;need nutrtious food intake&quot;);</span>
+<span class="fc" id="L111">    advice.sendKeys(Advice);</span>
 <span class="fc" id="L112">}</span>
 public void Save() throws InterruptedException{
 <span class="fc" id="L114">    saveDetails.click();</span>

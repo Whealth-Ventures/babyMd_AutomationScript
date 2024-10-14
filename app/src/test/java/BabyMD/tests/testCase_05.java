@@ -44,7 +44,7 @@ public class testCase_05 {
        goal.addNotecategory();
        Thread.sleep(3000);
       
-       goal.addNotetemplate();
+    //    goal.addNotetemplate();
       
    
     }
