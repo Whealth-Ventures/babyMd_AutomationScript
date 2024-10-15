@@ -1,29 +1,20 @@
 package BabyMD.tests;
 
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import BabyMD.DP;
+import BabyMD.DriverSingleton;
 import BabyMD.pages.Home;
-import BabyMD.pages.Login;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class testCase_02 {
     static ChromeDriver driver;
      @BeforeSuite(alwaysRun=true)
     public static void createDriver() {
         System.out.println("Initialising the driver");
-        WebDriverManager.chromedriver().setup();
-
-        // Configure driver to start as headless
-        ChromeOptions options = new ChromeOptions();
-       // options.addArguments("--headless", "--window-size=1920,1200");
-
-         driver = new ChromeDriver(options);
-         driver.manage().window().maximize();
+              driver=(ChromeDriver) DriverSingleton.getDriverInstance("chrome");
       
     }
 
@@ -32,9 +23,9 @@ public class testCase_02 {
         String PatientName, String DOB, String Mobile,String Gender,String Relationship,String SecondaryMobile,String Clinic,String City,String Pincode, String Address,String State,String Parentsname,String Circumference, String Weight, String Height
     ) throws InterruptedException {
         System.out.println("Test case 02 started");
-         Login login= new Login(driver);
-        login.navigateToLoginPage();
-        login.performLogin();
+        //  Login login= new Login(driver);
+        // login.navigateToLoginPage();
+        // login.performLogin();
         Home home = new Home(driver);
     // home.ClickPatient();
         Thread.sleep(2000);

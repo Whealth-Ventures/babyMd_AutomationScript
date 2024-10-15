@@ -3,15 +3,13 @@ package BabyMD.tests;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import BabyMD.DP;
-import BabyMD.pages.Login;
+import BabyMD.DriverSingleton;
 import BabyMD.pages.PatientDashBoard;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class testCase_03 {
     static ChromeDriver driver;
@@ -19,23 +17,16 @@ public class testCase_03 {
          @BeforeSuite(alwaysRun=true)
         public static void createDriver() {
             System.out.println("Initialising the driver");
-            WebDriverManager.chromedriver().setup();
-    
-            // Configure driver to start as headless
-            ChromeOptions options = new ChromeOptions();
-           // options.addArguments("--headless", "--window-size=1920,1200");
-    
-             driver = new ChromeDriver(options);
-         driver.manage().window().maximize();
+                 driver=(ChromeDriver) DriverSingleton.getDriverInstance("chrome");
       
     }
     @Test(description = "Adding Prescription",dataProvider = "data-Provider",dataProviderClass = DP.class, priority = 3, groups = {"Prescription"})
     public void TestCase03(String DoctorName,String Diagonis,String MedicineName,String CourseDuration,String Frequency,String Regimen,String Advice) throws InterruptedException {
         System.out.println("Test case 03 started");
-                 Login login= new Login(driver);
-                login.navigateToLoginPage();
-                Thread.sleep(3000);
-                login.performLogin();
+                //  Login login= new Login(driver);
+                // login.navigateToLoginPage();
+                // Thread.sleep(3000);
+                // login.performLogin();
         PatientDashBoard dashBoard=new PatientDashBoard(driver);
         dashBoard.Patienturl();
         dashBoard.navigateToLandingPage();

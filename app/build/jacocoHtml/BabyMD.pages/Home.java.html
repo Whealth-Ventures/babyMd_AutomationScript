@@ -108,11 +108,11 @@ public class Home {
     public void selectGender(String gender) {
 <span class="fc" id="L109">        genderDropdown.click();</span>
 <span class="pc bpc" id="L110" title="1 of 2 branches missed.">        for (WebElement genderOption : genderOptions) {</span>
-<span class="pc bpc" id="L111" title="1 of 2 branches missed.">            if (genderOption.getText().equals(gender)) {</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">            if (genderOption.getText().equals(gender)) {</span>
 <span class="fc" id="L112">                genderOption.click();</span>
 <span class="fc" id="L113">                break;</span>
             }
-<span class="nc" id="L115">        }</span>
+<span class="fc" id="L115">        }</span>
 <span class="fc" id="L116">    }</span>
 
     public void setDateOfBirth(String dob) throws InterruptedException {

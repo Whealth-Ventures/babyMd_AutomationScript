@@ -9,67 +9,59 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import BabyMD.DP;
+import BabyMD.DriverSingleton;
 import BabyMD.pages.Login;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
-<span class="fc" id="L22">public class testCase_01{</span>
+<span class="fc" id="L21">public class testCase_01{</span>
     static WebDriver driver;
      @BeforeSuite(alwaysRun=true)
     public static void createDriver() throws IOException, InterruptedException {
-<span class="fc" id="L26">        System.out.println(&quot;Initialising the driver&quot;);</span>
-<span class="fc" id="L27">        WebDriverManager.chromedriver().setup();</span>
-
-        // Configure driver to start as headless
-<span class="fc" id="L30">        ChromeOptions options = new ChromeOptions();</span>
-       // options.addArguments(&quot;--headless&quot;, &quot;--window-size=1920,1200&quot;);
-
-<span class="fc" id="L33">        driver = new ChromeDriver(options);</span>
-<span class="fc" id="L34">         driver.manage().window().maximize();</span>
-<span class="fc" id="L35">    }</span>
+<span class="fc" id="L25">        System.out.println(&quot;Initialising the driver&quot;);</span>
+<span class="fc" id="L26">              driver=(ChromeDriver) DriverSingleton.getDriverInstance(&quot;chrome&quot;);</span>
+<span class="fc" id="L27">    }</span>
     public static void takeScreenshot(WebDriver driver, String screenshotType, String description) {
       try {
-<span class="fc" id="L38">          File theDir = new File(&quot;/screenshots&quot;);</span>
-<span class="pc bpc" id="L39" title="1 of 2 branches missed.">          if (!theDir.exists()) {</span>
-<span class="fc" id="L40">              theDir.mkdirs();</span>
+<span class="fc" id="L30">          File theDir = new File(&quot;/screenshots&quot;);</span>
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">          if (!theDir.exists()) {</span>
+<span class="fc" id="L32">              theDir.mkdirs();</span>
           }
-<span class="fc" id="L42">          String timestamp = String.valueOf(java.time.LocalDateTime.now());</span>
-<span class="fc" id="L43">          String fileName = String.format(&quot;screenshot_%s_%s_%s.png&quot;, timestamp, screenshotType, description);</span>
-<span class="fc" id="L44">          TakesScreenshot scrShot = ((TakesScreenshot) driver);</span>
-<span class="fc" id="L45">          File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);</span>
-<span class="fc" id="L46">          File DestFile = new File(&quot;screenshots/&quot; + fileName);</span>
-<span class="fc" id="L47">          FileUtils.copyFile(SrcFile, DestFile);</span>
-<span class="nc" id="L48">      } catch (Exception e) {</span>
-<span class="nc" id="L49">          e.printStackTrace();</span>
-<span class="fc" id="L50">      }</span>
-<span class="fc" id="L51">  }</span>
+<span class="fc" id="L34">          String timestamp = String.valueOf(java.time.LocalDateTime.now());</span>
+<span class="fc" id="L35">          String fileName = String.format(&quot;screenshot_%s_%s_%s.png&quot;, timestamp, screenshotType, description);</span>
+<span class="fc" id="L36">          TakesScreenshot scrShot = ((TakesScreenshot) driver);</span>
+<span class="fc" id="L37">          File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);</span>
+<span class="fc" id="L38">          File DestFile = new File(&quot;screenshots/&quot; + fileName);</span>
+<span class="fc" id="L39">          FileUtils.copyFile(SrcFile, DestFile);</span>
+<span class="nc" id="L40">      } catch (Exception e) {</span>
+<span class="nc" id="L41">          e.printStackTrace();</span>
+<span class="fc" id="L42">      }</span>
+<span class="fc" id="L43">  }</span>
   @Test(description=&quot;Verify admin logged in&quot;, dataProvider = &quot;data-Provider&quot;,dataProviderClass = DP.class, priority = 1, groups = {&quot;Login Flow&quot;})
  
 @Parameters({&quot;Mobile&quot;,&quot;OTP&quot;})
     public void TestCase01(String Mobile,String OTP) throws InterruptedException{
-<span class="fc" id="L56">      takeScreenshot(driver,&quot;StartTestCase&quot;,&quot;TestCase01&quot;);</span>
-<span class="fc" id="L57">        System.out.println(&quot;Test Case 1&quot;);</span>
-<span class="fc" id="L58">        Login login= new Login(driver);</span>
-<span class="fc" id="L59">        login.navigateToLoginPage();</span>
-<span class="fc" id="L60">        login.performLogin();</span>
+<span class="fc" id="L48">      takeScreenshot(driver,&quot;StartTestCase&quot;,&quot;TestCase01&quot;);</span>
+<span class="fc" id="L49">        System.out.println(&quot;Test Case 1&quot;);</span>
+<span class="fc" id="L50">        Login login= new Login(driver);</span>
+<span class="fc" id="L51">        login.navigateToLoginPage();</span>
+<span class="fc" id="L52">        login.performLogin();</span>
        
-<span class="fc" id="L62">        takeScreenshot(driver,&quot;EndTestCase&quot;,&quot;TestCase01&quot;);</span>
-<span class="fc" id="L63">        }</span>
+<span class="fc" id="L54">        takeScreenshot(driver,&quot;EndTestCase&quot;,&quot;TestCase01&quot;);</span>
+<span class="fc" id="L55">        }</span>
     
       @AfterSuite
     public static void quitDriver() {
         // createDriver();
-<span class="fc" id="L68">        System.out.println(&quot;quit()&quot;);</span>
-<span class="fc" id="L69">      driver.close();</span>
-<span class="fc" id="L70">        driver.quit();</span>
+<span class="fc" id="L60">        System.out.println(&quot;quit()&quot;);</span>
+<span class="fc" id="L61">      driver.close();</span>
+<span class="fc" id="L62">        driver.quit();</span>
      
-<span class="fc" id="L72">    }</span>
+<span class="fc" id="L64">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

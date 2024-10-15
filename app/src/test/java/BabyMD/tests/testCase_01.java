@@ -9,29 +9,21 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import BabyMD.DP;
+import BabyMD.DriverSingleton;
 import BabyMD.pages.Login;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class testCase_01{
     static WebDriver driver;
      @BeforeSuite(alwaysRun=true)
     public static void createDriver() throws IOException, InterruptedException {
         System.out.println("Initialising the driver");
-        WebDriverManager.chromedriver().setup();
-
-        // Configure driver to start as headless
-        ChromeOptions options = new ChromeOptions();
-       // options.addArguments("--headless", "--window-size=1920,1200");
-
-        driver = new ChromeDriver(options);
-         driver.manage().window().maximize();
+              driver=(ChromeDriver) DriverSingleton.getDriverInstance("chrome");
     }
     public static void takeScreenshot(WebDriver driver, String screenshotType, String description) {
       try {

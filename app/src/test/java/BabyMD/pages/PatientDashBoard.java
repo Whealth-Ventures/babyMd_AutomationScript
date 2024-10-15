@@ -1,5 +1,7 @@
 package BabyMD.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -52,13 +54,54 @@ WebElement goal;
 @FindBy(xpath="//button[text()=' Add Goal']")
 WebElement addGoal;
 
+
+@FindBy(xpath="//span[text()='Search Goal']")
+WebElement searchGoal;
+
+@FindBy(xpath ="//div[text()='Notes']")
+WebElement notes;
+
+@FindBy(xpath="//span[text()='Select Category']")
+WebElement selectCategory;
+@FindBy(xpath="//span[text()='Select']")
+WebElement selectTemplate;
+@FindBy(xpath="//*[@class='form-control coreInput textArea']")
+WebElement content;
+
+@FindBy(xpath="//div[text()='Submit']")
+WebElement submit;
+
+@FindBy(xpath="//div[text()='Appointments']")
+WebElement appointments;
+@FindBy(xpath="//button[text()=' Add Appointment']")
+WebElement addAppointment;
+
+@FindBy(xpath="//span[text()='Clinic']")
+WebElement clinic;
+
+@FindBy(xpath="//span[text()='Doctor']")
+WebElement doctorName;
+
+@FindBy(xpath="//*[@placeholder='yyyy-MM-dd']")
+WebElement date1;
+
+@FindBy(xpath ="//*[@id='root']/div[2]/div[2]/div/div[9]/div/div[1]")
+WebElement timeslot;
+
+
+@FindBy(xpath="//*[@placeholder='Appointment Fee']")
+WebElement appointmentFee;
+
+@FindBy(xpath="//*[@class='reusableBtnActive  reusableBtn  w-100']")
+WebElement createAppointment;
+
+
  public PatientDashBoard(WebDriver driver) {
         this.driver = (ChromeDriver) driver;
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
     }
 
-    public PatientDashBoard() {
-    }
+    
 public void Patienturl() throws InterruptedException{
     driver.get(url);
     Thread.sleep(3000);
@@ -117,5 +160,87 @@ public void goalcreation() throws InterruptedException{
     goal.click();
     Thread.sleep(3000);
     addGoal.click();
+}
+public void selectGoal(String goaName) throws InterruptedException{
+    searchGoal.click();
+    Thread.sleep(3000);
+    List<WebElement> goals=driver.findElements(By.className("rs-picker-select-menu-item"));
+    for(WebElement goal:goals){
+        if(goal.getText().equals(goaName)){
+            goal.click();
+            break;
+            }
+            }
+            Thread.sleep(2000);
+            saveDetails.click();
+            }
+
+public void addNotes(String notecategory,String Template,String contents) throws InterruptedException{
+    notes.click();
+    Thread.sleep(2000);
+    selectCategory.click();
+    List<WebElement>categories=driver.findElements(By.className("rs-picker-select-menu-item"));
+    for(WebElement category:categories){
+        if(category.getText().equals(notecategory)){
+            category.click();
+            break;
+            }
+        }
+        Thread.sleep(3000);
+        selectTemplate.click();
+        List<WebElement>templates=driver.findElements(By.className("rs-picker-select-menu-item"));
+        for (WebElement template : templates) {
+            if (template.getText().equals(Template)) {
+                template.click();
+                break;
+        }
+    }
+        Thread.sleep(3000);
+        content.sendKeys(contents);
+        Thread.sleep(3000);
+        submit.click();
+}
+
+
+public void addAppointmentForPatient() throws InterruptedException{
+    appointments.click();
+    Thread.sleep(3000);
+    addAppointment.click();
+    Thread.sleep(2000);
+    
+}
+
+public void updateAppointmentdetails(String Clinic,String doctor,String date,String appointmentfee) throws InterruptedException{
+clinic.click();
+Thread.sleep(2000);
+List<WebElement> clinics=driver.findElements(By.className("rs-picker-select-menu-item"));
+for (WebElement clinicname:clinics) {
+    if(clinicname.getText().equals(Clinic))
+    {
+        clinicname.click();
+        break;
+    }
+    
+}
+Thread.sleep(3000);
+doctorName.click();
+List<WebElement> doctors=driver.findElements(By.className("rs-picker-select-menu-item"));
+for (WebElement doctorname:doctors) {
+    if(doctorname.getText().equals(doctor))
+    {
+        doctorname.click();
+        break;
+
+}
+}
+Thread.sleep(2000);
+date1.sendKeys("2024-10-17");
+Thread.sleep(2000);
+timeslot.click();
+Thread.sleep(2000);
+appointmentFee.sendKeys(appointmentfee);
+Thread.sleep(2000);
+createAppointment.click();
+Thread.sleep(3000);
 }
 }

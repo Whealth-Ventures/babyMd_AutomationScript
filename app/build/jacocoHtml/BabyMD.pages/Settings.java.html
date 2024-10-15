@@ -92,10 +92,10 @@ public void addNewGoal() throws InterruptedException{
 
 
 
-public void AddGoalDetails(){
-<span class="fc" id="L96">    goalName.sendKeys(&quot;Test Goal&quot;);</span>
+public void AddGoalDetails(String GoalName,String target){
+<span class="fc" id="L96">    goalName.sendKeys(GoalName);</span>
 <span class="fc" id="L97">    addGoal.click();</span>
-<span class="fc" id="L98">    targetValue.sendKeys(&quot;10&quot;);</span>
+<span class="fc" id="L98">    targetValue.sendKeys(target);</span>
 
 <span class="fc" id="L100">}</span>
 
@@ -103,12 +103,12 @@ public void frequencySelect(){
 <span class="fc" id="L103">    Select select=new Select(frequency);</span>
 <span class="fc" id="L104">    select.selectByIndex(1);</span>
 <span class="fc" id="L105">}</span>
-public void AddNotification(){
-<span class="fc" id="L107">    notificationTemplate.sendKeys(&quot;Every Saturday&quot;);</span>
+public void AddNotification(String Notification){
+<span class="fc" id="L107">    notificationTemplate.sendKeys(Notification);</span>
 <span class="fc" id="L108">}</span>
 
-public void AddReminder(){
-<span class="fc" id="L111">    reminderTemplate.sendKeys(&quot;Every Sunday&quot;);</span>
+public void AddReminder(String reminder){
+<span class="fc" id="L111">    reminderTemplate.sendKeys(reminder);</span>
 
 <span class="fc" id="L113">}</span>
 public void saveDetails(){
@@ -121,18 +121,18 @@ public void goalname() throws InterruptedException{
 <span class="nc" id="L121">}</span>
 
 
-public void addNotecategory() throws InterruptedException{
+public void addNotecategory(String NoteName) throws InterruptedException{
 <span class="fc" id="L125">    ManageCategories.click();</span>
 <span class="fc" id="L126">    Thread.sleep(2000);</span>
 <span class="fc" id="L127">notescategories.click();</span>
 <span class="fc" id="L128">Thread.sleep(2000);</span>
-<span class="fc" id="L129">notename.sendKeys(&quot;test Note&quot;);</span>
+<span class="fc" id="L129">notename.sendKeys(NoteName);</span>
 <span class="fc" id="L130">Thread.sleep(2000);</span>
 <span class="fc" id="L131">save.click();</span>
 <span class="fc" id="L132">}</span>
 
 
-public void addNotetemplate() throws InterruptedException{
+public void addNotetemplate(String Title) throws InterruptedException{
 <span class="nc" id="L136">    ManageCategories.click();</span>
 <span class="nc" id="L137">    Thread.sleep(3000);</span>
 <span class="nc" id="L138">    notestemplate.click();</span>
@@ -141,7 +141,7 @@ public void addNotetemplate() throws InterruptedException{
 <span class="nc" id="L141">    Thread.sleep(2000);</span>
 <span class="nc" id="L142">    category.click();</span>
 <span class="nc" id="L143">    Thread.sleep(2000);</span>
-<span class="nc" id="L144">    notetitle.sendKeys(&quot;Test Notes check&quot;);</span>
+<span class="nc" id="L144">    notetitle.sendKeys(Title);</span>
 <span class="nc" id="L145">    Thread.sleep(2000);</span>
 <span class="nc" id="L146">    savebutton.click();</span>
 <span class="nc" id="L147">}</span>

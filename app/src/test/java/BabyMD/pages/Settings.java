@@ -92,10 +92,10 @@ public void addNewGoal() throws InterruptedException{
 
 
 
-public void AddGoalDetails(){
-    goalName.sendKeys("Test Goal");
+public void AddGoalDetails(String GoalName,String target){
+    goalName.sendKeys(GoalName);
     addGoal.click();
-    targetValue.sendKeys("10");
+    targetValue.sendKeys(target);
 
 }
 
@@ -103,12 +103,12 @@ public void frequencySelect(){
     Select select=new Select(frequency);
     select.selectByIndex(1);
 }
-public void AddNotification(){
-    notificationTemplate.sendKeys("Every Saturday");
+public void AddNotification(String Notification){
+    notificationTemplate.sendKeys(Notification);
 }
 
-public void AddReminder(){
-    reminderTemplate.sendKeys("Every Sunday");
+public void AddReminder(String reminder){
+    reminderTemplate.sendKeys(reminder);
 
 }
 public void saveDetails(){
@@ -121,18 +121,18 @@ public void goalname() throws InterruptedException{
 }
 
 
-public void addNotecategory() throws InterruptedException{
+public void addNotecategory(String NoteName) throws InterruptedException{
     ManageCategories.click();
     Thread.sleep(2000);
 notescategories.click();
 Thread.sleep(2000);
-notename.sendKeys("test Note");
+notename.sendKeys(NoteName);
 Thread.sleep(2000);
 save.click();
 }
 
 
-public void addNotetemplate() throws InterruptedException{
+public void addNotetemplate(String Title) throws InterruptedException{
     ManageCategories.click();
     Thread.sleep(3000);
     notestemplate.click();
@@ -141,7 +141,7 @@ public void addNotetemplate() throws InterruptedException{
     Thread.sleep(2000);
     category.click();
     Thread.sleep(2000);
-    notetitle.sendKeys("Test Notes check");
+    notetitle.sendKeys(Title);
     Thread.sleep(2000);
     savebutton.click();
 }

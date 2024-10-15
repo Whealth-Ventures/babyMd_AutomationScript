@@ -3,78 +3,69 @@
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import BabyMD.DP;
-import BabyMD.pages.Login;
+import BabyMD.DriverSingleton;
 import BabyMD.pages.PatientDashBoard;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
-<span class="fc" id="L16">public class testCase_03 {</span>
+<span class="fc" id="L14">public class testCase_03 {</span>
     static ChromeDriver driver;
-<span class="fc" id="L18">    String Doctorname=&quot;Doc Sanjay&quot;;</span>
+<span class="fc" id="L16">    String Doctorname=&quot;Doc Sanjay&quot;;</span>
          @BeforeSuite(alwaysRun=true)
         public static void createDriver() {
-<span class="fc" id="L21">            System.out.println(&quot;Initialising the driver&quot;);</span>
-<span class="fc" id="L22">            WebDriverManager.chromedriver().setup();</span>
-    
-            // Configure driver to start as headless
-<span class="fc" id="L25">            ChromeOptions options = new ChromeOptions();</span>
-           // options.addArguments(&quot;--headless&quot;, &quot;--window-size=1920,1200&quot;);
-    
-<span class="fc" id="L28">             driver = new ChromeDriver(options);</span>
-<span class="fc" id="L29">         driver.manage().window().maximize();</span>
+<span class="fc" id="L19">            System.out.println(&quot;Initialising the driver&quot;);</span>
+<span class="fc" id="L20">                 driver=(ChromeDriver) DriverSingleton.getDriverInstance(&quot;chrome&quot;);</span>
       
-<span class="fc" id="L31">    }</span>
+<span class="fc" id="L22">    }</span>
     @Test(description = &quot;Adding Prescription&quot;,dataProvider = &quot;data-Provider&quot;,dataProviderClass = DP.class, priority = 3, groups = {&quot;Prescription&quot;})
     public void TestCase03(String DoctorName,String Diagonis,String MedicineName,String CourseDuration,String Frequency,String Regimen,String Advice) throws InterruptedException {
-<span class="fc" id="L34">        System.out.println(&quot;Test case 03 started&quot;);</span>
-<span class="fc" id="L35">                 Login login= new Login(driver);</span>
-<span class="fc" id="L36">                login.navigateToLoginPage();</span>
-<span class="fc" id="L37">                Thread.sleep(3000);</span>
-<span class="fc" id="L38">                login.performLogin();</span>
-<span class="fc" id="L39">        PatientDashBoard dashBoard=new PatientDashBoard(driver);</span>
-<span class="fc" id="L40">        dashBoard.Patienturl();</span>
-<span class="fc" id="L41">        dashBoard.navigateToLandingPage();</span>
-<span class="fc" id="L42">        Thread.sleep(2000);</span>
-<span class="fc" id="L43">        dashBoard.AssignDoctor(Doctorname);</span>
-<span class="fc" id="L44">        Thread.sleep(2000);</span>
-<span class="fc" id="L45">        dashBoard.AssignDoctor(DoctorName);</span>
-<span class="fc" id="L46">        Thread.sleep(2000);</span>
-<span class="fc" id="L47">        dashBoard.Prescription();</span>
-<span class="fc" id="L48">        Thread.sleep(2000);</span>
-<span class="fc" id="L49">        dashBoard.clickMedicine(Diagonis);</span>
-<span class="fc" id="L50">        Thread.sleep(2000);</span>
-<span class="fc" id="L51">        dashBoard.CourseTime(CourseDuration);</span>
-<span class="fc" id="L52">        Thread.sleep(2000);</span>
-<span class="fc" id="L53">        dashBoard.Selectfrequency(Frequency);</span>
-<span class="fc" id="L54">        Thread.sleep(2000);</span>
-<span class="fc" id="L55">        dashBoard.selectregimen(Advice);</span>
-<span class="fc" id="L56">        Thread.sleep(2000);</span>
-<span class="fc" id="L57">        dashBoard.Save();</span>
-<span class="fc" id="L58">        Thread.sleep(5000);</span>
-<span class="fc" id="L59">        driver.findElement(By.xpath(&quot;//div[text()='Prescription']&quot;)).click();</span>
-<span class="fc" id="L60">        Thread.sleep(2000);</span>
-<span class="fc" id="L61">        driver.findElement(By.xpath(&quot;//*[@id='root']/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[3]/div[1]/div/div/div[1]/div[2]/div[4]/div/span&quot;)).click();</span>
-<span class="fc" id="L62">        Thread.sleep(3000);</span>
-<span class="fc" id="L63">        driver.findElement(By.xpath(&quot;//button[text()='Publish']&quot;)).click();</span>
-<span class="fc" id="L64">        Thread.sleep(3000);</span>
-<span class="fc" id="L65">        Alert alert=driver.switchTo().alert();</span>
-<span class="fc" id="L66">        alert.accept();</span>
-<span class="fc" id="L67">        Thread.sleep(000);</span>
+<span class="fc" id="L25">        System.out.println(&quot;Test case 03 started&quot;);</span>
+                //  Login login= new Login(driver);
+                // login.navigateToLoginPage();
+                // Thread.sleep(3000);
+                // login.performLogin();
+<span class="fc" id="L30">        PatientDashBoard dashBoard=new PatientDashBoard(driver);</span>
+<span class="fc" id="L31">        dashBoard.Patienturl();</span>
+<span class="fc" id="L32">        dashBoard.navigateToLandingPage();</span>
+<span class="fc" id="L33">        Thread.sleep(2000);</span>
+<span class="fc" id="L34">        dashBoard.AssignDoctor(Doctorname);</span>
+<span class="fc" id="L35">        Thread.sleep(2000);</span>
+<span class="fc" id="L36">        dashBoard.AssignDoctor(DoctorName);</span>
+<span class="fc" id="L37">        Thread.sleep(2000);</span>
+<span class="fc" id="L38">        dashBoard.Prescription();</span>
+<span class="fc" id="L39">        Thread.sleep(2000);</span>
+<span class="fc" id="L40">        dashBoard.clickMedicine(Diagonis);</span>
+<span class="fc" id="L41">        Thread.sleep(2000);</span>
+<span class="fc" id="L42">        dashBoard.CourseTime(CourseDuration);</span>
+<span class="fc" id="L43">        Thread.sleep(2000);</span>
+<span class="fc" id="L44">        dashBoard.Selectfrequency(Frequency);</span>
+<span class="fc" id="L45">        Thread.sleep(2000);</span>
+<span class="fc" id="L46">        dashBoard.selectregimen(Advice);</span>
+<span class="fc" id="L47">        Thread.sleep(2000);</span>
+<span class="fc" id="L48">        dashBoard.Save();</span>
+<span class="fc" id="L49">        Thread.sleep(5000);</span>
+<span class="fc" id="L50">        driver.findElement(By.xpath(&quot;//div[text()='Prescription']&quot;)).click();</span>
+<span class="fc" id="L51">        Thread.sleep(2000);</span>
+<span class="fc" id="L52">        driver.findElement(By.xpath(&quot;//*[@id='root']/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[3]/div[1]/div/div/div[1]/div[2]/div[4]/div/span&quot;)).click();</span>
+<span class="fc" id="L53">        Thread.sleep(3000);</span>
+<span class="fc" id="L54">        driver.findElement(By.xpath(&quot;//button[text()='Publish']&quot;)).click();</span>
+<span class="fc" id="L55">        Thread.sleep(3000);</span>
+<span class="fc" id="L56">        Alert alert=driver.switchTo().alert();</span>
+<span class="fc" id="L57">        alert.accept();</span>
+<span class="fc" id="L58">        Thread.sleep(000);</span>
         // driver.findElement(By.xpath(&quot;//*[@id='sidebar']//print-preview-button-strip//div/cr-button[2]&quot;)).click();
         // Thread.sleep(3000);
 
-<span class="fc" id="L71">    }</span>
+<span class="fc" id="L62">    }</span>
     @AfterSuite
     public static void quitDriver() {
-<span class="fc" id="L74">        System.out.println(&quot;quit()&quot;);</span>
+<span class="fc" id="L65">        System.out.println(&quot;quit()&quot;);</span>
 
-<span class="fc" id="L76">        driver.quit();</span>
+<span class="fc" id="L67">        driver.quit();</span>
      
-<span class="fc" id="L78">    }</span>
+<span class="fc" id="L69">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
