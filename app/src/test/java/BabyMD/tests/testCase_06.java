@@ -22,10 +22,7 @@ public class testCase_06{
     @Test(description = "Adding Notes",dataProvider = "data-Provider",dataProviderClass = DP.class, priority = 6, groups = {"Notes Creation"})
     public void TestCase06(String goal,String NoteCategory,String Template,String Content,String Clinic,String Doctor,String Date,String Fee)throws InterruptedException {
         System.out.println("Test case 06 started");
-        //          Login login= new Login(driver);
-        //         login.navigateToLoginPage();
-        //         Thread.sleep(3000);
-        //  login.performLogin();
+
                 Thread.sleep(3000);
                 PatientDashBoard patient=new PatientDashBoard(driver);
                 patient.Patienturl();
