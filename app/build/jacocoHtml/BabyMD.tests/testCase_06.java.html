@@ -5,54 +5,90 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
 import BabyMD.DP;
 import BabyMD.DriverSingleton;
+import BabyMD.ReportSingleton;
 import BabyMD.pages.PatientDashBoard;
 
-<span class="fc" id="L12">public class testCase_06{</span>
-     static ChromeDriver driver;
- 
-         @BeforeSuite(alwaysRun=true)
-        public static void createDriver() {
-<span class="fc" id="L17">            System.out.println(&quot;Initialising the driver&quot;);</span>
-      
-<span class="fc" id="L19">        driver=(ChromeDriver) DriverSingleton.getDriverInstance(&quot;chrome&quot;);</span>
-      
-<span class="fc" id="L21">    }</span>
-    @Test(description = &quot;Adding Notes&quot;,dataProvider = &quot;data-Provider&quot;,dataProviderClass = DP.class, priority = 5, groups = {&quot;Notes Creation&quot;})
-    public void TestCase06(String goal,String NoteCategory,String Template,String Content,String Clinic,String Doctor,String Date,String Fee)throws InterruptedException {
-<span class="fc" id="L24">        System.out.println(&quot;Test case 06 started&quot;);</span>
-        //          Login login= new Login(driver);
-        //         login.navigateToLoginPage();
-        //         Thread.sleep(3000);
-        //  login.performLogin();
-<span class="fc" id="L29">                Thread.sleep(3000);</span>
-<span class="fc" id="L30">                PatientDashBoard patient=new PatientDashBoard(driver);</span>
-<span class="fc" id="L31">                patient.Patienturl();</span>
-<span class="fc" id="L32">                Thread.sleep(3000);</span>
-<span class="fc" id="L33">                patient.navigateToLandingPage();</span>
-<span class="fc" id="L34">                Thread.sleep(3000);</span>
-<span class="fc" id="L35">                patient.goalcreation();</span>
-<span class="fc" id="L36">                Thread.sleep(3000);</span>
-<span class="fc" id="L37">                patient.selectGoal(goal);</span>
-<span class="fc" id="L38">                Thread.sleep(3000);</span>
-<span class="fc" id="L39">                patient.addNotes(NoteCategory,Template,Content);</span>
-<span class="fc" id="L40">                Thread.sleep(3000);</span>
+<span class="fc" id="L17">public class testCase_06 {</span>
+    static ChromeDriver driver;
+    static ExtentReports report;
+    static ExtentTest test;
 
-<span class="fc" id="L42">patient.addAppointmentForPatient();</span>
-<span class="fc" id="L43">Thread.sleep(2000);</span>
-<span class="fc" id="L44">patient.updateAppointmentdetails(Clinic, Doctor,Date, Fee);</span>
-             
-      
-   
-<span class="fc" id="L48">    }</span>
+    @BeforeSuite(alwaysRun = true)
+    public static void createDriver() {
+        try {
+<span class="fc" id="L25">            System.out.println(&quot;Initialising the driver&quot;);</span>
+<span class="fc" id="L26">            driver = (ChromeDriver) DriverSingleton.getDriverInstance(&quot;chrome&quot;);</span>
+<span class="fc" id="L27">            ReportSingleton rs1 = ReportSingleton.getInstanceOfSingletonReportClass();</span>
+<span class="fc" id="L28">            report = rs1.getReport();</span>
+<span class="fc" id="L29">            test = report.startTest(&quot;Extent Test - TestCase 06&quot;);</span>
+<span class="fc" id="L30">            test.log(LogStatus.INFO, &quot;Driver initialized successfully&quot;);</span>
+<span class="nc" id="L31">        } catch (Exception e) {</span>
+<span class="nc" id="L32">            test.log(LogStatus.FAIL, &quot;Driver initialization failed: &quot; + e.getMessage());</span>
+<span class="nc" id="L33">            e.printStackTrace();</span>
+<span class="fc" id="L34">        }</span>
+<span class="fc" id="L35">    }</span>
+
+    @Test(description = &quot;Updating Patient dashboard&quot;, dataProvider = &quot;data-Provider&quot;, dataProviderClass = DP.class, priority = 6, groups = {&quot;Updation&quot;})
+    public void TestCase06(String goal, String NoteCategory, String Template, String Content, String Clinic, String Doctor, String Date, String Fee) throws InterruptedException {
+        try {
+<span class="fc" id="L40">            test.log(LogStatus.INFO, &quot;Test case 06 started&quot;);</span>
+
+<span class="fc" id="L42">            PatientDashBoard patient = new PatientDashBoard(driver);</span>
+<span class="fc" id="L43">            patient.Patienturl();</span>
+<span class="fc" id="L44">            test.log(LogStatus.INFO, &quot;Navigated to Patient URL&quot;);</span>
+
+<span class="fc" id="L46">            Thread.sleep(3000);</span>
+<span class="fc" id="L47">            patient.navigateToLandingPage();</span>
+<span class="fc" id="L48">            test.log(LogStatus.INFO, &quot;Navigated to Landing Page&quot;);</span>
+
+<span class="fc" id="L50">            Thread.sleep(3000);</span>
+<span class="fc" id="L51">            patient.goalcreation();</span>
+<span class="fc" id="L52">            test.log(LogStatus.INFO, &quot;Started goal creation&quot;);</span>
+
+<span class="fc" id="L54">            Thread.sleep(3000);</span>
+<span class="fc" id="L55">            patient.selectGoal(goal);</span>
+<span class="fc" id="L56">            test.log(LogStatus.PASS, &quot;Goal selected: &quot; + goal);</span>
+
+<span class="fc" id="L58">            Thread.sleep(3000);</span>
+<span class="fc" id="L59">            patient.addNotes(NoteCategory, Template, Content);</span>
+<span class="fc" id="L60">            test.log(LogStatus.PASS, &quot;Notes added: Category - &quot; + NoteCategory + &quot;, Template - &quot; + Template);</span>
+
+<span class="fc" id="L62">            Thread.sleep(3000);</span>
+<span class="fc" id="L63">            patient.addAppointmentForPatient();</span>
+<span class="fc" id="L64">            test.log(LogStatus.INFO, &quot;Adding appointment for patient&quot;);</span>
+
+<span class="fc" id="L66">            Thread.sleep(2000);</span>
+<span class="fc" id="L67">            patient.updateAppointmentdetails(Clinic, Doctor, Date, Fee);</span>
+<span class="fc" id="L68">            test.log(LogStatus.PASS, &quot;Appointment details updated: Clinic - &quot; + Clinic + &quot;, Doctor - &quot; + Doctor);</span>
+
+<span class="nc" id="L70">        } catch (Exception e) {</span>
+<span class="nc" id="L71">            test.log(LogStatus.FAIL, &quot;TestCase 06 failed: &quot; + e.getMessage());</span>
+<span class="nc" id="L72">            e.printStackTrace();</span>
+<span class="fc" id="L73">        }</span>
+<span class="fc" id="L74">    }</span>
+
     @AfterSuite
     public static void quitDriver() {
-<span class="fc" id="L51">        System.out.println(&quot;quit()&quot;);</span>
-
-<span class="fc" id="L53">        driver.quit();</span>
-     
-<span class="fc" id="L55">    }</span>
+        try {
+<span class="fc" id="L79">            System.out.println(&quot;quit()&quot;);</span>
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">            if (driver != null) {</span>
+<span class="fc" id="L81">                driver.quit();</span>
+<span class="fc" id="L82">                test.log(LogStatus.PASS, &quot;Driver quit successfully&quot;);</span>
+            }
+<span class="nc" id="L84">        } catch (Exception e) {</span>
+<span class="nc" id="L85">            test.log(LogStatus.FAIL, &quot;Driver quit failed: &quot; + e.getMessage());</span>
+        } finally {
+<span class="pc bpc" id="L87" title="1 of 2 branches missed.">            if (report != null) {</span>
+<span class="fc" id="L88">                report.flush();</span>
+<span class="fc" id="L89">                test.log(LogStatus.INFO, &quot;Report flushed&quot;);</span>
+            }
+        }
+<span class="fc" id="L92">    }</span>
 }
-
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

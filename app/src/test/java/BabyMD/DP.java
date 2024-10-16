@@ -18,7 +18,7 @@ import org.testng.annotations.DataProvider;
 
 
 public class DP {
-    // TODO: use correct annotation to connect the Data Provider with your Test Cases
+   
     @DataProvider (name="data-Provider")
     public Object[][] dpMethod(Method m) throws IOException {
         int rowIndex = 0;

@@ -16,12 +16,21 @@ repositories {
 dependencies {
     testImplementation group: 'org.testng', name: 'testng', version: '7.6.0'
 
-    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.2'
+   
+       implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.2'
+
+    // https://mvnrepository.com/artifact/org.apache.poi/poi
     implementation group: 'org.apache.poi', name: 'poi', version: '5.2.2'
+
+    // https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
     implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.2'
+    
+    // https://mvnrepository.com/artifact/com.relevantcodes/extentreports
+    implementation group: 'com.relevantcodes', name: 'extentreports' , version: '2.40.2'
 
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.19.1'
     implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.8.0'
+
 }
 
 test {

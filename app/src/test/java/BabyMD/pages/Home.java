@@ -2,7 +2,6 @@ package BabyMD.pages;
 
 import java.util.List;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -85,19 +84,19 @@ public class Home {
         Thread.sleep(3000);
     }
 
-    public void signOut() throws InterruptedException {
-        profile.click();
-        Thread.sleep(3000);
-        WebElement signOutButton = driver.findElement(By.xpath("//div[text()='Sign Out']"));
-        signOutButton.click();
-        Alert alert = driver.switchTo().alert();
-        alert.accept();
-        Thread.sleep(3000);
-    }
+    // public void signOut() throws InterruptedException {
+    //     profile.click();
+    //     Thread.sleep(3000);
+    //     WebElement signOutButton = driver.findElement(By.xpath("//div[text()='Sign Out']"));
+    //     signOutButton.click();
+    //     Alert alert = driver.switchTo().alert();
+    //     alert.accept();
+    //     Thread.sleep(3000);
+    // }
 
-    public void clickPatient() {
-        patient.click();
-    }
+    // public void clickPatient() {
+    //     patient.click();
+    // }
 
     // Methods to interact with elements
     public void setPatientName(String name) throws InterruptedException {

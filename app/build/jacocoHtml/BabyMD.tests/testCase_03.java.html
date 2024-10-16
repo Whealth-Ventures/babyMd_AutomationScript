@@ -7,65 +7,108 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
 import BabyMD.DP;
 import BabyMD.DriverSingleton;
+import BabyMD.ReportSingleton;
 import BabyMD.pages.PatientDashBoard;
 
-<span class="fc" id="L14">public class testCase_03 {</span>
+<span class="fc" id="L19">public class testCase_03 {</span>
     static ChromeDriver driver;
-<span class="fc" id="L16">    String Doctorname=&quot;Doc Sanjay&quot;;</span>
-         @BeforeSuite(alwaysRun=true)
-        public static void createDriver() {
-<span class="fc" id="L19">            System.out.println(&quot;Initialising the driver&quot;);</span>
-<span class="fc" id="L20">                 driver=(ChromeDriver) DriverSingleton.getDriverInstance(&quot;chrome&quot;);</span>
-      
-<span class="fc" id="L22">    }</span>
-    @Test(description = &quot;Adding Prescription&quot;,dataProvider = &quot;data-Provider&quot;,dataProviderClass = DP.class, priority = 3, groups = {&quot;Prescription&quot;})
-    public void TestCase03(String DoctorName,String Diagonis,String MedicineName,String CourseDuration,String Frequency,String Regimen,String Advice) throws InterruptedException {
-<span class="fc" id="L25">        System.out.println(&quot;Test case 03 started&quot;);</span>
-                //  Login login= new Login(driver);
-                // login.navigateToLoginPage();
-                // Thread.sleep(3000);
-                // login.performLogin();
-<span class="fc" id="L30">        PatientDashBoard dashBoard=new PatientDashBoard(driver);</span>
-<span class="fc" id="L31">        dashBoard.Patienturl();</span>
-<span class="fc" id="L32">        dashBoard.navigateToLandingPage();</span>
-<span class="fc" id="L33">        Thread.sleep(2000);</span>
-<span class="fc" id="L34">        dashBoard.AssignDoctor(Doctorname);</span>
-<span class="fc" id="L35">        Thread.sleep(2000);</span>
-<span class="fc" id="L36">        dashBoard.AssignDoctor(DoctorName);</span>
-<span class="fc" id="L37">        Thread.sleep(2000);</span>
-<span class="fc" id="L38">        dashBoard.Prescription();</span>
-<span class="fc" id="L39">        Thread.sleep(2000);</span>
-<span class="fc" id="L40">        dashBoard.clickMedicine(Diagonis);</span>
-<span class="fc" id="L41">        Thread.sleep(2000);</span>
-<span class="fc" id="L42">        dashBoard.CourseTime(CourseDuration);</span>
-<span class="fc" id="L43">        Thread.sleep(2000);</span>
-<span class="fc" id="L44">        dashBoard.Selectfrequency(Frequency);</span>
-<span class="fc" id="L45">        Thread.sleep(2000);</span>
-<span class="fc" id="L46">        dashBoard.selectregimen(Advice);</span>
-<span class="fc" id="L47">        Thread.sleep(2000);</span>
-<span class="fc" id="L48">        dashBoard.Save();</span>
-<span class="fc" id="L49">        Thread.sleep(5000);</span>
-<span class="fc" id="L50">        driver.findElement(By.xpath(&quot;//div[text()='Prescription']&quot;)).click();</span>
-<span class="fc" id="L51">        Thread.sleep(2000);</span>
-<span class="fc" id="L52">        driver.findElement(By.xpath(&quot;//*[@id='root']/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[3]/div[1]/div/div/div[1]/div[2]/div[4]/div/span&quot;)).click();</span>
-<span class="fc" id="L53">        Thread.sleep(3000);</span>
-<span class="fc" id="L54">        driver.findElement(By.xpath(&quot;//button[text()='Publish']&quot;)).click();</span>
-<span class="fc" id="L55">        Thread.sleep(3000);</span>
-<span class="fc" id="L56">        Alert alert=driver.switchTo().alert();</span>
-<span class="fc" id="L57">        alert.accept();</span>
-<span class="fc" id="L58">        Thread.sleep(000);</span>
-        // driver.findElement(By.xpath(&quot;//*[@id='sidebar']//print-preview-button-strip//div/cr-button[2]&quot;)).click();
-        // Thread.sleep(3000);
+    static ExtentReports report;
+    static ExtentTest test;
+<span class="fc" id="L23">    String Doctorname = &quot;Doc Sanjay&quot;;</span>
 
-<span class="fc" id="L62">    }</span>
+    @BeforeSuite(alwaysRun = true)
+    public static void createDriver() {
+        try {
+<span class="fc" id="L28">            System.out.println(&quot;Initialising the driver&quot;);</span>
+<span class="fc" id="L29">            driver = (ChromeDriver) DriverSingleton.getDriverInstance(&quot;chrome&quot;);</span>
+<span class="fc" id="L30">            ReportSingleton rs1 = ReportSingleton.getInstanceOfSingletonReportClass();</span>
+<span class="fc" id="L31">            report = rs1.getReport();</span>
+<span class="fc" id="L32">            test = report.startTest(&quot;Extent Test - TestCase 03&quot;);</span>
+<span class="fc" id="L33">            test.log(LogStatus.INFO, &quot;Driver initialized successfully&quot;);</span>
+<span class="nc" id="L34">        } catch (Exception e) {</span>
+<span class="nc" id="L35">            test.log(LogStatus.FAIL, &quot;Driver initialization failed: &quot; + e.getMessage());</span>
+<span class="nc" id="L36">            e.printStackTrace();</span>
+<span class="fc" id="L37">        }</span>
+<span class="fc" id="L38">    }</span>
+
+    @Test(description = &quot;Adding Prescription&quot;, dataProvider = &quot;data-Provider&quot;, dataProviderClass = DP.class, priority = 3, groups = {&quot;Prescription&quot;})
+    public void TestCase03(String DoctorName, String Diagonis, String MedicineName, String CourseDuration, String Frequency, String Regimen, String Advice) throws InterruptedException {
+        try {
+<span class="fc" id="L43">            test.log(LogStatus.INFO, &quot;Test case 03 started&quot;);</span>
+
+<span class="fc" id="L45">            PatientDashBoard dashBoard = new PatientDashBoard(driver);</span>
+<span class="fc" id="L46">            dashBoard.Patienturl();</span>
+<span class="fc" id="L47">            test.log(LogStatus.INFO, &quot;Navigated to Patient URL&quot;);</span>
+
+<span class="fc" id="L49">            dashBoard.navigateToLandingPage();</span>
+<span class="fc" id="L50">            test.log(LogStatus.INFO, &quot;Navigated to Landing Page&quot;);</span>
+
+<span class="fc" id="L52">            dashBoard.AssignDoctor(Doctorname);</span>
+<span class="fc" id="L53">            test.log(LogStatus.INFO, &quot;Assigned default Doctor: &quot; + Doctorname);</span>
+<span class="fc" id="L54">            Thread.sleep(3000);</span>
+<span class="fc" id="L55">            dashBoard.AssignDoctor(DoctorName);</span>
+<span class="fc" id="L56">            test.log(LogStatus.PASS, &quot;Assigned Doctor: &quot; + DoctorName);</span>
+<span class="fc" id="L57">            Thread.sleep(3000);</span>
+<span class="fc" id="L58">            dashBoard.Prescription();</span>
+<span class="fc" id="L59">            test.log(LogStatus.INFO, &quot;Opened Prescription form&quot;);</span>
+<span class="fc" id="L60">            Thread.sleep(3000);</span>
+<span class="fc" id="L61">            dashBoard.clickMedicine(Diagonis);</span>
+<span class="fc" id="L62">            test.log(LogStatus.PASS, &quot;Entered Diagnosis: &quot; + Diagonis);</span>
+<span class="fc" id="L63">            Thread.sleep(3000);</span>
+<span class="fc" id="L64">            dashBoard.CourseTime(CourseDuration);</span>
+<span class="fc" id="L65">            test.log(LogStatus.PASS, &quot;Course Duration set: &quot; + CourseDuration);</span>
+<span class="fc" id="L66">            Thread.sleep(3000);</span>
+<span class="fc" id="L67">            dashBoard.Selectfrequency(Frequency);</span>
+<span class="fc" id="L68">            test.log(LogStatus.PASS, &quot;Frequency set: &quot; + Frequency);</span>
+<span class="fc" id="L69">            Thread.sleep(3000);</span>
+<span class="fc" id="L70">            dashBoard.selectregimen(Advice);</span>
+<span class="fc" id="L71">            test.log(LogStatus.PASS, &quot;Regimen set: &quot; + Advice);</span>
+<span class="fc" id="L72">            Thread.sleep(3000);</span>
+<span class="fc" id="L73">            dashBoard.Save();</span>
+<span class="fc" id="L74">            test.log(LogStatus.PASS, &quot;Prescription saved successfully&quot;);</span>
+<span class="fc" id="L75">            Thread.sleep(3000);</span>
+            // Click and publish prescription
+<span class="nc" id="L77">            driver.findElement(By.xpath(&quot;//div[text()='Prescription']&quot;)).click();</span>
+<span class="nc" id="L78">            test.log(LogStatus.INFO, &quot;Navigated to Prescription tab&quot;);</span>
+
+<span class="nc" id="L80">            driver.findElement(By.xpath(&quot;//*[@id='root']/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[3]/div[1]/div/div/div[1]/div[2]/div[4]/div/span&quot;)).click();</span>
+<span class="nc" id="L81">            test.log(LogStatus.INFO, &quot;Selected the prescription for publishing&quot;);</span>
+
+<span class="nc" id="L83">            driver.findElement(By.xpath(&quot;//button[text()='Publish']&quot;)).click();</span>
+<span class="nc" id="L84">            test.log(LogStatus.INFO, &quot;Clicked Publish button&quot;);</span>
+
+<span class="nc" id="L86">            Alert alert = driver.switchTo().alert();</span>
+<span class="nc" id="L87">            alert.accept();</span>
+<span class="nc" id="L88">            test.log(LogStatus.PASS, &quot;Accepted publish alert&quot;);</span>
+
+<span class="fc" id="L90">        } catch (Exception e) {</span>
+<span class="fc" id="L91">            test.log(LogStatus.FAIL, &quot;TestCase 03 failed: &quot; + e.getMessage());</span>
+<span class="fc" id="L92">            e.printStackTrace();</span>
+<span class="nc" id="L93">        }</span>
+<span class="fc" id="L94">    }</span>
+
     @AfterSuite
     public static void quitDriver() {
-<span class="fc" id="L65">        System.out.println(&quot;quit()&quot;);</span>
-
-<span class="fc" id="L67">        driver.quit();</span>
-     
-<span class="fc" id="L69">    }</span>
+        try {
+<span class="fc" id="L99">            System.out.println(&quot;quit()&quot;);</span>
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">            if (driver != null) {</span>
+<span class="fc" id="L101">                driver.quit();</span>
+<span class="fc" id="L102">                test.log(LogStatus.PASS, &quot;Driver quit successfully&quot;);</span>
+            }
+<span class="nc" id="L104">        } catch (Exception e) {</span>
+<span class="nc" id="L105">            test.log(LogStatus.FAIL, &quot;Driver quit failed: &quot; + e.getMessage());</span>
+        } finally {
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">            if (report != null) {</span>
+<span class="fc" id="L108">                report.flush();</span>
+<span class="fc" id="L109">                test.log(LogStatus.INFO, &quot;Report flushed&quot;);</span>
+            }
+        }
+<span class="fc" id="L112">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

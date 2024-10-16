@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReportSingleton.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">BabyMD</a> &gt; <span class="el_source">ReportSingleton.java</span></div><h1>ReportSingleton.java</h1><pre class="source lang-java linenums">package BabyMD;
+
+
+import java.io.File;
+import java.sql.Timestamp;
+
+import com.relevantcodes.extentreports.ExtentReports;
+
+public class ReportSingleton {
+
+<span class="fc" id="L11">    private static ReportSingleton instanceOfSingletonReport = null;</span>
+
+    private ExtentReports report;
+
+    public static String getTimeStamp() {
+<span class="fc" id="L16">        Timestamp timestamp = new Timestamp(System.currentTimeMillis());</span>
+<span class="fc" id="L17">        return String.valueOf(timestamp.getTime());</span>
+    }
+
+<span class="fc" id="L20">    private ReportSingleton() {</span>
+<span class="fc" id="L21">        report = new ExtentReports(System.getProperty(&quot;user.dir&quot;) + &quot;ExtentReportResults_&quot; + getTimeStamp() + &quot;.html&quot;); </span>
+<span class="fc" id="L22">        report.loadConfig(new File(&quot;extent_customization_configs.xml&quot;));</span>
+<span class="fc" id="L23">    }</span>
+
+    public static ReportSingleton getInstanceOfSingletonReportClass() {
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        if (instanceOfSingletonReport == null) {</span>
+<span class="fc" id="L27">            instanceOfSingletonReport = new ReportSingleton();</span>
+        }
+<span class="fc" id="L29">        return instanceOfSingletonReport;</span>
+    }
+
+    public ExtentReports getReport() {
+<span class="fc" id="L33">        return report;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

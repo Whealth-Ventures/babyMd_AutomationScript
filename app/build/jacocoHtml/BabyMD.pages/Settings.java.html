@@ -78,10 +78,10 @@ public void navigateToLandingPage() throws InterruptedException{
 <span class="fc" id="L78">    driver.get(url);</span>
 <span class="fc" id="L79">    Thread.sleep(3000);</span>
 <span class="fc" id="L80">}</span>
-public void gotogoal() throws InterruptedException{
-<span class="nc" id="L82">    driver.get(url2);</span>
-<span class="nc" id="L83">    Thread.sleep(3000);</span>
-<span class="nc" id="L84">}</span>
+// public void gotogoal() throws InterruptedException{
+//     driver.get(url2);
+//     Thread.sleep(3000);
+// }
 
 public void addNewGoal() throws InterruptedException{
 <span class="fc" id="L87">    globalConfig.click();</span>
@@ -114,11 +114,11 @@ public void AddReminder(String reminder){
 public void saveDetails(){
 <span class="fc" id="L115">    save.click();</span>
 <span class="fc" id="L116">}</span>
-public void goalname() throws InterruptedException{
-<span class="nc" id="L118">    searchGoal.click();</span>
-<span class="nc" id="L119">    Thread.sleep(3000);</span>
-<span class="nc" id="L120">    Vaccination.click();</span>
-<span class="nc" id="L121">}</span>
+// public void goalname() throws InterruptedException{
+//     searchGoal.click();
+//     Thread.sleep(3000);
+//     Vaccination.click();
+// }
 
 
 public void addNotecategory(String NoteName) throws InterruptedException{
@@ -132,18 +132,18 @@ public void addNotecategory(String NoteName) throws InterruptedException{
 <span class="fc" id="L132">}</span>
 
 
-public void addNotetemplate(String Title) throws InterruptedException{
-<span class="nc" id="L136">    ManageCategories.click();</span>
-<span class="nc" id="L137">    Thread.sleep(3000);</span>
-<span class="nc" id="L138">    notestemplate.click();</span>
-<span class="nc" id="L139">    Thread.sleep(2000);</span>
-<span class="nc" id="L140">    selectcategory.click();</span>
-<span class="nc" id="L141">    Thread.sleep(2000);</span>
-<span class="nc" id="L142">    category.click();</span>
-<span class="nc" id="L143">    Thread.sleep(2000);</span>
-<span class="nc" id="L144">    notetitle.sendKeys(Title);</span>
-<span class="nc" id="L145">    Thread.sleep(2000);</span>
-<span class="nc" id="L146">    savebutton.click();</span>
-<span class="nc" id="L147">}</span>
+// public void addNotetemplate(String Title) throws InterruptedException{
+//     ManageCategories.click();
+//     Thread.sleep(3000);
+//     notestemplate.click();
+//     Thread.sleep(2000);
+//     selectcategory.click();
+//     Thread.sleep(2000);
+//     category.click();
+//     Thread.sleep(2000);
+//     notetitle.sendKeys(Title);
+//     Thread.sleep(2000);
+//     savebutton.click();
+// }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

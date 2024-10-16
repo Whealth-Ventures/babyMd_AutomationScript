@@ -2,7 +2,6 @@
 
 import java.util.List;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 public class Home {
-<span class="fc" id="L15">    String url = &quot;https://staging.babymd.in/patient&quot;;</span>
+<span class="fc" id="L14">    String url = &quot;https://staging.babymd.in/patient&quot;;</span>
     ChromeDriver driver;
 
     // Using @FindBy for locating elements
@@ -70,109 +69,109 @@ public class Home {
     @FindBy(xpath = &quot;//div[text()='Save Details']&quot;)
     WebElement saveButton;
 
-<span class="fc" id="L73">    public Home(WebDriver driver) {</span>
-<span class="fc" id="L74">        this.driver = (ChromeDriver) driver;</span>
-<span class="fc" id="L75">        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);</span>
-<span class="fc" id="L76">    }</span>
+<span class="fc" id="L72">    public Home(WebDriver driver) {</span>
+<span class="fc" id="L73">        this.driver = (ChromeDriver) driver;</span>
+<span class="fc" id="L74">        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);</span>
+<span class="fc" id="L75">    }</span>
 
     public void navigateToLandingPage() throws InterruptedException {
-<span class="fc" id="L79">        driver.get(url);</span>
-<span class="fc" id="L80">        Thread.sleep(3000);</span>
-<span class="fc" id="L81">    }</span>
+<span class="fc" id="L78">        driver.get(url);</span>
+<span class="fc" id="L79">        Thread.sleep(3000);</span>
+<span class="fc" id="L80">    }</span>
 
     public void addPatient() throws InterruptedException {
-<span class="fc" id="L84">        addPatient.click();</span>
-<span class="fc" id="L85">        Thread.sleep(3000);</span>
-<span class="fc" id="L86">    }</span>
+<span class="fc" id="L83">        addPatient.click();</span>
+<span class="fc" id="L84">        Thread.sleep(3000);</span>
+<span class="fc" id="L85">    }</span>
 
-    public void signOut() throws InterruptedException {
-<span class="nc" id="L89">        profile.click();</span>
-<span class="nc" id="L90">        Thread.sleep(3000);</span>
-<span class="nc" id="L91">        WebElement signOutButton = driver.findElement(By.xpath(&quot;//div[text()='Sign Out']&quot;));</span>
-<span class="nc" id="L92">        signOutButton.click();</span>
-<span class="nc" id="L93">        Alert alert = driver.switchTo().alert();</span>
-<span class="nc" id="L94">        alert.accept();</span>
-<span class="nc" id="L95">        Thread.sleep(3000);</span>
-<span class="nc" id="L96">    }</span>
+    // public void signOut() throws InterruptedException {
+    //     profile.click();
+    //     Thread.sleep(3000);
+    //     WebElement signOutButton = driver.findElement(By.xpath(&quot;//div[text()='Sign Out']&quot;));
+    //     signOutButton.click();
+    //     Alert alert = driver.switchTo().alert();
+    //     alert.accept();
+    //     Thread.sleep(3000);
+    // }
 
-    public void clickPatient() {
-<span class="nc" id="L99">        patient.click();</span>
-<span class="nc" id="L100">    }</span>
+    // public void clickPatient() {
+    //     patient.click();
+    // }
 
     // Methods to interact with elements
     public void setPatientName(String name) throws InterruptedException {
-<span class="fc" id="L104">        patientName.sendKeys(name);</span>
-<span class="fc" id="L105">        Thread.sleep(2000);</span>
-<span class="fc" id="L106">    }</span>
+<span class="fc" id="L103">        patientName.sendKeys(name);</span>
+<span class="fc" id="L104">        Thread.sleep(2000);</span>
+<span class="fc" id="L105">    }</span>
 
     public void selectGender(String gender) {
-<span class="fc" id="L109">        genderDropdown.click();</span>
-<span class="pc bpc" id="L110" title="1 of 2 branches missed.">        for (WebElement genderOption : genderOptions) {</span>
-<span class="fc bfc" id="L111" title="All 2 branches covered.">            if (genderOption.getText().equals(gender)) {</span>
-<span class="fc" id="L112">                genderOption.click();</span>
-<span class="fc" id="L113">                break;</span>
+<span class="fc" id="L108">        genderDropdown.click();</span>
+<span class="pc bpc" id="L109" title="1 of 2 branches missed.">        for (WebElement genderOption : genderOptions) {</span>
+<span class="pc bpc" id="L110" title="1 of 2 branches missed.">            if (genderOption.getText().equals(gender)) {</span>
+<span class="fc" id="L111">                genderOption.click();</span>
+<span class="fc" id="L112">                break;</span>
             }
-<span class="fc" id="L115">        }</span>
-<span class="fc" id="L116">    }</span>
+<span class="nc" id="L114">        }</span>
+<span class="fc" id="L115">    }</span>
 
     public void setDateOfBirth(String dob) throws InterruptedException {
-<span class="fc" id="L119">       dateOfBirth.click();</span>
-<span class="fc" id="L120">       Thread.sleep(2000);</span>
-<span class="fc" id="L121">       driver.findElement(By.xpath(&quot;//*[@class='MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall MuiPickersCalendarHeader-switchViewButton css-1wjkg3']&quot;)).click();</span>
-<span class="fc" id="L122">       Thread.sleep(2000);</span>
-<span class="fc" id="L123">       driver.findElement(By.xpath(&quot;//button[text()='2020']&quot;)).click();</span>
-<span class="fc" id="L124">       Thread.sleep(2000);</span>
-<span class="fc" id="L125">       driver.findElement(By.xpath(&quot;//button[text()='OK']&quot;)).click();</span>
-<span class="fc" id="L126">       Thread.sleep(2000);</span>
-<span class="fc" id="L127">    }</span>
+<span class="fc" id="L118">       dateOfBirth.click();</span>
+<span class="fc" id="L119">       Thread.sleep(2000);</span>
+<span class="fc" id="L120">       driver.findElement(By.xpath(&quot;//*[@class='MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall MuiPickersCalendarHeader-switchViewButton css-1wjkg3']&quot;)).click();</span>
+<span class="fc" id="L121">       Thread.sleep(2000);</span>
+<span class="fc" id="L122">       driver.findElement(By.xpath(&quot;//button[text()='2020']&quot;)).click();</span>
+<span class="fc" id="L123">       Thread.sleep(2000);</span>
+<span class="fc" id="L124">       driver.findElement(By.xpath(&quot;//button[text()='OK']&quot;)).click();</span>
+<span class="fc" id="L125">       Thread.sleep(2000);</span>
+<span class="fc" id="L126">    }</span>
     
 
     public void setMobileNumber(String number) {
-<span class="fc" id="L131">        mobileNumber.sendKeys(number);</span>
-<span class="fc" id="L132">    }</span>
+<span class="fc" id="L130">        mobileNumber.sendKeys(number);</span>
+<span class="fc" id="L131">    }</span>
 
     public void selectRelationship(String relationship) {
-<span class="fc" id="L135">        relationshipDropdown.click();</span>
-<span class="pc bpc" id="L136" title="1 of 2 branches missed.">        for (WebElement relationOption : relations) {</span>
-<span class="fc bfc" id="L137" title="All 2 branches covered.">            if (relationOption.getText().equals(relationship)) {</span>
-<span class="fc" id="L138">                relationOption.click();</span>
-<span class="fc" id="L139">                break;</span>
+<span class="fc" id="L134">        relationshipDropdown.click();</span>
+<span class="pc bpc" id="L135" title="1 of 2 branches missed.">        for (WebElement relationOption : relations) {</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">            if (relationOption.getText().equals(relationship)) {</span>
+<span class="fc" id="L137">                relationOption.click();</span>
+<span class="fc" id="L138">                break;</span>
             }
-<span class="fc" id="L141">        }</span>
-<span class="fc" id="L142">    }</span>
+<span class="fc" id="L140">        }</span>
+<span class="fc" id="L141">    }</span>
 
     public void selectClinic(String clinic) {
-<span class="fc" id="L145">        clinicDropdown.click();</span>
-<span class="pc bpc" id="L146" title="1 of 2 branches missed.">        for (WebElement clinicOption : clinics) {</span>
-<span class="pc bpc" id="L147" title="1 of 2 branches missed.">            if (clinicOption.getText().equals(clinic)) {</span>
-<span class="fc" id="L148">                clinicOption.click();</span>
-<span class="fc" id="L149">                break;</span>
+<span class="fc" id="L144">        clinicDropdown.click();</span>
+<span class="pc bpc" id="L145" title="1 of 2 branches missed.">        for (WebElement clinicOption : clinics) {</span>
+<span class="pc bpc" id="L146" title="1 of 2 branches missed.">            if (clinicOption.getText().equals(clinic)) {</span>
+<span class="fc" id="L147">                clinicOption.click();</span>
+<span class="fc" id="L148">                break;</span>
             }
-<span class="nc" id="L151">        }</span>
-<span class="fc" id="L152">    }</span>
+<span class="nc" id="L150">        }</span>
+<span class="fc" id="L151">    }</span>
 
     public void setCity(String city) {
-<span class="fc" id="L155">        cityInput.sendKeys(city);</span>
-<span class="fc" id="L156">    }</span>
+<span class="fc" id="L154">        cityInput.sendKeys(city);</span>
+<span class="fc" id="L155">    }</span>
 
     public void setPincode(String pincode) {
-<span class="fc" id="L159">        pincodeInput.sendKeys(pincode);</span>
-<span class="fc" id="L160">    }</span>
+<span class="fc" id="L158">        pincodeInput.sendKeys(pincode);</span>
+<span class="fc" id="L159">    }</span>
 
     public void setParentName(String parentName) {
-<span class="fc" id="L163">        parentNameInput.sendKeys(parentName);</span>
-<span class="fc" id="L164">    }</span>
+<span class="fc" id="L162">        parentNameInput.sendKeys(parentName);</span>
+<span class="fc" id="L163">    }</span>
 
     public void setWeight(String weight) {
-<span class="fc" id="L167">        weightInput.sendKeys(weight);</span>
-<span class="fc" id="L168">    }</span>
+<span class="fc" id="L166">        weightInput.sendKeys(weight);</span>
+<span class="fc" id="L167">    }</span>
 
     public void setHeight(String height) {
-<span class="fc" id="L171">        heightInput.sendKeys(height);</span>
-<span class="fc" id="L172">    }</span>
+<span class="fc" id="L170">        heightInput.sendKeys(height);</span>
+<span class="fc" id="L171">    }</span>
 
     public void clickSaveButton() {
-<span class="fc" id="L175">        saveButton.click();</span>
-<span class="fc" id="L176">    }</span>
+<span class="fc" id="L174">        saveButton.click();</span>
+<span class="fc" id="L175">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

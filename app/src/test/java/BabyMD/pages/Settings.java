@@ -78,10 +78,10 @@ public void navigateToLandingPage() throws InterruptedException{
     driver.get(url);
     Thread.sleep(3000);
 }
-public void gotogoal() throws InterruptedException{
-    driver.get(url2);
-    Thread.sleep(3000);
-}
+// public void gotogoal() throws InterruptedException{
+//     driver.get(url2);
+//     Thread.sleep(3000);
+// }
 
 public void addNewGoal() throws InterruptedException{
     globalConfig.click();
@@ -114,11 +114,11 @@ public void AddReminder(String reminder){
 public void saveDetails(){
     save.click();
 }
-public void goalname() throws InterruptedException{
-    searchGoal.click();
-    Thread.sleep(3000);
-    Vaccination.click();
-}
+// public void goalname() throws InterruptedException{
+//     searchGoal.click();
+//     Thread.sleep(3000);
+//     Vaccination.click();
+// }
 
 
 public void addNotecategory(String NoteName) throws InterruptedException{
@@ -132,17 +132,17 @@ save.click();
 }
 
 
-public void addNotetemplate(String Title) throws InterruptedException{
-    ManageCategories.click();
-    Thread.sleep(3000);
-    notestemplate.click();
-    Thread.sleep(2000);
-    selectcategory.click();
-    Thread.sleep(2000);
-    category.click();
-    Thread.sleep(2000);
-    notetitle.sendKeys(Title);
-    Thread.sleep(2000);
-    savebutton.click();
-}
+// public void addNotetemplate(String Title) throws InterruptedException{
+//     ManageCategories.click();
+//     Thread.sleep(3000);
+//     notestemplate.click();
+//     Thread.sleep(2000);
+//     selectcategory.click();
+//     Thread.sleep(2000);
+//     category.click();
+//     Thread.sleep(2000);
+//     notetitle.sendKeys(Title);
+//     Thread.sleep(2000);
+//     savebutton.click();
+// }
 }
