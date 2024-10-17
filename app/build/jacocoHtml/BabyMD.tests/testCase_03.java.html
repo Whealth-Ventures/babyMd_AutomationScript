@@ -76,10 +76,10 @@ import BabyMD.pages.PatientDashBoard;
             // Click and publish prescription
 <span class="nc" id="L77">            driver.findElement(By.xpath(&quot;//div[text()='Prescription']&quot;)).click();</span>
 <span class="nc" id="L78">            test.log(LogStatus.INFO, &quot;Navigated to Prescription tab&quot;);</span>
-
+<span class="nc" id="L79">            Thread.sleep(3000);</span>
 <span class="nc" id="L80">            driver.findElement(By.xpath(&quot;//*[@id='root']/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[3]/div[1]/div/div/div[1]/div[2]/div[4]/div/span&quot;)).click();</span>
 <span class="nc" id="L81">            test.log(LogStatus.INFO, &quot;Selected the prescription for publishing&quot;);</span>
-
+<span class="nc" id="L82">            Thread.sleep(3000);</span>
 <span class="nc" id="L83">            driver.findElement(By.xpath(&quot;//button[text()='Publish']&quot;)).click();</span>
 <span class="nc" id="L84">            test.log(LogStatus.INFO, &quot;Clicked Publish button&quot;);</span>
 

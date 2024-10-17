@@ -69,11 +69,15 @@ public class Home {
     @FindBy(xpath = "//div[text()='Save Details']")
     WebElement saveButton;
 
+
+
     public Home(WebDriver driver) {
         this.driver = (ChromeDriver) driver;
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
     }
 
+
+    
     public void navigateToLandingPage() throws InterruptedException {
         driver.get(url);
         Thread.sleep(3000);
