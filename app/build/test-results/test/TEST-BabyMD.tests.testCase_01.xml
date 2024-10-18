@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BabyMD.tests.testCase_01" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-10-16T09:51:12" hostname="indianrterssMBP.lan" time="31.308">
+<testsuite name="BabyMD.tests.testCase_01" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-10-18T10:16:08" hostname="indianrterssMBP.lan" time="29.917">
   <properties/>
-  <testcase name="TestCase01[0](9.6432432E9, 596921.0)" classname="BabyMD.tests.testCase_01" time="31.308"/>
+  <testcase name="TestCase01[0](9.6432432E9, 596921.0)" classname="BabyMD.tests.testCase_01" time="29.917"/>
   <system-out><![CDATA[Test Case 1
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

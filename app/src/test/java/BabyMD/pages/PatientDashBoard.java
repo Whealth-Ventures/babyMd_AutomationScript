@@ -95,7 +95,18 @@ WebElement appointmentFee;
 @FindBy(xpath="//*[@class='reusableBtnActive  reusableBtn  w-100']")
 WebElement createAppointment;
 
+@FindBy(xpath="//span[text()='close']")
+WebElement cancel;
 
+@FindBy(xpath="//*[@id='root']/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[2]/div[2]/div[1]/div[2]/div[2]/div")
+WebElement editAppointment;
+
+@FindBy(xpath="//*[@id='root']/div[2]/div[2]/div/div[11]/div[1]/div")
+WebElement UpdateAppointment;
+
+
+@FindBy(xpath = "//div[text()='Record Payment']")
+WebElement recordPayment;
  public PatientDashBoard(WebDriver driver) {
         this.driver = (ChromeDriver) driver;
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
@@ -234,13 +245,15 @@ for (WebElement doctorname:doctors) {
 }
 }
 Thread.sleep(2000);
-date1.sendKeys("2024-10-17");
+date1.sendKeys("2024-10-24");
 Thread.sleep(2000);
 timeslot.click();
 Thread.sleep(2000);
 appointmentFee.sendKeys(appointmentfee);
 Thread.sleep(2000);
 createAppointment.click();
-Thread.sleep(3000);
+Thread.sleep(5000);
 }
+
+
 }

@@ -35,7 +35,7 @@ public class testCase_06 {
     }
 
     @Test(description = "Updating Patient dashboard", dataProvider = "data-Provider", dataProviderClass = DP.class, priority = 6, groups = {"Updation"})
-    public void TestCase06(String goal, String NoteCategory, String Template, String Content, String Clinic, String Doctor, String Date, String Fee) throws InterruptedException {
+    public void TestCase06(String goal, String NoteCategory, String Template, String Content, String Clinic, String Doctor, String Date, String Fee,String Booked, String Payment) throws InterruptedException {
         try {
             test.log(LogStatus.INFO, "Test case 06 started");
 

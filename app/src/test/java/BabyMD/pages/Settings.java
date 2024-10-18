@@ -1,9 +1,12 @@
 package BabyMD.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -68,6 +71,26 @@ public class Settings {
     WebElement notetitle;
 @FindBy(xpath="//button[text()='Save']")
 WebElement savebutton;
+
+@FindBy(xpath="//*[@id='root']/div[2]/div[2]/div/div/div[2]/div/div[2]/div/table/tr[1]/td[2]/div/div/div[2]/div")
+WebElement editGoal;
+
+@FindBy(xpath ="//*[@id='root']/div[2]/div[2]/div/div/div[2]/div/div[2]/div/table/tr[1]/td[2]/div/div/div[3]/div")
+WebElement deleteGoal;
+
+   // Find all elements with class name "rs-dropdown-item"
+   @FindBys({
+    @FindBy(className = "rs-dropdown-item")
+})
+List<WebElement> dropdown;
+
+@FindBy(xpath = "//div[text()='Record Payment']")
+WebElement paymentrecord;
+
+
+@FindBy(xpath="//span[text()='Select']")
+WebElement select;
+
 
 public Settings(WebDriver driver){
        this.driver = (ChromeDriver) driver;
