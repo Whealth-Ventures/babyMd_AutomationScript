@@ -2,6 +2,7 @@ package BabyMD.pages;
 
 import java.util.List;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -78,6 +79,16 @@ WebElement editGoal;
 @FindBy(xpath ="//*[@id='root']/div[2]/div[2]/div/div/div[2]/div/div[2]/div/table/tr[1]/td[2]/div/div/div[3]/div")
 WebElement deleteGoal;
 
+@FindBy(xpath = "//*[@id='root']/div[2]/div[2]/div/div/div[2]/div/div[3]/div/div/table/tbody/tr[1]/td[2]/div/div[2]/div[1]/div")
+WebElement editCategory;
+
+@FindBy(xpath="//*[@id='root']/div[2]/div[2]/div/div/div[2]/div/div[3]/div/div/table/tbody/tr[1]/td[2]/div/div[2]/div[1]")
+WebElement UpdateCategory;
+
+@FindBy(xpath="//*[@id='root']/div[2]/div[2]/div/div/div[2]/div/div[3]/div/div/table/tbody/tr[1]/td[2]/div/div[2]/div[2]/div")
+WebElement deleteCategory; 
+@FindBy(xpath="//div[text()='Update']")
+WebElement update;
    // Find all elements with class name "rs-dropdown-item"
    @FindBys({
     @FindBy(className = "rs-dropdown-item")
@@ -154,6 +165,30 @@ Thread.sleep(2000);
 save.click();
 }
 
+// edit goal
+public void editGoal() throws InterruptedException{
+    editGoal.click();
+    Thread.sleep(2000);
+    update.click();
+    Thread.sleep(2000);
+    deleteGoal.click();
+    Alert alert=driver.switchTo().alert();
+    alert.accept();
+    Thread.sleep(2000);
+}
+//edit notes category
+public void editNoteCategory() throws InterruptedException{
+    editCategory.click();
+    Thread.sleep(2000);
+   UpdateCategory.click();
+    Thread.sleep(2000);
+    deleteCategory.click();
+    Thread.sleep(2000);
+    Alert alert=driver.switchTo().alert();
+    alert.accept();
+    Thread.sleep(2000);
+}
+
 
 // public void addNotetemplate(String Title) throws InterruptedException{
 //     ManageCategories.click();
@@ -168,4 +203,6 @@ save.click();
 //     Thread.sleep(2000);
 //     savebutton.click();
 // }
+
+
 }

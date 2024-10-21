@@ -47,48 +47,58 @@ import BabyMD.pages.PatientDashBoard;
 <span class="fc" id="L47">            patient.navigateToLandingPage();</span>
 <span class="fc" id="L48">            test.log(LogStatus.INFO, &quot;Navigated to Landing Page&quot;);</span>
 
-<span class="fc" id="L50">            Thread.sleep(3000);</span>
-<span class="fc" id="L51">            patient.goalcreation();</span>
-<span class="fc" id="L52">            test.log(LogStatus.INFO, &quot;Started goal creation&quot;);</span>
+            // Thread.sleep(3000);
+            // patient.goalcreation();
+            // test.log(LogStatus.INFO, &quot;Started goal creation&quot;);
 
-<span class="fc" id="L54">            Thread.sleep(3000);</span>
-<span class="fc" id="L55">            patient.selectGoal(goal);</span>
-<span class="fc" id="L56">            test.log(LogStatus.PASS, &quot;Goal selected: &quot; + goal);</span>
+            // Thread.sleep(3000);
+            // patient.selectGoal(goal);
+            // test.log(LogStatus.PASS, &quot;Goal selected: &quot; + goal);
 
-<span class="fc" id="L58">            Thread.sleep(3000);</span>
-<span class="fc" id="L59">            patient.addNotes(NoteCategory, Template, Content);</span>
-<span class="fc" id="L60">            test.log(LogStatus.PASS, &quot;Notes added: Category - &quot; + NoteCategory + &quot;, Template - &quot; + Template);</span>
+            // Thread.sleep(3000);
+            // patient.addNotes(NoteCategory, Template, Content);
+            // test.log(LogStatus.PASS, &quot;Notes added: Category - &quot; + NoteCategory + &quot;, Template - &quot; + Template);
 
 <span class="fc" id="L62">            Thread.sleep(3000);</span>
 <span class="fc" id="L63">            patient.addAppointmentForPatient();</span>
 <span class="fc" id="L64">            test.log(LogStatus.INFO, &quot;Adding appointment for patient&quot;);</span>
 
 <span class="fc" id="L66">            Thread.sleep(2000);</span>
-<span class="fc" id="L67">            patient.updateAppointmentdetails(Clinic, Doctor, Date, Fee);</span>
-<span class="fc" id="L68">            test.log(LogStatus.PASS, &quot;Appointment details updated: Clinic - &quot; + Clinic + &quot;, Doctor - &quot; + Doctor);</span>
+<span class="fc" id="L67">             patient.updateAppointmentdetails(Clinic, Doctor, Date, Fee);</span>
+            // test.log(LogStatus.PASS, &quot;Appointment details updated: Clinic - &quot; + Clinic + &quot;, Doctor - &quot; + Doctor);
+//cancelled appointment
+<span class="fc" id="L70">            patient.updateStatus();</span>
+<span class="fc" id="L71">            test.log(LogStatus.INFO, &quot;Updated status&quot;);</span>
+<span class="fc" id="L72">            Thread.sleep(2000);</span>
 
-<span class="nc" id="L70">        } catch (Exception e) {</span>
-<span class="nc" id="L71">            test.log(LogStatus.FAIL, &quot;TestCase 06 failed: &quot; + e.getMessage());</span>
-<span class="nc" id="L72">            e.printStackTrace();</span>
-<span class="fc" id="L73">        }</span>
-<span class="fc" id="L74">    }</span>
+<span class="fc" id="L74">            patient.verifyCancellation();</span>
+<span class="fc" id="L75">            Thread.sleep(2000);</span>
+<span class="fc" id="L76">            patient.addAppointmentForPatient();</span>
+<span class="fc" id="L77">            Thread.sleep(3000);</span>
+           
+<span class="nc" id="L79">            patient.createAppointmentwithPayment(Clinic,Doctor,Fee,Booked, Payment);</span>
+<span class="fc" id="L80">        } catch (Exception e) {</span>
+<span class="fc" id="L81">            test.log(LogStatus.FAIL, &quot;TestCase 06 failed: &quot; + e.getMessage());</span>
+<span class="fc" id="L82">            e.printStackTrace();</span>
+<span class="nc" id="L83">        }</span>
+<span class="fc" id="L84">    }</span>
 
     @AfterSuite
     public static void quitDriver() {
         try {
-<span class="fc" id="L79">            System.out.println(&quot;quit()&quot;);</span>
-<span class="pc bpc" id="L80" title="1 of 2 branches missed.">            if (driver != null) {</span>
-<span class="fc" id="L81">                driver.quit();</span>
-<span class="fc" id="L82">                test.log(LogStatus.PASS, &quot;Driver quit successfully&quot;);</span>
+<span class="fc" id="L89">            System.out.println(&quot;quit()&quot;);</span>
+<span class="pc bpc" id="L90" title="1 of 2 branches missed.">            if (driver != null) {</span>
+<span class="fc" id="L91">                driver.quit();</span>
+<span class="fc" id="L92">                test.log(LogStatus.PASS, &quot;Driver quit successfully&quot;);</span>
             }
-<span class="nc" id="L84">        } catch (Exception e) {</span>
-<span class="nc" id="L85">            test.log(LogStatus.FAIL, &quot;Driver quit failed: &quot; + e.getMessage());</span>
+<span class="nc" id="L94">        } catch (Exception e) {</span>
+<span class="nc" id="L95">            test.log(LogStatus.FAIL, &quot;Driver quit failed: &quot; + e.getMessage());</span>
         } finally {
-<span class="pc bpc" id="L87" title="1 of 2 branches missed.">            if (report != null) {</span>
-<span class="fc" id="L88">                report.flush();</span>
-<span class="fc" id="L89">                test.log(LogStatus.INFO, &quot;Report flushed&quot;);</span>
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">            if (report != null) {</span>
+<span class="fc" id="L98">                report.flush();</span>
+<span class="fc" id="L99">                test.log(LogStatus.INFO, &quot;Report flushed&quot;);</span>
             }
         }
-<span class="fc" id="L92">    }</span>
+<span class="fc" id="L102">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

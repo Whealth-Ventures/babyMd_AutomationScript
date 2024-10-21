@@ -66,30 +66,34 @@ import BabyMD.pages.Settings;
 
 <span class="fc" id="L67">            Thread.sleep(2000);</span>
 <span class="fc" id="L68">            goal.saveDetails();</span>
-<span class="fc" id="L69">            test.log(LogStatus.PASS, &quot;Goal details saved successfully&quot;);</span>
+<span class="fc" id="L69">            test.log(LogStatus.INFO, &quot;Goal details saved&quot;);</span>
+<span class="fc" id="L70">            Thread.sleep(2000);</span>
+<span class="fc" id="L71">            goal.editGoal();</span>
+<span class="fc" id="L72">            Thread.sleep(3000);</span>
+<span class="fc" id="L73">            test.log(LogStatus.PASS, &quot;Goal details saved successfully&quot;);</span>
 
-<span class="nc" id="L71">        } catch (Exception e) {</span>
-<span class="nc" id="L72">            test.log(LogStatus.FAIL, &quot;TestCase 04 failed: &quot; + e.getMessage());</span>
-<span class="nc" id="L73">            e.printStackTrace();</span>
-<span class="fc" id="L74">        }</span>
-<span class="fc" id="L75">    }</span>
+<span class="nc" id="L75">        } catch (Exception e) {</span>
+<span class="nc" id="L76">            test.log(LogStatus.FAIL, &quot;TestCase 04 failed: &quot; + e.getMessage());</span>
+<span class="nc" id="L77">            e.printStackTrace();</span>
+<span class="fc" id="L78">        }</span>
+<span class="fc" id="L79">    }</span>
 
     @AfterSuite
     public static void quitDriver() {
         try {
-<span class="fc" id="L80">            System.out.println(&quot;quit()&quot;);</span>
-<span class="pc bpc" id="L81" title="1 of 2 branches missed.">            if (driver != null) {</span>
-<span class="fc" id="L82">                driver.quit();</span>
-<span class="fc" id="L83">                test.log(LogStatus.PASS, &quot;Driver quit successfully&quot;);</span>
+<span class="fc" id="L84">            System.out.println(&quot;quit()&quot;);</span>
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">            if (driver != null) {</span>
+<span class="fc" id="L86">                driver.quit();</span>
+<span class="fc" id="L87">                test.log(LogStatus.PASS, &quot;Driver quit successfully&quot;);</span>
             }
-<span class="nc" id="L85">        } catch (Exception e) {</span>
-<span class="nc" id="L86">            test.log(LogStatus.FAIL, &quot;Driver quit failed: &quot; + e.getMessage());</span>
+<span class="nc" id="L89">        } catch (Exception e) {</span>
+<span class="nc" id="L90">            test.log(LogStatus.FAIL, &quot;Driver quit failed: &quot; + e.getMessage());</span>
         } finally {
-<span class="pc bpc" id="L88" title="1 of 2 branches missed.">            if (report != null) {</span>
-<span class="fc" id="L89">                report.flush();</span>
-<span class="fc" id="L90">                test.log(LogStatus.INFO, &quot;Report flushed&quot;);</span>
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">            if (report != null) {</span>
+<span class="fc" id="L93">                report.flush();</span>
+<span class="fc" id="L94">                test.log(LogStatus.INFO, &quot;Report flushed&quot;);</span>
             }
         }
-<span class="fc" id="L93">    }</span>
+<span class="fc" id="L97">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

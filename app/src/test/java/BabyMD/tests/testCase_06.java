@@ -47,26 +47,36 @@ public class testCase_06 {
             patient.navigateToLandingPage();
             test.log(LogStatus.INFO, "Navigated to Landing Page");
 
-            Thread.sleep(3000);
-            patient.goalcreation();
-            test.log(LogStatus.INFO, "Started goal creation");
+            // Thread.sleep(3000);
+            // patient.goalcreation();
+            // test.log(LogStatus.INFO, "Started goal creation");
 
-            Thread.sleep(3000);
-            patient.selectGoal(goal);
-            test.log(LogStatus.PASS, "Goal selected: " + goal);
+            // Thread.sleep(3000);
+            // patient.selectGoal(goal);
+            // test.log(LogStatus.PASS, "Goal selected: " + goal);
 
-            Thread.sleep(3000);
-            patient.addNotes(NoteCategory, Template, Content);
-            test.log(LogStatus.PASS, "Notes added: Category - " + NoteCategory + ", Template - " + Template);
+            // Thread.sleep(3000);
+            // patient.addNotes(NoteCategory, Template, Content);
+            // test.log(LogStatus.PASS, "Notes added: Category - " + NoteCategory + ", Template - " + Template);
 
             Thread.sleep(3000);
             patient.addAppointmentForPatient();
             test.log(LogStatus.INFO, "Adding appointment for patient");
 
             Thread.sleep(2000);
-            patient.updateAppointmentdetails(Clinic, Doctor, Date, Fee);
-            test.log(LogStatus.PASS, "Appointment details updated: Clinic - " + Clinic + ", Doctor - " + Doctor);
+             patient.updateAppointmentdetails(Clinic, Doctor, Date, Fee);
+            // test.log(LogStatus.PASS, "Appointment details updated: Clinic - " + Clinic + ", Doctor - " + Doctor);
+//cancelled appointment
+            patient.updateStatus();
+            test.log(LogStatus.INFO, "Updated status");
+            Thread.sleep(2000);
 
+            patient.verifyCancellation();
+            Thread.sleep(2000);
+            patient.addAppointmentForPatient();
+            Thread.sleep(3000);
+           
+            patient.createAppointmentwithPayment(Clinic,Doctor,Fee,Booked, Payment);
         } catch (Exception e) {
             test.log(LogStatus.FAIL, "TestCase 06 failed: " + e.getMessage());
             e.printStackTrace();

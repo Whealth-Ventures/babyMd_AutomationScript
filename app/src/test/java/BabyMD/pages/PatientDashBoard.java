@@ -107,6 +107,29 @@ WebElement UpdateAppointment;
 
 @FindBy(xpath = "//div[text()='Record Payment']")
 WebElement recordPayment;
+
+
+@FindBy(xpath ="//*[@id='root']/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[2]/div[5]/div[2]/div[2]/div[1]/div")
+WebElement RecordPayment;
+@FindBy(xpath="//span[text()='Select']")
+WebElement selectPaymentMethod;
+
+@FindBy(xpath = "//*[@id='root']/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[2]/div[2]")
+WebElement appointmentDetails;
+
+@FindBy(xpath = "//div[text()='Cancel Appointment']")
+WebElement cancelAppointment;
+
+@FindBy(xpath="//label[text()='canceled']")
+WebElement cancelledApElement;
+
+
+@FindBy(xpath="//span[text()='booked']")
+WebElement editBookButton;
+
+@FindBy(xpath="//*[@id='root']/div[2]/div[2]/div/div[11]/div[2]/div")
+WebElement createAndpay;
+
  public PatientDashBoard(WebDriver driver) {
         this.driver = (ChromeDriver) driver;
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
@@ -255,5 +278,115 @@ createAppointment.click();
 Thread.sleep(5000);
 }
 
+//update appintment 
+public void updateStatus() throws InterruptedException{
+String text=appointmentDetails.getText();
+System.out.println(text);
+cancel.click();
+Thread.sleep(2000);
+cancelAppointment.click();
+Thread.sleep(2000);
+
+}
+
+public boolean  verifyCancellation(){
+    return cancelledApElement.isDisplayed();
+    }
+
+    //update payment
+//     public void updatePayment(String Booked,String Payment) throws InterruptedException{
+//  editBookButton.click();
+//         Thread.sleep(2000);
+//         List<WebElement> attendances=driver.findElements(By.className("rs-dropdown-item"));
+//         for (WebElement paymentmethod:attendances) {
+// if(paymentmethod.getText().equals(Booked)){
+//     paymentmethod.click();
+//     break;
+// }
+//      Thread.sleep(2000);   
+   
+// }
+// List<WebElement> attendanceTypes=driver.findElements(By.className("rs-picker-select-menu-item"));
+// for (WebElement paymentmethod:attendanceTypes) {
+// if(paymentmethod.getText().equals("Arrived")){
+// paymentmethod.click();
+// break;
+// }
+// Thread.sleep(2000);   
+
+// }
+
+//     //payment type
+//     selectPaymentMethod.click();
+//     Thread.sleep(2000);
+//     List<WebElement> payments=driver.findElements(By.className("rs-picker-select-menu-item"));
+//     for (WebElement paymenttype:payments) {
+//         if(paymenttype.getText().equals(Payment)){
+//             paymenttype.click();
+//             break;
+//         }
+// Thread.sleep(2000);
+// }
+// recordPayment.click();
+// Thread.sleep(2000);
+// }
+//update appointment with payment
+
+public void createAppointmentwithPayment(String Clinic, String doctor,String appointmentfee,String Booked,String Payment) throws InterruptedException{
+    clinic.click();
+Thread.sleep(2000);
+List<WebElement> clinics=driver.findElements(By.className("rs-picker-select-menu-item"));
+for (WebElement clinicname:clinics) {
+    if(clinicname.getText().equals(Clinic))
+    {
+        clinicname.click();
+        break;
+    }
+    
+}
+Thread.sleep(3000);
+doctorName.click();
+List<WebElement> doctors=driver.findElements(By.className("rs-picker-select-menu-item"));
+for (WebElement doctorname:doctors) {
+    if(doctorname.getText().equals(doctor))
+    {
+        doctorname.click();
+        break;
+
+}
+}
+Thread.sleep(2000);
+date1.sendKeys("2024-10-24");
+Thread.sleep(2000);
+timeslot.click();
+Thread.sleep(2000);
+appointmentFee.sendKeys(appointmentfee);
+Thread.sleep(2000);
+createAndpay.click();
+Thread.sleep(5000);
+List<WebElement> attendanceTypes=driver.findElements(By.className("rs-picker-select-menu-item"));
+for (WebElement paymentmethod:attendanceTypes) {
+if(paymentmethod.getText().equals("Arrived")){
+paymentmethod.click();
+break;
+}
+Thread.sleep(2000);   
+
+}
+
+    //payment type
+    selectPaymentMethod.click();
+    Thread.sleep(2000);
+    List<WebElement> payments=driver.findElements(By.className("rs-picker-select-menu-item"));
+    for (WebElement paymenttype:payments) {
+        if(paymenttype.getText().equals(Payment)){
+            paymenttype.click();
+            break;
+        }
+Thread.sleep(2000);
+}
+recordPayment.click();
+Thread.sleep(2000);
+}
 
 }

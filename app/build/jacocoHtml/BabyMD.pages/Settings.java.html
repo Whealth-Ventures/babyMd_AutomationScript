@@ -2,6 +2,7 @@
 
 import java.util.List;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,9 +14,9 @@ import org.openqa.selenium.support.ui.Select;
 
 public class Settings {
     ChromeDriver driver;
-<span class="fc" id="L16">    String url=&quot;https://staging.babymd.in/settings&quot;;</span>
+<span class="fc" id="L17">    String url=&quot;https://staging.babymd.in/settings&quot;;</span>
 
-<span class="fc" id="L18">    String url2=&quot;https://staging.babymd.in/patient/124/goals/new&quot;;</span>
+<span class="fc" id="L19">    String url2=&quot;https://staging.babymd.in/patient/124/goals/new&quot;;</span>
     @FindBy(xpath=&quot;//div[text()='Global Configurations']&quot;)
     WebElement  globalConfig;
 
@@ -78,6 +79,16 @@ WebElement editGoal;
 @FindBy(xpath =&quot;//*[@id='root']/div[2]/div[2]/div/div/div[2]/div/div[2]/div/table/tr[1]/td[2]/div/div/div[3]/div&quot;)
 WebElement deleteGoal;
 
+@FindBy(xpath = &quot;//*[@id='root']/div[2]/div[2]/div/div/div[2]/div/div[3]/div/div/table/tbody/tr[1]/td[2]/div/div[2]/div[1]/div&quot;)
+WebElement editCategory;
+
+@FindBy(xpath=&quot;//*[@id='root']/div[2]/div[2]/div/div/div[2]/div/div[3]/div/div/table/tbody/tr[1]/td[2]/div/div[2]/div[1]&quot;)
+WebElement UpdateCategory;
+
+@FindBy(xpath=&quot;//*[@id='root']/div[2]/div[2]/div/div/div[2]/div/div[3]/div/div/table/tbody/tr[1]/td[2]/div/div[2]/div[2]/div&quot;)
+WebElement deleteCategory; 
+@FindBy(xpath=&quot;//div[text()='Update']&quot;)
+WebElement update;
    // Find all elements with class name &quot;rs-dropdown-item&quot;
    @FindBys({
     @FindBy(className = &quot;rs-dropdown-item&quot;)
@@ -92,51 +103,51 @@ WebElement paymentrecord;
 WebElement select;
 
 
-<span class="fc" id="L95">public Settings(WebDriver driver){</span>
-<span class="fc" id="L96">       this.driver = (ChromeDriver) driver;</span>
-<span class="fc" id="L97">        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);</span>
-<span class="fc" id="L98">}</span>
+<span class="fc" id="L106">public Settings(WebDriver driver){</span>
+<span class="fc" id="L107">       this.driver = (ChromeDriver) driver;</span>
+<span class="fc" id="L108">        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);</span>
+<span class="fc" id="L109">}</span>
 
 public void navigateToLandingPage() throws InterruptedException{
-<span class="fc" id="L101">    driver.get(url);</span>
-<span class="fc" id="L102">    Thread.sleep(3000);</span>
-<span class="fc" id="L103">}</span>
+<span class="fc" id="L112">    driver.get(url);</span>
+<span class="fc" id="L113">    Thread.sleep(3000);</span>
+<span class="fc" id="L114">}</span>
 // public void gotogoal() throws InterruptedException{
 //     driver.get(url2);
 //     Thread.sleep(3000);
 // }
 
 public void addNewGoal() throws InterruptedException{
-<span class="fc" id="L110">    globalConfig.click();</span>
-<span class="fc" id="L111">    Thread.sleep(2000);</span>
-<span class="fc" id="L112">    goalCreation.click();</span>
-<span class="fc" id="L113">    Thread.sleep(2000);</span>
-<span class="fc" id="L114">}</span>
+<span class="fc" id="L121">    globalConfig.click();</span>
+<span class="fc" id="L122">    Thread.sleep(2000);</span>
+<span class="fc" id="L123">    goalCreation.click();</span>
+<span class="fc" id="L124">    Thread.sleep(2000);</span>
+<span class="fc" id="L125">}</span>
 
 
 
 public void AddGoalDetails(String GoalName,String target){
-<span class="fc" id="L119">    goalName.sendKeys(GoalName);</span>
-<span class="fc" id="L120">    addGoal.click();</span>
-<span class="fc" id="L121">    targetValue.sendKeys(target);</span>
+<span class="fc" id="L130">    goalName.sendKeys(GoalName);</span>
+<span class="fc" id="L131">    addGoal.click();</span>
+<span class="fc" id="L132">    targetValue.sendKeys(target);</span>
 
-<span class="fc" id="L123">}</span>
+<span class="fc" id="L134">}</span>
 
 public void frequencySelect(){
-<span class="fc" id="L126">    Select select=new Select(frequency);</span>
-<span class="fc" id="L127">    select.selectByIndex(1);</span>
-<span class="fc" id="L128">}</span>
+<span class="fc" id="L137">    Select select=new Select(frequency);</span>
+<span class="fc" id="L138">    select.selectByIndex(1);</span>
+<span class="fc" id="L139">}</span>
 public void AddNotification(String Notification){
-<span class="fc" id="L130">    notificationTemplate.sendKeys(Notification);</span>
-<span class="fc" id="L131">}</span>
+<span class="fc" id="L141">    notificationTemplate.sendKeys(Notification);</span>
+<span class="fc" id="L142">}</span>
 
 public void AddReminder(String reminder){
-<span class="fc" id="L134">    reminderTemplate.sendKeys(reminder);</span>
+<span class="fc" id="L145">    reminderTemplate.sendKeys(reminder);</span>
 
-<span class="fc" id="L136">}</span>
+<span class="fc" id="L147">}</span>
 public void saveDetails(){
-<span class="fc" id="L138">    save.click();</span>
-<span class="fc" id="L139">}</span>
+<span class="fc" id="L149">    save.click();</span>
+<span class="fc" id="L150">}</span>
 // public void goalname() throws InterruptedException{
 //     searchGoal.click();
 //     Thread.sleep(3000);
@@ -145,14 +156,38 @@ public void saveDetails(){
 
 
 public void addNotecategory(String NoteName) throws InterruptedException{
-<span class="fc" id="L148">    ManageCategories.click();</span>
-<span class="fc" id="L149">    Thread.sleep(2000);</span>
-<span class="fc" id="L150">notescategories.click();</span>
-<span class="fc" id="L151">Thread.sleep(2000);</span>
-<span class="fc" id="L152">notename.sendKeys(NoteName);</span>
-<span class="fc" id="L153">Thread.sleep(2000);</span>
-<span class="fc" id="L154">save.click();</span>
-<span class="fc" id="L155">}</span>
+<span class="fc" id="L159">    ManageCategories.click();</span>
+<span class="fc" id="L160">    Thread.sleep(2000);</span>
+<span class="fc" id="L161">notescategories.click();</span>
+<span class="fc" id="L162">Thread.sleep(2000);</span>
+<span class="fc" id="L163">notename.sendKeys(NoteName);</span>
+<span class="fc" id="L164">Thread.sleep(2000);</span>
+<span class="fc" id="L165">save.click();</span>
+<span class="fc" id="L166">}</span>
+
+// edit goal
+public void editGoal() throws InterruptedException{
+<span class="fc" id="L170">    editGoal.click();</span>
+<span class="fc" id="L171">    Thread.sleep(2000);</span>
+<span class="fc" id="L172">    update.click();</span>
+<span class="fc" id="L173">    Thread.sleep(2000);</span>
+<span class="fc" id="L174">    deleteGoal.click();</span>
+<span class="fc" id="L175">    Alert alert=driver.switchTo().alert();</span>
+<span class="fc" id="L176">    alert.accept();</span>
+<span class="fc" id="L177">    Thread.sleep(2000);</span>
+<span class="fc" id="L178">}</span>
+//edit notes category
+public void editNoteCategory() throws InterruptedException{
+<span class="fc" id="L181">    editCategory.click();</span>
+<span class="fc" id="L182">    Thread.sleep(2000);</span>
+<span class="fc" id="L183">   UpdateCategory.click();</span>
+<span class="fc" id="L184">    Thread.sleep(2000);</span>
+<span class="fc" id="L185">    deleteCategory.click();</span>
+<span class="fc" id="L186">    Thread.sleep(2000);</span>
+<span class="fc" id="L187">    Alert alert=driver.switchTo().alert();</span>
+<span class="fc" id="L188">    alert.accept();</span>
+<span class="fc" id="L189">    Thread.sleep(2000);</span>
+<span class="fc" id="L190">}</span>
 
 
 // public void addNotetemplate(String Title) throws InterruptedException{
@@ -168,5 +203,7 @@ public void addNotecategory(String NoteName) throws InterruptedException{
 //     Thread.sleep(2000);
 //     savebutton.click();
 // }
+
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

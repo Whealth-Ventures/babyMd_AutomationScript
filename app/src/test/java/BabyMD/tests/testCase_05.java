@@ -47,9 +47,10 @@ public class testCase_05 {
             Thread.sleep(3000);
 
             goal.addNotecategory(NoteName);
-            test.log(LogStatus.PASS, "Note category added: " + NoteName);
-
             Thread.sleep(3000);
+            test.log(LogStatus.PASS, "Note category added: " + NoteName);
+goal.editNoteCategory();
+Thread.sleep(3000);
             // goal.addNotetemplate();
             // test.log(LogStatus.PASS, "Note template added: " + Title);
 

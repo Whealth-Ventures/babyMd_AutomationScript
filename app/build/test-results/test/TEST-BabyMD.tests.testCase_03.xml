@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BabyMD.tests.testCase_03" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-10-18T10:17:03" hostname="indianrterssMBP.lan" time="49.632">
+<testsuite name="BabyMD.tests.testCase_03" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-10-21T11:58:00" hostname="MacBookPro.lan" time="49.82">
   <properties/>
-  <testcase name="TestCase03[0](Doc Sanjay, UnderNutition, Cream, 30.0, Daily, Morning, need more nutritional intake)" classname="BabyMD.tests.testCase_03" time="49.632"/>
+  <testcase name="TestCase03[0](Doc Sanjay, UnderNutition, Cream, 30.0, Daily, Morning, need more nutritional intake)" classname="BabyMD.tests.testCase_03" time="49.82"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <div class="activeLink">...</div> is not clickable at point (497, 324). Other element would receive the click: <div class="pt-3">...</div>
   (Session info: chrome=129.0.6668.101)
 Build info: version: '4.19.1', revision: 'abe0ee07dc'
-System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '14.6.1', java.version: '21.0.3'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.0.1', java.version: '21.0.3'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [6bf0443da34133bb02d8c0b5f07a26ca, clickElement {id=f.B471DEEADC7BD628D972F81B14DE5AC8.d.5FC7B9FA66DDB31C8EB7C990E48F541E.e.381}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 129.0.6668.101, chrome: {chromedriverVersion: 129.0.6668.100 (cf58cba358d..., userDataDir: /var/folders/62/dcmvb2_90tn...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49307}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:49307/devtoo..., se:cdpVersion: 129.0.6668.101, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on mac (6bf0443da34133bb02d8c0b5f07a26ca)] -> xpath: //div[text()='Prescription']]
-Session ID: 6bf0443da34133bb02d8c0b5f07a26ca
+Command: [866eb6b3c5abff6736490877020f84de, clickElement {id=f.E076D15817CCB65A1AADE9AFD1170B35.d.DF680976A17A05E530FC12981DED1845.e.363}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 129.0.6668.101, chrome: {chromedriverVersion: 129.0.6668.100 (cf58cba358d..., userDataDir: /var/folders/62/dcmvb2_90tn...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53191}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:53191/devtoo..., se:cdpVersion: 129.0.6668.101, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (866eb6b3c5abff6736490877020f84de)] -> xpath: //div[text()='Prescription']]
+Session ID: 866eb6b3c5abff6736490877020f84de
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)

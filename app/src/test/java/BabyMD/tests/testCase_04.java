@@ -66,6 +66,10 @@ public class testCase_04 {
 
             Thread.sleep(2000);
             goal.saveDetails();
+            test.log(LogStatus.INFO, "Goal details saved");
+            Thread.sleep(2000);
+            goal.editGoal();
+            Thread.sleep(3000);
             test.log(LogStatus.PASS, "Goal details saved successfully");
 
         } catch (Exception e) {

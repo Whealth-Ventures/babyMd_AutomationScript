@@ -2,7 +2,7 @@
 <testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-10-18T15:46:07 IST" name="Gradle suite" finished-at="2024-10-18T15:49:42 IST" duration-ms="215067">
+  <suite started-at="2024-10-21T17:27:04 IST" name="Gradle suite" finished-at="2024-10-21T17:31:10 IST" duration-ms="245868">
     <groups>
       <group name="Prescription">
         <method signature="testCase_03.TestCase03(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:BabyMD.tests.testCase_03@60c16548]" name="TestCase03" class="BabyMD.tests.testCase_03"/>
@@ -23,17 +23,17 @@
         <method signature="testCase_01.TestCase01(java.lang.String,java.lang.String)[pri:1, instance:BabyMD.tests.testCase_01@110844f6]" name="TestCase01" class="BabyMD.tests.testCase_01"/>
       </group> <!-- Login Flow -->
     </groups>
-    <test started-at="2024-10-18T15:46:07 IST" name="Gradle test" finished-at="2024-10-18T15:49:42 IST" duration-ms="215067">
+    <test started-at="2024-10-21T17:27:04 IST" name="Gradle test" finished-at="2024-10-21T17:31:10 IST" duration-ms="245868">
       <class name="BabyMD.tests.testCase_05">
-        <test-method is-config="true" signature="createDriver()[pri:0, instance:BabyMD.tests.testCase_05@511816c0]" started-at="2024-10-18T15:46:07 IST" name="createDriver" finished-at="2024-10-18T15:46:07 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="createDriver()[pri:0, instance:BabyMD.tests.testCase_05@511816c0]" started-at="2024-10-21T17:27:04 IST" name="createDriver" finished-at="2024-10-21T17:27:04 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createDriver -->
-        <test-method signature="TestCase05(java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:BabyMD.tests.testCase_05@511816c0]" started-at="2024-10-18T15:48:18 IST" name="TestCase05" description="Adding Notes" data-provider="data-Provider" finished-at="2024-10-18T15:48:35 IST" duration-ms="17711" status="PASS">
+        <test-method signature="TestCase05(java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:BabyMD.tests.testCase_05@511816c0]" started-at="2024-10-21T17:29:26 IST" name="TestCase05" description="Adding Notes" data-provider="data-Provider" finished-at="2024-10-21T17:29:52 IST" duration-ms="26745" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[testName]]>
+                <![CDATA[Test_Note]]>
               </value>
             </param>
             <param index="1">
@@ -50,17 +50,17 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestCase05 -->
-        <test-method is-config="true" signature="quitDriver()[pri:0, instance:BabyMD.tests.testCase_05@511816c0]" started-at="2024-10-18T15:49:43 IST" name="quitDriver" finished-at="2024-10-18T15:49:43 IST" duration-ms="16" status="PASS">
+        <test-method is-config="true" signature="quitDriver()[pri:0, instance:BabyMD.tests.testCase_05@511816c0]" started-at="2024-10-21T17:31:10 IST" name="quitDriver" finished-at="2024-10-21T17:31:10 IST" duration-ms="19" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
       </class> <!-- BabyMD.tests.testCase_05 -->
       <class name="BabyMD.tests.testCase_06">
-        <test-method is-config="true" signature="createDriver()[pri:0, instance:BabyMD.tests.testCase_06@38b972d7]" started-at="2024-10-18T15:46:07 IST" name="createDriver" finished-at="2024-10-18T15:46:07 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="createDriver()[pri:0, instance:BabyMD.tests.testCase_06@38b972d7]" started-at="2024-10-21T17:27:04 IST" name="createDriver" finished-at="2024-10-21T17:27:04 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createDriver -->
-        <test-method signature="TestCase06(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:6, instance:BabyMD.tests.testCase_06@38b972d7]" started-at="2024-10-18T15:48:36 IST" name="TestCase06" description="Updating Patient dashboard" data-provider="data-Provider" finished-at="2024-10-18T15:49:42 IST" duration-ms="66816" status="PASS">
+        <test-method signature="TestCase06(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:6, instance:BabyMD.tests.testCase_06@38b972d7]" started-at="2024-10-21T17:29:52 IST" name="TestCase06" description="Updating Patient dashboard" data-provider="data-Provider" finished-at="2024-10-21T17:31:10 IST" duration-ms="77202" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -116,17 +116,17 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestCase06 -->
-        <test-method is-config="true" signature="quitDriver()[pri:0, instance:BabyMD.tests.testCase_06@38b972d7]" started-at="2024-10-18T15:49:43 IST" name="quitDriver" finished-at="2024-10-18T15:49:43 IST" duration-ms="15" status="PASS">
+        <test-method is-config="true" signature="quitDriver()[pri:0, instance:BabyMD.tests.testCase_06@38b972d7]" started-at="2024-10-21T17:31:10 IST" name="quitDriver" finished-at="2024-10-21T17:31:10 IST" duration-ms="16" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
       </class> <!-- BabyMD.tests.testCase_06 -->
       <class name="BabyMD.tests.testCase_03">
-        <test-method is-config="true" signature="createDriver()[pri:0, instance:BabyMD.tests.testCase_03@60c16548]" started-at="2024-10-18T15:46:07 IST" name="createDriver" finished-at="2024-10-18T15:46:07 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="createDriver()[pri:0, instance:BabyMD.tests.testCase_03@60c16548]" started-at="2024-10-21T17:27:04 IST" name="createDriver" finished-at="2024-10-21T17:27:04 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createDriver -->
-        <test-method signature="TestCase03(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:BabyMD.tests.testCase_03@60c16548]" started-at="2024-10-18T15:47:03 IST" name="TestCase03" description="Adding Prescription" data-provider="data-Provider" finished-at="2024-10-18T15:47:53 IST" duration-ms="49632" status="PASS">
+        <test-method signature="TestCase03(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:BabyMD.tests.testCase_03@60c16548]" started-at="2024-10-21T17:28:00 IST" name="TestCase03" description="Adding Prescription" data-provider="data-Provider" finished-at="2024-10-21T17:28:49 IST" duration-ms="49820" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -167,17 +167,17 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestCase03 -->
-        <test-method is-config="true" signature="quitDriver()[pri:0, instance:BabyMD.tests.testCase_03@60c16548]" started-at="2024-10-18T15:49:43 IST" name="quitDriver" finished-at="2024-10-18T15:49:43 IST" duration-ms="19" status="PASS">
+        <test-method is-config="true" signature="quitDriver()[pri:0, instance:BabyMD.tests.testCase_03@60c16548]" started-at="2024-10-21T17:31:10 IST" name="quitDriver" finished-at="2024-10-21T17:31:10 IST" duration-ms="19" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
       </class> <!-- BabyMD.tests.testCase_03 -->
       <class name="BabyMD.tests.testCase_04">
-        <test-method is-config="true" signature="createDriver()[pri:0, instance:BabyMD.tests.testCase_04@68105edc]" started-at="2024-10-18T15:46:07 IST" name="createDriver" finished-at="2024-10-18T15:46:07 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="createDriver()[pri:0, instance:BabyMD.tests.testCase_04@68105edc]" started-at="2024-10-21T17:27:04 IST" name="createDriver" finished-at="2024-10-21T17:27:04 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createDriver -->
-        <test-method signature="TestCase04(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:BabyMD.tests.testCase_04@68105edc]" started-at="2024-10-18T15:47:53 IST" name="TestCase04" description="Adding Goal" data-provider="data-Provider" finished-at="2024-10-18T15:48:18 IST" duration-ms="24829" status="PASS">
+        <test-method signature="TestCase04(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:BabyMD.tests.testCase_04@68105edc]" started-at="2024-10-21T17:28:49 IST" name="TestCase04" description="Adding Goal" data-provider="data-Provider" finished-at="2024-10-21T17:29:26 IST" duration-ms="36116" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -208,17 +208,17 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestCase04 -->
-        <test-method is-config="true" signature="quitDriver()[pri:0, instance:BabyMD.tests.testCase_04@68105edc]" started-at="2024-10-18T15:49:43 IST" name="quitDriver" finished-at="2024-10-18T15:49:43 IST" duration-ms="21" status="PASS">
+        <test-method is-config="true" signature="quitDriver()[pri:0, instance:BabyMD.tests.testCase_04@68105edc]" started-at="2024-10-21T17:31:10 IST" name="quitDriver" finished-at="2024-10-21T17:31:10 IST" duration-ms="18" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
       </class> <!-- BabyMD.tests.testCase_04 -->
       <class name="BabyMD.tests.testCase_01">
-        <test-method is-config="true" signature="createDriver()[pri:0, instance:BabyMD.tests.testCase_01@110844f6]" started-at="2024-10-18T15:46:06 IST" name="createDriver" finished-at="2024-10-18T15:46:07 IST" duration-ms="1559" status="PASS">
+        <test-method is-config="true" signature="createDriver()[pri:0, instance:BabyMD.tests.testCase_01@110844f6]" started-at="2024-10-21T17:27:02 IST" name="createDriver" finished-at="2024-10-21T17:27:04 IST" duration-ms="1394" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createDriver -->
-        <test-method signature="TestCase01(java.lang.String,java.lang.String)[pri:1, instance:BabyMD.tests.testCase_01@110844f6]" started-at="2024-10-18T15:46:08 IST" name="TestCase01" description="Verify admin logged in" data-provider="data-Provider" finished-at="2024-10-18T15:46:38 IST" duration-ms="29917" status="PASS">
+        <test-method signature="TestCase01(java.lang.String,java.lang.String)[pri:1, instance:BabyMD.tests.testCase_01@110844f6]" started-at="2024-10-21T17:27:04 IST" name="TestCase01" description="Verify admin logged in" data-provider="data-Provider" finished-at="2024-10-21T17:27:34 IST" duration-ms="29796" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -234,21 +234,21 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestCase01 -->
-        <test-method is-config="true" signature="quitDriver()[pri:0, instance:BabyMD.tests.testCase_01@110844f6]" started-at="2024-10-18T15:49:42 IST" name="quitDriver" finished-at="2024-10-18T15:49:43 IST" duration-ms="345" status="PASS">
+        <test-method is-config="true" signature="quitDriver()[pri:0, instance:BabyMD.tests.testCase_01@110844f6]" started-at="2024-10-21T17:31:10 IST" name="quitDriver" finished-at="2024-10-21T17:31:10 IST" duration-ms="319" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
       </class> <!-- BabyMD.tests.testCase_01 -->
       <class name="BabyMD.tests.testCase_02">
-        <test-method is-config="true" signature="createDriver()[pri:0, instance:BabyMD.tests.testCase_02@28782602]" started-at="2024-10-18T15:46:07 IST" name="createDriver" finished-at="2024-10-18T15:46:07 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="createDriver()[pri:0, instance:BabyMD.tests.testCase_02@28782602]" started-at="2024-10-21T17:27:04 IST" name="createDriver" finished-at="2024-10-21T17:27:04 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createDriver -->
-        <test-method signature="TestCase02(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:BabyMD.tests.testCase_02@28782602]" started-at="2024-10-18T15:46:38 IST" name="TestCase02" description="Adding Patient details" data-provider="data-Provider" finished-at="2024-10-18T15:47:03 IST" duration-ms="25257" status="PASS">
+        <test-method signature="TestCase02(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:BabyMD.tests.testCase_02@28782602]" started-at="2024-10-21T17:27:34 IST" name="TestCase02" description="Adding Patient details" data-provider="data-Provider" finished-at="2024-10-21T17:27:59 IST" duration-ms="25354" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Akhil ]]>
+                <![CDATA[shreya]]>
               </value>
             </param>
             <param index="1">
@@ -258,12 +258,12 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[9.87654322E9]]>
+                <![CDATA[9.988776655E9]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[Male]]>
+                <![CDATA[Female]]>
               </value>
             </param>
             <param index="4">
@@ -325,7 +325,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestCase02 -->
-        <test-method is-config="true" signature="quitDriver()[pri:0, instance:BabyMD.tests.testCase_02@28782602]" started-at="2024-10-18T15:49:43 IST" name="quitDriver" finished-at="2024-10-18T15:49:43 IST" duration-ms="22" status="PASS">
+        <test-method is-config="true" signature="quitDriver()[pri:0, instance:BabyMD.tests.testCase_02@28782602]" started-at="2024-10-21T17:31:10 IST" name="quitDriver" finished-at="2024-10-21T17:31:10 IST" duration-ms="23" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
