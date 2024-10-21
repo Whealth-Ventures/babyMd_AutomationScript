@@ -51,6 +51,8 @@ public class testCase_06 {
             patient.goalcreation();
             test.log(LogStatus.INFO, "Started goal creation");
 
+
+            
             Thread.sleep(3000);
             patient.selectGoal(goal);
             test.log(LogStatus.PASS, "Goal selected: " + goal);
