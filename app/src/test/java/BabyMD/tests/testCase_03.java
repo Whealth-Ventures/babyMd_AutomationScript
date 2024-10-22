@@ -73,18 +73,23 @@ public class testCase_03 {
             dashBoard.Save();
             test.log(LogStatus.PASS, "Prescription saved successfully");
             Thread.sleep(3000);
+            Thread.sleep(3000);
             // Click and publish prescription
             driver.findElement(By.xpath("//div[text()='Prescription']")).click();
+            Thread.sleep(3000);
             test.log(LogStatus.INFO, "Navigated to Prescription tab");
             Thread.sleep(3000);
             driver.findElement(By.xpath("//*[@id='root']/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[3]/div[1]/div/div/div[1]/div[2]/div[4]/div/span")).click();
+            Thread.sleep(3000);
             test.log(LogStatus.INFO, "Selected the prescription for publishing");
             Thread.sleep(3000);
             driver.findElement(By.xpath("//button[text()='Publish']")).click();
+            Thread.sleep(3000);
             test.log(LogStatus.INFO, "Clicked Publish button");
 
             Alert alert = driver.switchTo().alert();
             alert.accept();
+            Thread.sleep(3000);
             test.log(LogStatus.PASS, "Accepted publish alert");
 
         } catch (Exception e) {

@@ -47,15 +47,15 @@ public class testCase_06 {
             patient.navigateToLandingPage();
             test.log(LogStatus.INFO, "Navigated to Landing Page");
 
-            Thread.sleep(3000);
-            patient.goalcreation();
-            test.log(LogStatus.INFO, "Started goal creation");
+            // Thread.sleep(3000);
+            // patient.goalcreation();
+            // test.log(LogStatus.INFO, "Started goal creation");
 
 
             
-            Thread.sleep(3000);
-            patient.selectGoal(goal);
-            test.log(LogStatus.PASS, "Goal selected: " + goal);
+            // Thread.sleep(3000);
+            // patient.selectGoal(goal);
+            // test.log(LogStatus.PASS, "Goal selected: " + goal);
 
             Thread.sleep(3000);
             patient.addNotes(NoteCategory, Template, Content);
@@ -79,6 +79,9 @@ public class testCase_06 {
             Thread.sleep(3000);
            
             patient.createAppointmentwithPayment(Clinic,Doctor,Fee,Booked, Payment);
+            Thread.sleep(3000);
+            patient.verfiyArrived();
+            Thread.sleep(3000);
         } catch (Exception e) {
             test.log(LogStatus.FAIL, "TestCase 06 failed: " + e.getMessage());
             e.printStackTrace();

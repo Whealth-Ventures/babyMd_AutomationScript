@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BabyMD.tests.testCase_02" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-10-21T11:57:34" hostname="MacBookPro.lan" time="25.354">
-  <properties/>
-  <testcase name="TestCase02[0](shreya, 2020-10-18, 9.988776655E9, Female, Father, +91 9876543220, Abhishek Clinic, Pune, 400001, 123 Palm Residency, Maharashtra, Rajesh Sharma, 34.0, 3.2, 50.0)" classname="BabyMD.tests.testCase_02" time="25.354"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

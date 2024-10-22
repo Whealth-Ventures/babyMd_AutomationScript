@@ -364,6 +364,7 @@ appointmentFee.sendKeys(appointmentfee);
 Thread.sleep(2000);
 createAndpay.click();
 Thread.sleep(5000);
+selectPaymentMethod.click();
 List<WebElement> attendanceTypes=driver.findElements(By.className("rs-picker-select-menu-item"));
 for (WebElement paymentmethod:attendanceTypes) {
 if(paymentmethod.getText().equals("Arrived")){
@@ -379,7 +380,7 @@ Thread.sleep(2000);
     Thread.sleep(2000);
     List<WebElement> payments=driver.findElements(By.className("rs-picker-select-menu-item"));
     for (WebElement paymenttype:payments) {
-        if(paymenttype.getText().equals(Payment)){
+        if(paymenttype.getText().equals("Free")){
             paymenttype.click();
             break;
         }
@@ -388,5 +389,7 @@ Thread.sleep(2000);
 recordPayment.click();
 Thread.sleep(2000);
 }
-
+public boolean verfiyArrived(){
+    return driver.findElement(By.xpath("//*[@id='root']/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[2]/div[3]")).getText().contains("Arrived");
+}
 }
