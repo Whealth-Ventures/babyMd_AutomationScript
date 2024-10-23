@@ -47,15 +47,15 @@ public class testCase_06 {
             patient.navigateToLandingPage();
             test.log(LogStatus.INFO, "Navigated to Landing Page");
 
-            // Thread.sleep(3000);
-            // patient.goalcreation();
-            // test.log(LogStatus.INFO, "Started goal creation");
+            Thread.sleep(3000);
+            patient.goalcreation();
+            test.log(LogStatus.INFO, "Started goal creation");
 
 
             
-            // Thread.sleep(3000);
-            // patient.selectGoal(goal);
-            // test.log(LogStatus.PASS, "Goal selected: " + goal);
+            Thread.sleep(3000);
+            patient.selectGoal(goal);
+            test.log(LogStatus.PASS, "Goal selected: " + goal);
 
             Thread.sleep(3000);
             patient.addNotes(NoteCategory, Template, Content);

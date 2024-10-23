@@ -367,7 +367,7 @@ Thread.sleep(5000);
 selectPaymentMethod.click();
 List<WebElement> attendanceTypes=driver.findElements(By.className("rs-picker-select-menu-item"));
 for (WebElement paymentmethod:attendanceTypes) {
-if(paymentmethod.getText().equals("Arrived")){
+if(paymentmethod.getText().equals(Booked)){
 paymentmethod.click();
 break;
 }
@@ -380,7 +380,7 @@ Thread.sleep(2000);
     Thread.sleep(2000);
     List<WebElement> payments=driver.findElements(By.className("rs-picker-select-menu-item"));
     for (WebElement paymenttype:payments) {
-        if(paymenttype.getText().equals("Free")){
+        if(paymenttype.getText().equals(Payment)){
             paymenttype.click();
             break;
         }
