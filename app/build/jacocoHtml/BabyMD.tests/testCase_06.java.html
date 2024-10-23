@@ -47,15 +47,15 @@ import BabyMD.pages.PatientDashBoard;
 <span class="fc" id="L47">            patient.navigateToLandingPage();</span>
 <span class="fc" id="L48">            test.log(LogStatus.INFO, &quot;Navigated to Landing Page&quot;);</span>
 
-            // Thread.sleep(3000);
-            // patient.goalcreation();
-            // test.log(LogStatus.INFO, &quot;Started goal creation&quot;);
+<span class="fc" id="L50">            Thread.sleep(3000);</span>
+<span class="fc" id="L51">            patient.goalcreation();</span>
+<span class="fc" id="L52">            test.log(LogStatus.INFO, &quot;Started goal creation&quot;);</span>
 
 
             
-            // Thread.sleep(3000);
-            // patient.selectGoal(goal);
-            // test.log(LogStatus.PASS, &quot;Goal selected: &quot; + goal);
+<span class="fc" id="L56">            Thread.sleep(3000);</span>
+<span class="fc" id="L57">            patient.selectGoal(goal);</span>
+<span class="fc" id="L58">            test.log(LogStatus.PASS, &quot;Goal selected: &quot; + goal);</span>
 
 <span class="fc" id="L60">            Thread.sleep(3000);</span>
 <span class="fc" id="L61">            patient.addNotes(NoteCategory, Template, Content);</span>

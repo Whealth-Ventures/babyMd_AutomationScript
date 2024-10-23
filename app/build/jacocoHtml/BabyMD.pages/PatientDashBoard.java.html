@@ -191,23 +191,23 @@ public void Save() throws InterruptedException{
 <span class="fc" id="L191">    saveDetails.click();</span>
 <span class="fc" id="L192">}</span>
 public void goalcreation() throws InterruptedException{
-<span class="nc" id="L194">    goal.click();</span>
-<span class="nc" id="L195">    Thread.sleep(3000);</span>
-<span class="nc" id="L196">    addGoal.click();</span>
-<span class="nc" id="L197">}</span>
+<span class="fc" id="L194">    goal.click();</span>
+<span class="fc" id="L195">    Thread.sleep(3000);</span>
+<span class="fc" id="L196">    addGoal.click();</span>
+<span class="fc" id="L197">}</span>
 public void selectGoal(String goaName) throws InterruptedException{
-<span class="nc" id="L199">    searchGoal.click();</span>
-<span class="nc" id="L200">    Thread.sleep(3000);</span>
-<span class="nc" id="L201">    List&lt;WebElement&gt; goals=driver.findElements(By.className(&quot;rs-picker-select-menu-item&quot;));</span>
-<span class="nc bnc" id="L202" title="All 2 branches missed.">    for(WebElement goal:goals){</span>
-<span class="nc bnc" id="L203" title="All 2 branches missed.">        if(goal.getText().equals(goaName)){</span>
-<span class="nc" id="L204">            goal.click();</span>
-<span class="nc" id="L205">            break;</span>
+<span class="fc" id="L199">    searchGoal.click();</span>
+<span class="fc" id="L200">    Thread.sleep(3000);</span>
+<span class="fc" id="L201">    List&lt;WebElement&gt; goals=driver.findElements(By.className(&quot;rs-picker-select-menu-item&quot;));</span>
+<span class="pc bpc" id="L202" title="1 of 2 branches missed.">    for(WebElement goal:goals){</span>
+<span class="pc bpc" id="L203" title="1 of 2 branches missed.">        if(goal.getText().equals(goaName)){</span>
+<span class="fc" id="L204">            goal.click();</span>
+<span class="fc" id="L205">            break;</span>
             }
 <span class="nc" id="L207">            }</span>
-<span class="nc" id="L208">            Thread.sleep(2000);</span>
-<span class="nc" id="L209">            saveDetails.click();</span>
-<span class="nc" id="L210">            }</span>
+<span class="fc" id="L208">            Thread.sleep(2000);</span>
+<span class="fc" id="L209">            saveDetails.click();</span>
+<span class="fc" id="L210">            }</span>
 
 public void addNotes(String notecategory,String Template,String contents) throws InterruptedException{
 <span class="fc" id="L213">    notes.click();</span>
@@ -367,7 +367,7 @@ public void createAppointmentwithPayment(String Clinic, String doctor,String app
 <span class="fc" id="L367">selectPaymentMethod.click();</span>
 <span class="fc" id="L368">List&lt;WebElement&gt; attendanceTypes=driver.findElements(By.className(&quot;rs-picker-select-menu-item&quot;));</span>
 <span class="pc bpc" id="L369" title="1 of 2 branches missed.">for (WebElement paymentmethod:attendanceTypes) {</span>
-<span class="pc bpc" id="L370" title="1 of 2 branches missed.">if(paymentmethod.getText().equals(&quot;Arrived&quot;)){</span>
+<span class="pc bpc" id="L370" title="1 of 2 branches missed.">if(paymentmethod.getText().equals(Booked)){</span>
 <span class="fc" id="L371">paymentmethod.click();</span>
 <span class="fc" id="L372">break;</span>
 }
@@ -380,7 +380,7 @@ public void createAppointmentwithPayment(String Clinic, String doctor,String app
 <span class="fc" id="L380">    Thread.sleep(2000);</span>
 <span class="fc" id="L381">    List&lt;WebElement&gt; payments=driver.findElements(By.className(&quot;rs-picker-select-menu-item&quot;));</span>
 <span class="pc bpc" id="L382" title="1 of 2 branches missed.">    for (WebElement paymenttype:payments) {</span>
-<span class="pc bpc" id="L383" title="1 of 2 branches missed.">        if(paymenttype.getText().equals(&quot;Free&quot;)){</span>
+<span class="pc bpc" id="L383" title="1 of 2 branches missed.">        if(paymenttype.getText().equals(Payment)){</span>
 <span class="fc" id="L384">            paymenttype.click();</span>
 <span class="fc" id="L385">            break;</span>
         }
