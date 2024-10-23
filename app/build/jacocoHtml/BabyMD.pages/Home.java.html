@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Home.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">BabyMD.pages</a> &gt; <span class="el_source">Home.java</span></div><h1>Home.java</h1><pre class="source lang-java linenums">package BabyMD.pages;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+
+public class Home {
+<span class="fc" id="L14">    String url = &quot;https://staging.babymd.in/patient&quot;;</span>
+    ChromeDriver driver;
+
+    // Using @FindBy for locating elements
+    @FindBy(xpath = &quot;//div[text()='Add Patient']&quot;)
+    WebElement addPatient;
+
+    @FindBy(xpath = &quot;//div[text()='Patient']&quot;)
+    WebElement patient;
+
+    @FindBy(className = &quot;rs-picker-select-menu-item&quot;)
+    List&lt;WebElement&gt; genderOptions;
+
+    @FindBy(className = &quot;rs-picker-select-menu-item&quot;)
+    List&lt;WebElement&gt; relations;
+
+    @FindBy(className = &quot;option&quot;)
+    List&lt;WebElement&gt; clinics;
+
+    @FindBy(xpath = &quot;//button[@class='rs-dropdown-toggle rs-dropdown-toggle-no-caret rs-btn rs-btn-default']&quot;)
+    WebElement profile;
+
+    @FindBy(xpath = &quot;//*[@placeholder='Patient Name']&quot;)
+    WebElement patientName;
+
+    @FindBy(xpath = &quot;//span[text()='Select Gender']&quot;)
+    WebElement genderDropdown;
+
+    @FindBy(xpath = &quot;//*[@placeholder='YYYY-MM-DD']&quot;)
+    WebElement dateOfBirth;
+
+    @FindBy(xpath = &quot;//*[@placeholder='10 Digit Mobile Number']&quot;)
+    WebElement mobileNumber;
+
+    @FindBy(xpath = &quot;//span[text()='Select RelationShip']&quot;)
+    WebElement relationshipDropdown;
+
+    @FindBy(xpath = &quot;//*[@placeholder='Select Clinic']&quot;)
+    WebElement clinicDropdown;
+
+    @FindBy(xpath = &quot;//*[@placeholder='City']&quot;)
+    WebElement cityInput;
+
+    @FindBy(xpath = &quot;//*[@placeholder='Pincode']&quot;)
+    WebElement pincodeInput;
+
+    @FindBy(xpath = &quot;//*[@placeholder='parents name']&quot;)
+    WebElement parentNameInput;
+
+    @FindBy(xpath = &quot;//*[@placeholder='weight']&quot;)
+    WebElement weightInput;
+
+    @FindBy(xpath = &quot;//*[@placeholder='height']&quot;)
+    WebElement heightInput;
+
+    @FindBy(xpath = &quot;//div[text()='Save Details']&quot;)
+    WebElement saveButton;
+
+
+
+<span class="fc" id="L74">    public Home(WebDriver driver) {</span>
+<span class="fc" id="L75">        this.driver = (ChromeDriver) driver;</span>
+<span class="fc" id="L76">        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);</span>
+<span class="fc" id="L77">    }</span>
+
+
+    
+    public void navigateToLandingPage() throws InterruptedException {
+<span class="fc" id="L82">        driver.get(url);</span>
+<span class="fc" id="L83">        Thread.sleep(3000);</span>
+<span class="fc" id="L84">    }</span>
+
+    public void addPatient() throws InterruptedException {
+<span class="fc" id="L87">        addPatient.click();</span>
+<span class="fc" id="L88">        Thread.sleep(3000);</span>
+<span class="fc" id="L89">    }</span>
+
+    // public void signOut() throws InterruptedException {
+    //     profile.click();
+    //     Thread.sleep(3000);
+    //     WebElement signOutButton = driver.findElement(By.xpath(&quot;//div[text()='Sign Out']&quot;));
+    //     signOutButton.click();
+    //     Alert alert = driver.switchTo().alert();
+    //     alert.accept();
+    //     Thread.sleep(3000);
+    // }
+
+    // public void clickPatient() {
+    //     patient.click();
+    // }
+
+    // Methods to interact with elements
+    public void setPatientName(String name) throws InterruptedException {
+<span class="fc" id="L107">        patientName.sendKeys(name);</span>
+<span class="fc" id="L108">        Thread.sleep(2000);</span>
+<span class="fc" id="L109">    }</span>
+
+    public void selectGender(String gender) {
+<span class="fc" id="L112">        genderDropdown.click();</span>
+<span class="pc bpc" id="L113" title="1 of 2 branches missed.">        for (WebElement genderOption : genderOptions) {</span>
+<span class="pc bpc" id="L114" title="1 of 2 branches missed.">            if (genderOption.getText().equals(gender)) {</span>
+<span class="fc" id="L115">                genderOption.click();</span>
+<span class="fc" id="L116">                break;</span>
+            }
+<span class="nc" id="L118">        }</span>
+<span class="fc" id="L119">    }</span>
+
+    public void setDateOfBirth(String dob) throws InterruptedException {
+<span class="fc" id="L122">       dateOfBirth.click();</span>
+<span class="fc" id="L123">       Thread.sleep(2000);</span>
+<span class="fc" id="L124">       driver.findElement(By.xpath(&quot;//*[@class='MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall MuiPickersCalendarHeader-switchViewButton css-1wjkg3']&quot;)).click();</span>
+<span class="fc" id="L125">       Thread.sleep(2000);</span>
+<span class="fc" id="L126">       driver.findElement(By.xpath(&quot;//button[text()='2020']&quot;)).click();</span>
+<span class="fc" id="L127">       Thread.sleep(2000);</span>
+<span class="fc" id="L128">       driver.findElement(By.xpath(&quot;//button[text()='OK']&quot;)).click();</span>
+<span class="fc" id="L129">       Thread.sleep(2000);</span>
+<span class="fc" id="L130">    }</span>
+    
+
+    public void setMobileNumber(String number) {
+<span class="fc" id="L134">        mobileNumber.sendKeys(number);</span>
+<span class="fc" id="L135">    }</span>
+
+    public void selectRelationship(String relationship) {
+<span class="fc" id="L138">        relationshipDropdown.click();</span>
+<span class="pc bpc" id="L139" title="1 of 2 branches missed.">        for (WebElement relationOption : relations) {</span>
+<span class="pc bpc" id="L140" title="1 of 2 branches missed.">            if (relationOption.getText().equals(relationship)) {</span>
+<span class="fc" id="L141">                relationOption.click();</span>
+<span class="fc" id="L142">                break;</span>
+            }
+<span class="nc" id="L144">        }</span>
+<span class="fc" id="L145">    }</span>
+
+    public void selectClinic(String clinic) {
+<span class="fc" id="L148">        clinicDropdown.click();</span>
+<span class="pc bpc" id="L149" title="1 of 2 branches missed.">        for (WebElement clinicOption : clinics) {</span>
+<span class="pc bpc" id="L150" title="1 of 2 branches missed.">            if (clinicOption.getText().equals(clinic)) {</span>
+<span class="fc" id="L151">                clinicOption.click();</span>
+<span class="fc" id="L152">                break;</span>
+            }
+<span class="nc" id="L154">        }</span>
+<span class="fc" id="L155">    }</span>
+
+    public void setCity(String city) {
+<span class="fc" id="L158">        cityInput.sendKeys(city);</span>
+<span class="fc" id="L159">    }</span>
+
+    public void setPincode(String pincode) {
+<span class="fc" id="L162">        pincodeInput.sendKeys(pincode);</span>
+<span class="fc" id="L163">    }</span>
+
+    public void setParentName(String parentName) {
+<span class="fc" id="L166">        parentNameInput.sendKeys(parentName);</span>
+<span class="fc" id="L167">    }</span>
+
+    public void setWeight(String weight) {
+<span class="fc" id="L170">        weightInput.sendKeys(weight);</span>
+<span class="fc" id="L171">    }</span>
+
+    public void setHeight(String height) {
+<span class="fc" id="L174">        heightInput.sendKeys(height);</span>
+<span class="fc" id="L175">    }</span>
+
+    public void clickSaveButton() {
+<span class="fc" id="L178">        saveButton.click();</span>
+<span class="fc" id="L179">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

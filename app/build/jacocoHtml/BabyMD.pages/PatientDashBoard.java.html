@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PatientDashBoard.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">BabyMD.pages</a> &gt; <span class="el_source">PatientDashBoard.java</span></div><h1>PatientDashBoard.java</h1><pre class="source lang-java linenums">package BabyMD.pages;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.Select;
+
+public class PatientDashBoard {
+    
+ChromeDriver driver;
+<span class="fc" id="L17">String url=&quot;https://staging.babymd.in/patient&quot;;</span>
+@FindBy(xpath=&quot;//div[contains(text(),'all patients (')]&quot;)
+WebElement patientCountElement;
+@FindBy(xpath = &quot;//*[@placeholder='Assign Doctor/Clinic Manager']&quot;)
+WebElement assignDoc;
+@FindBy(xpath=&quot;//*[@id='root']/div[2]/div[2]/div/div[2]/div[1]/div/div[2]/div/div/div[2]/div/div[1]&quot;)
+WebElement doctor;
+@FindBy(xpath=&quot;//div[text()='Prescription']&quot;)
+WebElement prescription;
+@FindBy(xpath=&quot;//button[text()=' New Prescription']&quot;)
+WebElement newPrescription;
+@FindBy(xpath=&quot;//span[text()='Select Doctor']&quot;)
+WebElement selectDoctor;
+
+@FindBy(xpath=&quot;//span[text()='Doc Sanjay']&quot;)
+WebElement selectDoctorName;
+
+@FindBy(xpath=&quot;//*[@placeholder='Diagnosis']&quot;)
+WebElement diagnosis;
+
+@FindBy(xpath=&quot;//span[text()='Search Medicine Name']&quot;)
+WebElement MedicineName;
+@FindBy(xpath=&quot;//*[@id='root']/div[2]/div[2]/div/div[2]/div/div[2]/div[3]/div/select&quot;)
+WebElement frequency;
+@FindBy(xpath=&quot;//label[text()='Morning']&quot;)
+WebElement regimen;
+@FindBy(xpath = &quot;//*[@placeholder='Course Duration ']&quot;)
+WebElement CourseDuration;
+
+@FindBy(xpath = &quot;//*[@placeholder='Advice']&quot;)
+WebElement advice;
+@FindBy(xpath=&quot;//div[text()='Save Details']&quot;)
+WebElement saveDetails;
+
+@FindBy(xpath=&quot;//div[text()='Goal']&quot;)
+WebElement goal;
+
+@FindBy(xpath=&quot;//button[text()=' Add Goal']&quot;)
+WebElement addGoal;
+
+
+@FindBy(xpath=&quot;//span[text()='Search Goal']&quot;)
+WebElement searchGoal;
+
+@FindBy(xpath =&quot;//div[text()='Notes']&quot;)
+WebElement notes;
+
+@FindBy(xpath=&quot;//span[text()='Select Category']&quot;)
+WebElement selectCategory;
+@FindBy(xpath=&quot;//span[text()='Select']&quot;)
+WebElement selectTemplate;
+@FindBy(xpath=&quot;//*[@class='form-control coreInput textArea']&quot;)
+WebElement content;
+
+@FindBy(xpath=&quot;//div[text()='Submit']&quot;)
+WebElement submit;
+
+@FindBy(xpath=&quot;//div[text()='Appointments']&quot;)
+WebElement appointments;
+@FindBy(xpath=&quot;//button[text()=' Add Appointment']&quot;)
+WebElement addAppointment;
+
+@FindBy(xpath=&quot;//span[text()='Clinic']&quot;)
+WebElement clinic;
+
+@FindBy(xpath=&quot;//span[text()='Doctor']&quot;)
+WebElement doctorName;
+
+@FindBy(xpath=&quot;//*[@placeholder='yyyy-MM-dd']&quot;)
+WebElement date1;
+
+@FindBy(xpath =&quot;//*[@id='root']/div[2]/div[2]/div/div[9]/div/div[1]&quot;)
+WebElement timeslot;
+
+
+@FindBy(xpath=&quot;//*[@placeholder='Appointment Fee']&quot;)
+WebElement appointmentFee;
+
+@FindBy(xpath=&quot;//*[@class='reusableBtnActive  reusableBtn  w-100']&quot;)
+WebElement createAppointment;
+
+@FindBy(xpath=&quot;//span[text()='close']&quot;)
+WebElement cancel;
+
+@FindBy(xpath=&quot;//*[@id='root']/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[2]/div[2]/div[1]/div[2]/div[2]/div&quot;)
+WebElement editAppointment;
+
+@FindBy(xpath=&quot;//*[@id='root']/div[2]/div[2]/div/div[11]/div[1]/div&quot;)
+WebElement UpdateAppointment;
+
+
+@FindBy(xpath = &quot;//div[text()='Record Payment']&quot;)
+WebElement recordPayment;
+
+
+@FindBy(xpath =&quot;//*[@id='root']/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[2]/div[5]/div[2]/div[2]/div[1]/div&quot;)
+WebElement RecordPayment;
+@FindBy(xpath=&quot;//span[text()='Select']&quot;)
+WebElement selectPaymentMethod;
+
+@FindBy(xpath = &quot;//*[@id='root']/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[2]/div[2]&quot;)
+WebElement appointmentDetails;
+
+@FindBy(xpath = &quot;//div[text()='Cancel Appointment']&quot;)
+WebElement cancelAppointment;
+
+@FindBy(xpath=&quot;//label[text()='canceled']&quot;)
+WebElement cancelledApElement;
+
+
+@FindBy(xpath=&quot;//span[text()='booked']&quot;)
+WebElement editBookButton;
+
+@FindBy(xpath=&quot;//*[@id='root']/div[2]/div[2]/div/div[11]/div[2]/div&quot;)
+WebElement createAndpay;
+
+<span class="fc" id="L133"> public PatientDashBoard(WebDriver driver) {</span>
+<span class="fc" id="L134">        this.driver = (ChromeDriver) driver;</span>
+<span class="fc" id="L135">        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);</span>
+<span class="fc" id="L136">    }</span>
+
+    
+public void Patienturl() throws InterruptedException{
+<span class="fc" id="L140">    driver.get(url);</span>
+<span class="fc" id="L141">    Thread.sleep(3000);</span>
+
+<span class="fc" id="L143">}</span>
+
+public void navigateToLandingPage() throws InterruptedException{
+
+<span class="fc" id="L147">    String patientCountText = patientCountElement.getText();</span>
+<span class="fc" id="L148">    String extractedPatientID = patientCountText.replaceAll(&quot;\\D+&quot;, &quot;&quot;); </span>
+<span class="fc" id="L149">    int patientIDInt = Integer.parseInt(extractedPatientID);</span>
+<span class="fc" id="L150">      String  adjustedPatientID = String.valueOf(patientIDInt);</span>
+              
+<span class="fc" id="L152">    String patientDashboardUrl = &quot;https://staging.babymd.in/patient/&quot; + adjustedPatientID + &quot;/dashboard&quot;;</span>
+  
+<span class="fc" id="L154">    driver.get(patientDashboardUrl);</span>
+<span class="fc" id="L155">    Thread.sleep(3000);</span>
+
+<span class="fc" id="L157">}</span>
+public void AssignDoctor(String Doctorname) throws InterruptedException {
+<span class="fc" id="L159">    assignDoc.sendKeys(Doctorname);</span>
+<span class="fc" id="L160">    Thread.sleep(2000);</span>
+<span class="fc" id="L161">    doctor.click();</span>
+<span class="fc" id="L162">}</span>
+public void Prescription() throws InterruptedException{
+<span class="fc" id="L164">    prescription.click();</span>
+<span class="fc" id="L165">    Thread.sleep(3000);</span>
+<span class="fc" id="L166">    newPrescription.click();</span>
+<span class="fc" id="L167">}</span>
+public void clickMedicine(String Diagonis) throws InterruptedException{
+<span class="fc" id="L169">    selectDoctor.click();</span>
+<span class="fc" id="L170">    Thread.sleep(3000);</span>
+<span class="fc" id="L171">selectDoctorName.click();</span>
+<span class="fc" id="L172">Thread.sleep(2000);</span>
+<span class="fc" id="L173">diagnosis.sendKeys(Diagonis);</span>
+<span class="fc" id="L174">Thread.sleep(2000);</span>
+<span class="fc" id="L175">MedicineName.click();</span>
+<span class="fc" id="L176">driver.findElement(By.xpath(&quot;//span[text()='Cream/Ointment Himalaya Neem']&quot;)).click();</span>
+<span class="fc" id="L177">}</span>
+public void CourseTime(String CourseDur) throws InterruptedException{
+<span class="fc" id="L179">    CourseDuration.sendKeys(CourseDur);</span>
+<span class="fc" id="L180">    Thread.sleep(3000);</span>
+<span class="fc" id="L181">}</span>
+public void Selectfrequency(String Frequency) throws InterruptedException{
+<span class="fc" id="L183">    Select select =new Select(frequency);</span>
+<span class="fc" id="L184">    select.selectByVisibleText(Frequency);</span>
+<span class="fc" id="L185">}</span>
+public void selectregimen(String Advice){
+<span class="fc" id="L187">    regimen.click();</span>
+<span class="fc" id="L188">    advice.sendKeys(Advice);</span>
+<span class="fc" id="L189">}</span>
+public void Save() throws InterruptedException{
+<span class="fc" id="L191">    saveDetails.click();</span>
+<span class="fc" id="L192">}</span>
+public void goalcreation() throws InterruptedException{
+<span class="nc" id="L194">    goal.click();</span>
+<span class="nc" id="L195">    Thread.sleep(3000);</span>
+<span class="nc" id="L196">    addGoal.click();</span>
+<span class="nc" id="L197">}</span>
+public void selectGoal(String goaName) throws InterruptedException{
+<span class="nc" id="L199">    searchGoal.click();</span>
+<span class="nc" id="L200">    Thread.sleep(3000);</span>
+<span class="nc" id="L201">    List&lt;WebElement&gt; goals=driver.findElements(By.className(&quot;rs-picker-select-menu-item&quot;));</span>
+<span class="nc bnc" id="L202" title="All 2 branches missed.">    for(WebElement goal:goals){</span>
+<span class="nc bnc" id="L203" title="All 2 branches missed.">        if(goal.getText().equals(goaName)){</span>
+<span class="nc" id="L204">            goal.click();</span>
+<span class="nc" id="L205">            break;</span>
+            }
+<span class="nc" id="L207">            }</span>
+<span class="nc" id="L208">            Thread.sleep(2000);</span>
+<span class="nc" id="L209">            saveDetails.click();</span>
+<span class="nc" id="L210">            }</span>
+
+public void addNotes(String notecategory,String Template,String contents) throws InterruptedException{
+<span class="fc" id="L213">    notes.click();</span>
+<span class="fc" id="L214">    Thread.sleep(2000);</span>
+<span class="fc" id="L215">    selectCategory.click();</span>
+<span class="fc" id="L216">    List&lt;WebElement&gt;categories=driver.findElements(By.className(&quot;rs-picker-select-menu-item&quot;));</span>
+<span class="pc bpc" id="L217" title="1 of 2 branches missed.">    for(WebElement category:categories){</span>
+<span class="fc bfc" id="L218" title="All 2 branches covered.">        if(category.getText().equals(notecategory)){</span>
+<span class="fc" id="L219">            category.click();</span>
+<span class="fc" id="L220">            break;</span>
+            }
+<span class="fc" id="L222">        }</span>
+<span class="fc" id="L223">        Thread.sleep(3000);</span>
+<span class="fc" id="L224">        selectTemplate.click();</span>
+<span class="fc" id="L225">        List&lt;WebElement&gt;templates=driver.findElements(By.className(&quot;rs-picker-select-menu-item&quot;));</span>
+<span class="fc bfc" id="L226" title="All 2 branches covered.">        for (WebElement template : templates) {</span>
+<span class="pc bpc" id="L227" title="1 of 2 branches missed.">            if (template.getText().equals(Template)) {</span>
+<span class="nc" id="L228">                template.click();</span>
+<span class="nc" id="L229">                break;</span>
+        }
+<span class="fc" id="L231">    }</span>
+<span class="fc" id="L232">        Thread.sleep(3000);</span>
+<span class="fc" id="L233">        content.sendKeys(contents);</span>
+<span class="fc" id="L234">        Thread.sleep(3000);</span>
+<span class="fc" id="L235">        submit.click();</span>
+<span class="fc" id="L236">}</span>
+
+
+public void addAppointmentForPatient() throws InterruptedException{
+<span class="fc" id="L240">    appointments.click();</span>
+<span class="fc" id="L241">    Thread.sleep(3000);</span>
+<span class="fc" id="L242">    addAppointment.click();</span>
+<span class="fc" id="L243">    Thread.sleep(2000);</span>
+    
+<span class="fc" id="L245">}</span>
+
+public void updateAppointmentdetails(String Clinic,String doctor,String date,String appointmentfee) throws InterruptedException{
+<span class="fc" id="L248">clinic.click();</span>
+<span class="fc" id="L249">Thread.sleep(2000);</span>
+<span class="fc" id="L250">List&lt;WebElement&gt; clinics=driver.findElements(By.className(&quot;rs-picker-select-menu-item&quot;));</span>
+<span class="pc bpc" id="L251" title="1 of 2 branches missed.">for (WebElement clinicname:clinics) {</span>
+<span class="pc bpc" id="L252" title="1 of 2 branches missed.">    if(clinicname.getText().equals(Clinic))</span>
+    {
+<span class="fc" id="L254">        clinicname.click();</span>
+<span class="fc" id="L255">        break;</span>
+    }
+    
+<span class="nc" id="L258">}</span>
+<span class="fc" id="L259">Thread.sleep(3000);</span>
+<span class="fc" id="L260">doctorName.click();</span>
+<span class="fc" id="L261">List&lt;WebElement&gt; doctors=driver.findElements(By.className(&quot;rs-picker-select-menu-item&quot;));</span>
+<span class="pc bpc" id="L262" title="1 of 2 branches missed.">for (WebElement doctorname:doctors) {</span>
+<span class="fc bfc" id="L263" title="All 2 branches covered.">    if(doctorname.getText().equals(doctor))</span>
+    {
+<span class="fc" id="L265">        doctorname.click();</span>
+<span class="fc" id="L266">        break;</span>
+
+}
+<span class="fc" id="L269">}</span>
+<span class="fc" id="L270">Thread.sleep(2000);</span>
+<span class="fc" id="L271">date1.sendKeys(&quot;2024-10-24&quot;);</span>
+<span class="fc" id="L272">Thread.sleep(2000);</span>
+<span class="fc" id="L273">timeslot.click();</span>
+<span class="fc" id="L274">Thread.sleep(2000);</span>
+<span class="fc" id="L275">appointmentFee.sendKeys(appointmentfee);</span>
+<span class="fc" id="L276">Thread.sleep(2000);</span>
+<span class="fc" id="L277">createAppointment.click();</span>
+<span class="fc" id="L278">Thread.sleep(5000);</span>
+<span class="fc" id="L279">}</span>
+
+//update appintment 
+public void updateStatus() throws InterruptedException{
+<span class="fc" id="L283">String text=appointmentDetails.getText();</span>
+<span class="fc" id="L284">System.out.println(text);</span>
+<span class="fc" id="L285">cancel.click();</span>
+<span class="fc" id="L286">Thread.sleep(2000);</span>
+<span class="fc" id="L287">cancelAppointment.click();</span>
+<span class="fc" id="L288">Thread.sleep(2000);</span>
+
+<span class="fc" id="L290">}</span>
+
+public boolean  verifyCancellation(){
+<span class="fc" id="L293">    return cancelledApElement.isDisplayed();</span>
+    }
+
+    //update payment
+//     public void updatePayment(String Booked,String Payment) throws InterruptedException{
+//  editBookButton.click();
+//         Thread.sleep(2000);
+//         List&lt;WebElement&gt; attendances=driver.findElements(By.className(&quot;rs-dropdown-item&quot;));
+//         for (WebElement paymentmethod:attendances) {
+// if(paymentmethod.getText().equals(Booked)){
+//     paymentmethod.click();
+//     break;
+// }
+//      Thread.sleep(2000);   
+   
+// }
+// List&lt;WebElement&gt; attendanceTypes=driver.findElements(By.className(&quot;rs-picker-select-menu-item&quot;));
+// for (WebElement paymentmethod:attendanceTypes) {
+// if(paymentmethod.getText().equals(&quot;Arrived&quot;)){
+// paymentmethod.click();
+// break;
+// }
+// Thread.sleep(2000);   
+
+// }
+
+//     //payment type
+//     selectPaymentMethod.click();
+//     Thread.sleep(2000);
+//     List&lt;WebElement&gt; payments=driver.findElements(By.className(&quot;rs-picker-select-menu-item&quot;));
+//     for (WebElement paymenttype:payments) {
+//         if(paymenttype.getText().equals(Payment)){
+//             paymenttype.click();
+//             break;
+//         }
+// Thread.sleep(2000);
+// }
+// recordPayment.click();
+// Thread.sleep(2000);
+// }
+//update appointment with payment
+
+public void createAppointmentwithPayment(String Clinic, String doctor,String appointmentfee,String Booked,String Payment) throws InterruptedException{
+<span class="fc" id="L336">    clinic.click();</span>
+<span class="fc" id="L337">Thread.sleep(2000);</span>
+<span class="fc" id="L338">List&lt;WebElement&gt; clinics=driver.findElements(By.className(&quot;rs-picker-select-menu-item&quot;));</span>
+<span class="pc bpc" id="L339" title="1 of 2 branches missed.">for (WebElement clinicname:clinics) {</span>
+<span class="pc bpc" id="L340" title="1 of 2 branches missed.">    if(clinicname.getText().equals(Clinic))</span>
+    {
+<span class="fc" id="L342">        clinicname.click();</span>
+<span class="fc" id="L343">        break;</span>
+    }
+    
+<span class="nc" id="L346">}</span>
+<span class="fc" id="L347">Thread.sleep(3000);</span>
+<span class="fc" id="L348">doctorName.click();</span>
+<span class="fc" id="L349">List&lt;WebElement&gt; doctors=driver.findElements(By.className(&quot;rs-picker-select-menu-item&quot;));</span>
+<span class="pc bpc" id="L350" title="1 of 2 branches missed.">for (WebElement doctorname:doctors) {</span>
+<span class="fc bfc" id="L351" title="All 2 branches covered.">    if(doctorname.getText().equals(doctor))</span>
+    {
+<span class="fc" id="L353">        doctorname.click();</span>
+<span class="fc" id="L354">        break;</span>
+
+}
+<span class="fc" id="L357">}</span>
+<span class="fc" id="L358">Thread.sleep(2000);</span>
+<span class="fc" id="L359">date1.sendKeys(&quot;2024-10-24&quot;);</span>
+<span class="fc" id="L360">Thread.sleep(2000);</span>
+<span class="fc" id="L361">timeslot.click();</span>
+<span class="fc" id="L362">Thread.sleep(2000);</span>
+<span class="fc" id="L363">appointmentFee.sendKeys(appointmentfee);</span>
+<span class="fc" id="L364">Thread.sleep(2000);</span>
+<span class="fc" id="L365">createAndpay.click();</span>
+<span class="fc" id="L366">Thread.sleep(5000);</span>
+<span class="fc" id="L367">selectPaymentMethod.click();</span>
+<span class="fc" id="L368">List&lt;WebElement&gt; attendanceTypes=driver.findElements(By.className(&quot;rs-picker-select-menu-item&quot;));</span>
+<span class="pc bpc" id="L369" title="1 of 2 branches missed.">for (WebElement paymentmethod:attendanceTypes) {</span>
+<span class="pc bpc" id="L370" title="1 of 2 branches missed.">if(paymentmethod.getText().equals(&quot;Arrived&quot;)){</span>
+<span class="fc" id="L371">paymentmethod.click();</span>
+<span class="fc" id="L372">break;</span>
+}
+<span class="nc" id="L374">Thread.sleep(2000);   </span>
+
+<span class="nc" id="L376">}</span>
+
+    //payment type
+<span class="fc" id="L379">    selectPaymentMethod.click();</span>
+<span class="fc" id="L380">    Thread.sleep(2000);</span>
+<span class="fc" id="L381">    List&lt;WebElement&gt; payments=driver.findElements(By.className(&quot;rs-picker-select-menu-item&quot;));</span>
+<span class="pc bpc" id="L382" title="1 of 2 branches missed.">    for (WebElement paymenttype:payments) {</span>
+<span class="pc bpc" id="L383" title="1 of 2 branches missed.">        if(paymenttype.getText().equals(&quot;Free&quot;)){</span>
+<span class="fc" id="L384">            paymenttype.click();</span>
+<span class="fc" id="L385">            break;</span>
+        }
+<span class="nc" id="L387">Thread.sleep(2000);</span>
+<span class="nc" id="L388">}</span>
+<span class="fc" id="L389">recordPayment.click();</span>
+<span class="fc" id="L390">Thread.sleep(2000);</span>
+<span class="fc" id="L391">}</span>
+public boolean verfiyArrived(){
+<span class="fc" id="L393">    return driver.findElement(By.xpath(&quot;//*[@id='root']/div[2]/div[2]/div/div[1]/div[2]/div/div/div/div[2]/div[3]&quot;)).getText().contains(&quot;Arrived&quot;);</span>
+}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
